@@ -2,94 +2,43 @@
 
 <img src="assets/brand/icon.svg" alt="" width="96" height="96">
 
-# NectarLink
+# LinkHub
 
-**Your Android phone and your PC, working as one.**
+**Universal Device Ecosystem — Your Android phones, tablets, and PC working as one.**
 
-Notifications, messages, calls, clipboard, files, photos, screen mirroring and
-phone apps in windows, between Android and Windows 10 (2004+), Windows 11 or Linux. Free and open source.
-Local-first, end-to-end encrypted, no account and no cloud.
+Notifications, messages, calls, universal mesh clipboard, files, photos, screen mirroring,
+phone apps in desktop windows, live PC monitor & Desk Panel, between Android and Windows 10 (2004+), Windows 11, or Linux.
+Free and open source. Local-first, end-to-end encrypted, no account and no cloud.
 
-Hi, I'm Bee, and yes, a bee built an app called NectarLink. I build cool stuff
-in the open on [𝕏 @thtbee_](https://x.com/thtbee_), so come see what's next.
-Feedback, bugs or ideas? DM me directly, or come hang out in the
-[Hive on Discord](https://discord.gg/AA2Dp8PYqf).
-
-[![Latest release](https://img.shields.io/github/v/release/thtbee/nectarlink?label=download)](https://github.com/thtbee/nectarlink/releases/latest)
-[![CI](https://github.com/thtbee/nectarlink/actions/workflows/ci.yml/badge.svg)](https://github.com/thtbee/nectarlink/actions/workflows/ci.yml)
+[![Latest release](https://img.shields.io/github/v/release/Deni-SLN/Link-Hub?label=download)](https://github.com/Deni-SLN/Link-Hub/releases/latest)
 [![Apps: GPL-3.0-or-later](https://img.shields.io/badge/apps-GPL--3.0--or--later-blue)](LICENSE)
 [![Core: MPL-2.0](https://img.shields.io/badge/core-MPL--2.0-blue)](LICENSE)
-[![Discord](https://img.shields.io/badge/Discord-the%20Hive-5865F2?logo=discord&logoColor=white)](https://discord.gg/AA2Dp8PYqf)
-
-<a href="https://buymeacoffee.com/thtbee_"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20some%20honey&emoji=%F0%9F%8D%AF&slug=thtbee_&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff&v=2" alt="Buy me some honey" height="40"></a>
 
 </div>
 
 <p align="center">
-  <img src="docs/screenshots/desktop-glass-home.png" alt="NectarLink for Windows: Home with the phone's notifications and music playing, Glass theme" width="880">
+  <img src="docs/screenshots/desktop-glass-home.png" alt="LinkHub Desktop: Home with phone notifications and media playback" width="880">
 </p>
 
-## Why NectarLink
+## Why LinkHub
 
-NectarLink came out of my own frustration. I kept juggling Phone Link for
-notifications and messages, KDE Connect for the clipboard and LocalSend for
-files, and always wanted one app that did all of it. So I made one.
-
-It covers what those three did for me, with one app on each side, plus a lot
-of new features I wanted that I think you'll enjoy having too.
+LinkHub brings all your devices into one unified, local-first P2P mesh — combining notifications, messaging, calls, universal clipboard relay, fast Wi-Fi file/folder transfers, screen mirroring, desktop app windows, and Desk Panel & PC system monitoring without any cloud account.
 
 ## Download
 
 | | Download | Needs |
 |---|---|---|
-| **Windows (x64)** | [Installer (.exe)](https://github.com/thtbee/nectarlink/releases/download/v0.1.5/Nectarlink-0.1.5-x64-setup.exe) | Windows 10 (2004+) or 11, 64-bit Intel or AMD (Phone as webcam needs Windows 11) |
-| **Windows (ARM64)** | [Installer (.exe)](https://github.com/thtbee/nectarlink/releases/download/v0.1.5/Nectarlink-0.1.5-arm64-setup.exe) | Windows 11 on ARM (Snapdragon) |
-| **Linux (x86_64)** | [One command](#on-linux), or a [.deb](https://github.com/thtbee/nectarlink/releases/download/v0.1.5/nectarlink_0.1.5_amd64.deb), [.rpm](https://github.com/thtbee/nectarlink/releases/download/v0.1.5/nectarlink-0.1.5-1.x86_64.rpm), [AppImage](https://github.com/thtbee/nectarlink/releases/download/v0.1.5/Nectarlink-0.1.5-x86_64.AppImage) or [.tar.gz](https://github.com/thtbee/nectarlink/releases/download/v0.1.5/Nectarlink-0.1.5-linux-x86_64.tar.gz) | Ubuntu 24.04 or newer, Debian 13, Fedora 40 or newer, 64-bit Intel or AMD |
-| **Android** | [App (.apk)](https://github.com/thtbee/nectarlink/releases/download/v0.1.5/Nectarlink-0.1.5-android.apk) | Android 8.0 or newer |
-
-The apps update themselves from GitHub Releases and check every download
-against its SHA-256 sums.
-
-### On Linux
-
-One command installs NectarLink with everything it needs, and shows each
-step as it goes:
-
-```bash
-curl -fsSL https://github.com/thtbee/nectarlink/releases/latest/download/install.sh | sh
-```
-
-It picks the package for your system (.deb with apt, .rpm with dnf or zypper,
-the tarball elsewhere), checks it against the release's SHA-256 sums and
-installs it with its dependencies. Then it sets up the phone as a webcam, the
-phone as a keyboard and mouse, and the firewall for your local network only.
-To remove it all again, end the same command with `sh -s -- --uninstall`
-instead of `sh`. See [Installing on Linux](docs/guide/getting-started.md#on-linux)
-for the details.
-
-> [!NOTE]
-> SmartScreen may warn about the Windows installer the first time, because it
-> isn't code-signed yet: choose **More info**, then **Run anyway**. On Android,
-> allow your browser or file manager to install apps when asked.
-
-> [!IMPORTANT]
-> In India and many other countries, Google Play Protect blocks the APK with
-> no **Install anyway** button. Pause **Scan apps with Play Protect** while you
-> install it (Play Store › your profile › Play Protect › Settings), then turn it
-> back on, or install it from a PC with `adb install`. See
-> [Play Protect blocks the APK](docs/guide/troubleshooting.md#google-play-protect-blocks-the-apk-without-an-install-anyway-button).
+| **Windows (x64)** | [Releases](https://github.com/Deni-SLN/Link-Hub/releases/latest) | Windows 10 (2004+) or 11, 64-bit Intel or AMD |
+| **Windows (ARM64)** | [Releases](https://github.com/Deni-SLN/Link-Hub/releases/latest) | Windows 11 on ARM (Snapdragon) |
+| **Linux (x86_64)** | [Releases](https://github.com/Deni-SLN/Link-Hub/releases/latest) | Ubuntu 24.04 or newer, Debian 13, Fedora 40 or newer, 64-bit Intel or AMD |
+| **Android** | [Releases](https://github.com/Deni-SLN/Link-Hub/releases/latest) | Android 8.0 or newer |
 
 ## Get started
 
-1. Install NectarLink on your PC and on your phone.
-2. On the PC, the setup walkthrough shows a QR code. Scan it with the phone
-   (from the NectarLink app or any camera app), or pick the PC from the phone's
-   list of nearby devices and compare a 6-digit code. A USB cable works too, with Android's `adb` running on the PC.
-3. Allow what you want to share. Every feature has its own switch per device,
-   and the sensitive ones are off until you turn them on.
-4. Optional: set up **Wireless debugging** once in the phone app for the
-   features Android reserves for privileged apps (phone apps in windows, real
-   touch input, background clipboard sync). No root, nothing else to install.
+1. Install LinkHub on your PC and on your Android phone/tablet.
+2. On the PC, scan the QR code from the LinkHub app or pair over local LAN/BLE with 6-digit code verification.
+3. Enable the features you want to share per device.
+4. Optional: Enable **Wireless Debugging** to unlock Elevated Mode (opening phone apps in PC windows, full touch/keyboard input, background clipboard sync). LinkHub Desktop auto-elevates paired Wireless ADB devices and includes a **PC-side 6-digit pairing input** in the **Apps** page.
 
 The [user guide](docs/guide/README.md) walks through every step and feature.
 
@@ -235,7 +184,7 @@ Windows backdrop; and **Graphite**, ink on paper. All in light and dark.
           │ UniFFI                                │ cxx-qt
           ▼                                       ▼
  ┌─────────────────────┐   QUIC (iroh),   ┌─────────────────────┐
- │  nectarlink-core    │◄────────────────►│  nectarlink-core    │
+ │  linkhub-core    │◄────────────────►│  linkhub-core    │
  │  pairing, sessions, │  end-to-end      │  pairing, sessions, │
  │  storage, features  │  encrypted       │  storage, features  │
  └─────────────────────┘                  └─────────────────────┘
@@ -255,11 +204,11 @@ Windows backdrop; and **Graphite**, ink on paper. All in light and dark.
 
 ```
 core/
-  nectarlink-protocol/   Message types, framing, pairing cryptography      (MPL-2.0)
-  nectarlink-core/       Identity, trust store, pairing, sessions, features (MPL-2.0)
-  nectarlink-ffi/        UniFFI bindings used by the Android app          (MPL-2.0)
-  nectarlink-adb/        Client for the PC's adb, for USB connections      (MPL-2.0)
-  nectarlink-cli/        Command-line client (`nectarlink`)                (GPL)
+  linkhub-protocol/   Message types, framing, pairing cryptography      (MPL-2.0)
+  linkhub-core/       Identity, trust store, pairing, sessions, features (MPL-2.0)
+  linkhub-ffi/        UniFFI bindings used by the Android app          (MPL-2.0)
+  linkhub-adb/        Client for the PC's adb, for USB connections      (MPL-2.0)
+  linkhub-cli/        Command-line client (`linkhub`)                (GPL)
 desktop/
   app/                   Desktop app: Rust host, cxx-qt bridge, QML UI     (GPL)
   vcam/                  Windows 11 virtual camera Media Foundation DLL    (GPL)
@@ -295,9 +244,9 @@ hardware backend, the existing software H.264 path remains available. HEVC
 encoding requires hardware; if unavailable, screen sharing falls back to H.264.
 
 ```sh
-cargo test -p nectarlink-protocol -p nectarlink-core -p nectarlink-ffi   # core and tests
-cargo run -p nectarlink-cli -- --help                                     # command-line client
-cargo run -p nectarlink-desktop                                           # desktop app (Qt's bin on PATH)
+cargo test -p linkhub-protocol -p linkhub-core -p linkhub-ffi   # core and tests
+cargo run -p linkhub-cli -- --help                                     # command-line client
+cargo run -p linkhub-desktop                                           # desktop app (Qt's bin on PATH)
 cd android && ./gradlew assembleDebug                                     # Android app
 ```
 
@@ -311,7 +260,7 @@ Releases are built by CI from a `v*` tag; see
 
 ### With Nix
 
-Run or develop NectarLink using Nix flakes:
+Run or develop LinkHub using Nix flakes:
 
 ```sh
 nix run                           # run desktop app
@@ -330,7 +279,7 @@ nix develop                       # enter development environment
 ## Questions and ideas
 
 Ask questions, share ideas and show your setup in
-[Discussions](https://github.com/thtbee/nectarlink/discussions). Issues are for
+[Discussions](https://github.com/Deni-SLN/Link-Hub/discussions). Issues are for
 bugs and agreed feature work. For quick help and chat, there's the
 [Hive on Discord](https://discord.gg/AA2Dp8PYqf).
 
@@ -341,7 +290,7 @@ for anything larger than a small fix, open an issue to agree on the approach.
 Contributions are accepted under the [Developer Certificate of Origin](DCO.txt),
 and everyone is expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
-To translate NectarLink into your language, see
+To translate LinkHub into your language, see
 [docs/translating.md](docs/translating.md).
 
 To report a security issue, follow [SECURITY.md](SECURITY.md). Please don't
@@ -354,5 +303,5 @@ open a public issue.
 - Core libraries: [MPL-2.0](LICENSES/MPL-2.0.txt)
 - Protocol specification and documentation: [CC BY 4.0](LICENSES/CC-BY-4.0.txt)
 
-See [LICENSE](LICENSE) for which license applies where. The NectarLink name and
+See [LICENSE](LICENSE) for which license applies where. The LinkHub name and
 logo are covered by the [trademark policy](TRADEMARKS.md).
