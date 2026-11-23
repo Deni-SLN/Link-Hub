@@ -1267,7 +1267,7 @@ fun TwinMeshTab(
                         tileColors = if (dev.isAndroid) TwinTileGradients.purple else TwinTileGradients.blue,
                         activeDot = dev.online,
                         trailing = {
-                            if (!dev.isAndroid && dev.online) {
+                            if (dev.online && (!dev.isAndroid || dev.has("mirror.capture"))) {
                                 TwinPillButton(
                                     label = stringResource(R.string.remote_mode_screen),
                                     onClick = { onOpenRemote(dev.id, RemoteMode.Screen) },
