@@ -110,6 +110,126 @@ Item {
             visible: page.deviceId.length > 0 && label.length > 0
             feature: page.feature
         }
+        Rectangle {
+            id: wirelessPairCard
+            width: parent.width
+            implicitHeight: pairCol.implicitHeight + 24
+            radius: Theme.radiusMd
+            color: Theme.surfaceContainerHigh
+            border.width: 1
+            border.color: Theme.outlineVariant
+            visible: page.deviceId.length > 0 && page.feature.action === "raisePower" && page.feature.target === "elevated"
+            property string statusText: ""
+            property bool statusOk: false
+
+            Column {
+                id: pairCol
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.margins: 12
+                spacing: 8
+
+                Txt {
+                    width: parent.width
+                    role: "label"
+                    text: qsTr("Pasangkan Debugging Nirkabel lewat PC")
+                }
+                Txt {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    role: "caption"
+                    muted: true
+                    text: qsTr("Buka Opsi Pengembang › Proses debug nirkabel › Sambungkan perangkat dengan kode penyambungan, lalu masukkan IP:Port & kode 6 digit di sini:")
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    Rectangle {
+                        width: (parent.width - 16) * 0.48
+                        height: 36
+                        radius: Theme.radiusSm
+                        color: Theme.surfaceContainerHighest
+                        border.width: adbPairAddr.activeFocus ? 2 : 1
+                        border.color: adbPairAddr.activeFocus ? Theme.primary : Theme.outlineVariant
+                        TextInput {
+                            id: adbPairAddr
+                            anchors.fill: parent
+                            anchors.margins: 8
+                            verticalAlignment: TextInput.AlignVCenter
+                            font.family: Theme.fontUi
+                            font.pixelSize: 13
+                            color: Theme.surfaceContent
+                            clip: true
+                            Txt {
+                                anchors.verticalCenter: parent.verticalCenter
+                                visible: adbPairAddr.text.length === 0
+                                role: "caption"
+                                muted: true
+                                text: "IP:Port (cth 192.168.110.50:37123)"
+                            }
+                        }
+                    }
+                    Rectangle {
+                        width: (parent.width - 16) * 0.24
+                        height: 36
+                        radius: Theme.radiusSm
+                        color: Theme.surfaceContainerHighest
+                        border.width: adbPairCode.activeFocus ? 2 : 1
+                        border.color: adbPairCode.activeFocus ? Theme.primary : Theme.outlineVariant
+                        TextInput {
+                            id: adbPairCode
+                            anchors.fill: parent
+                            anchors.margins: 8
+                            verticalAlignment: TextInput.AlignVCenter
+                            font.family: Theme.fontUi
+                            font.pixelSize: 13
+                            color: Theme.surfaceContent
+                            maximumLength: 6
+                            clip: true
+                            Txt {
+                                anchors.verticalCenter: parent.verticalCenter
+                                visible: adbPairCode.text.length === 0
+                                role: "caption"
+                                muted: true
+                                text: "Kode 6 digit"
+                            }
+                        }
+                    }
+                    Rectangle {
+                        width: (parent.width - 16) * 0.28
+                        height: 36
+                        radius: Theme.radiusSm
+                        color: pairArea.containsMouse ? Theme.primaryContainer : Theme.primary
+                        Txt {
+                            anchors.centerIn: parent
+                            role: "label"
+                            color: pairArea.containsMouse ? Theme.primaryContainerContent : Theme.primaryContent
+                            text: qsTr("Pasangkan")
+                        }
+                        MouseArea {
+                            id: pairArea
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: {
+                                const res = AppController.pairWirelessAdb(adbPairAddr.text, adbPairCode.text)
+                                wirelessPairCard.statusOk = res.startsWith("ok:")
+                                wirelessPairCard.statusText = res.slice(res.indexOf(":") + 1)
+                            }
+                        }
+                    }
+                }
+                Txt {
+                    width: parent.width
+                    visible: wirelessPairCard.statusText.length > 0
+                    wrapMode: Text.WordWrap
+                    role: "caption"
+                    color: wirelessPairCard.statusOk ? Theme.primary : Theme.error
+                    text: wirelessPairCard.statusText
+                }
+            }
+        }
     }
 
     // ---- The apps ----

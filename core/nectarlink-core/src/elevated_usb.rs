@@ -55,34 +55,94 @@ pub(crate) async fn handle(shared: &Arc<Shared>, session: &Arc<Session>, env: &E
         .get(&peer)
         .cloned()
         .filter(|(_, _, port)| session.uses_usb_bridge_port(*port));
-    let refusal = if !request.is_valid() {
-        Some(Envelope::error(ErrorCode::BadMessage, "invalid Elevated over USB request"))
-    } else if !shared.we_offer(elevated::USB) {
-        Some(Envelope::error(ErrorCode::Unsupported, "this PC doesn't start Elevated over USB"))
-    } else if usb.is_none() {
-        Some(Envelope::error(ErrorCode::Unsupported, "this phone isn't connected to this PC over USB"))
-    } else {
-        None
-    };
-    if let Some(refusal) = refusal {
-        session.send(refusal.reply_to(env.id)).await?;
+
+    if !request.is_valid() {
+        session.send(Envelope::error(ErrorCode::BadMessage, "invalid Elevated over USB request").reply_to(env.id)).await?;
         return Ok(true);
     }
-    let Some((serial, adb_addr, bridge_port)) = usb else { return Ok(true) };
+    if !shared.we_offer(elevated::USB) {
+        session.send(Envelope::error(ErrorCode::Unsupported, "this PC doesn't start Elevated over ADB").reply_to(env.id)).await?;
+        return Ok(true);
+    }
+
     // Grants and the helper take seconds: answer from a task of its own.
     let (shared, session, id) = (shared.clone(), session.clone(), env.id);
     tokio::spawn(async move {
-        let reply = match launch(&shared, peer, adb_addr, &serial, bridge_port, &request).await {
-            Ok(port) => Envelope::new(types::ELEVATED_USB_READY, &ElevatedUsbReady { port })
-                .unwrap_or_else(|_| Envelope::error(ErrorCode::Internal, "can't answer")),
-            Err(reason) => {
-                tracing::info!(peer = %peer.short(), reason, "couldn't start Elevated over USB");
-                Envelope::error(ErrorCode::Internal, reason)
+        let target = if let Some((serial, adb_addr, bridge_port)) = usb {
+            Some((adb_addr, serial, Some(bridge_port)))
+        } else {
+            find_wireless_adb_target(&shared, &session).await
+        };
+        let reply = match target {
+            Some((adb_addr, serial, bridge_port)) => {
+                match launch(&shared, peer, adb_addr, &serial, bridge_port, &request).await {
+                    Ok(port) => Envelope::new(types::ELEVATED_USB_READY, &ElevatedUsbReady { port })
+                        .unwrap_or_else(|_| Envelope::error(ErrorCode::Internal, "can't answer")),
+                    Err(reason) => {
+                        tracing::info!(peer = %peer.short(), reason, "couldn't start Elevated over ADB");
+                        Envelope::error(ErrorCode::Internal, reason)
+                    }
+                }
             }
+            None => Envelope::error(
+                ErrorCode::Unsupported,
+                "this phone isn't connected to this PC over USB or Wireless ADB",
+            ),
         };
         let _ = session.send(reply.reply_to(id)).await;
     });
     Ok(true)
+}
+
+/// Finds an online Wireless ADB device on the PC's local ADB server matching `session.peer`.
+async fn find_wireless_adb_target(
+    shared: &Arc<Shared>,
+    session: &Arc<Session>,
+) -> Option<(SocketAddr, String, Option<u16>)> {
+    let adb_addr = nectarlink_adb::configured_server();
+    if !nectarlink_adb::server_answers(adb_addr) {
+        nectarlink_adb::start_server(adb_addr);
+    }
+    let devices = nectarlink_adb::list_devices(adb_addr).await.ok()?;
+    let peer_ips: Vec<String> = session
+        .remote_ip_addrs()
+        .into_iter()
+        .map(|a| a.ip().to_canonical().to_string())
+        .collect();
+    let peer_model = shared
+        .store
+        .get_peer(&session.peer)
+        .ok()
+        .flatten()
+        .and_then(|p| p.info.model)
+        .unwrap_or_default()
+        .to_ascii_lowercase()
+        .replace(['_', '-'], " ");
+
+    // 1. Prefer exact LAN IP match (e.g. "192.168.110.115:38481").
+    for d in &devices {
+        if !d.is_online() {
+            continue;
+        }
+        if peer_ips.iter().any(|ip| d.serial.starts_with(&format!("{ip}:"))) {
+            return Some((adb_addr, d.serial.clone(), None));
+        }
+    }
+    // 2. Fallback to model match (e.g. mDNS serial "adb-RR2WA0071GZ-TTXbAI._adb-tls-connect._tcp" with model "SM_X510").
+    if !peer_model.is_empty() {
+        for d in &devices {
+            if !d.is_online() {
+                continue;
+            }
+            if let Some(m) = d.model.as_deref() {
+                let norm = m.to_ascii_lowercase().replace(['_', '-'], " ");
+                if !norm.is_empty() && peer_model.contains(&norm) {
+                    return Some((adb_addr, d.serial.clone(), None));
+                }
+            }
+        }
+    }
+    None
 }
 
 /// Runs the grants, then starts the helper and keeps its shell open in a task
@@ -92,7 +152,7 @@ async fn launch(
     peer: DeviceId,
     adb_addr: SocketAddr,
     serial: &str,
-    bridge_port: u16,
+    bridge_port: Option<u16>,
     request: &ElevatedUsbStart,
 ) -> std::result::Result<u16, String> {
     for grant in &request.grants {
@@ -112,14 +172,16 @@ async fn launch(
         let mut sink = [0u8; 1024];
         while matches!(output.read(&mut sink).await, Ok(n) if n > 0) {}
     });
-    let still_active = {
+    let still_active = if let Some(bp) = bridge_port {
         let serials = shared.usb_serials.lock().unwrap_or_else(|e| e.into_inner());
         !shared.cancel.is_cancelled()
-            && serials.get(&peer).is_some_and(|(s, a, p)| s == serial && *a == adb_addr && *p == bridge_port)
+            && serials.get(&peer).is_some_and(|(s, a, p)| s == serial && *a == adb_addr && *p == bp)
+    } else {
+        !shared.cancel.is_cancelled() && shared.session(&peer).is_some()
     };
     if !still_active {
         keep.abort();
-        return Err("the USB connection ended".into());
+        return Err("the ADB connection ended".into());
     }
     if let Some(old) = shared.usb_helpers.lock().unwrap_or_else(|e| e.into_inner()).insert(peer, keep) {
         old.abort();

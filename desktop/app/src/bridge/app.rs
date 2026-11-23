@@ -309,6 +309,9 @@ pub mod qobject {
         /// Whether `text` is a web link, video URL, `geo:` URI, or street address that can be handed off.
         #[qinvokable]
         fn is_handoff_text(self: &AppController, text: &QString) -> bool;
+        /// Pairs Wireless Debugging on a phone from this PC using `ip:port` and the 6-digit PIN.
+        #[qinvokable]
+        fn pair_wireless_adb(self: &AppController, address: &QString, code: &QString) -> QString;
 
         /// Starts a Continuity Camera capture (`"photo"` or `"scan"`) on the active phone.
         #[qinvokable]
@@ -1563,6 +1566,16 @@ impl qobject::AppController {
 
     pub fn is_handoff_text(&self, text: &QString) -> bool {
         crate::links::is_handoff_text(&String::from(text))
+    }
+
+    pub fn pair_wireless_adb(&self, address: &QString, code: &QString) -> QString {
+        let addr = String::from(address);
+        let pin = String::from(code);
+        let msg = match nectarlink_adb::pair_wireless(&addr, &pin) {
+            Ok(ok) => format!("ok:{ok}"),
+            Err(err) => format!("err:{err}"),
+        };
+        QString::from(&msg)
     }
 
     pub fn start_continuity_camera(&self, mode: &QString) {

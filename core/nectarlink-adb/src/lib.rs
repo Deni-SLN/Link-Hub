@@ -90,6 +90,33 @@ pub fn locate_adb() -> Option<std::path::PathBuf> {
     resolve_adb(|name| std::env::var_os(name))
 }
 
+/// Pairs this PC's `adb` with a phone's Wireless Debugging pairing `address` (`ip:port`)
+/// using the 6-digit `code` shown on the phone.
+pub fn pair_wireless(address: &str, code: &str) -> Result<String, String> {
+    let addr = address.trim();
+    let pin = code.trim();
+    if addr.is_empty() || pin.is_empty() {
+        return Err("Alamat IP:Port dan kode 6 digit wajib diisi.".into());
+    }
+    let adb = locate_adb().ok_or_else(|| "adb belum terpasang di PC ini.".to_owned())?;
+    let server = configured_server();
+    if !server_answers(server) {
+        start_server(server);
+    }
+    let out = std::process::Command::new(&adb)
+        .args(["pair", addr, pin])
+        .output()
+        .map_err(|e| format!("Gagal menjalankan adb pair: {e}"))?;
+    let stdout = String::from_utf8_lossy(&out.stdout).trim().to_string();
+    let stderr = String::from_utf8_lossy(&out.stderr).trim().to_string();
+    let msg = if !stdout.is_empty() { stdout } else { stderr };
+    if out.status.success() && !msg.to_ascii_lowercase().contains("failed") {
+        Ok(if msg.is_empty() { "Berhasil dipasangkan lewat ADB nirkabel.".into() } else { msg })
+    } else {
+        Err(if msg.is_empty() { format!("adb pair gagal (kode {:?})", out.status.code()) } else { msg })
+    }
+}
+
 /// The adb server adb clients use: `ANDROID_ADB_SERVER_PORT` on this
 /// machine when it's set (adb itself honours it), else [`DEFAULT_ADB_ADDR`].
 pub fn configured_server() -> SocketAddr {
