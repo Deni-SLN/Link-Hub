@@ -65,7 +65,9 @@ object PairingNotification {
             .setStyle(NotificationCompat.BigTextStyle().bigText(text))
             .addAction(action)
             .setOnlyAlertOnce(true)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setOngoing(true)
+            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+            .setPriority(NotificationCompat.PRIORITY_MAX)
             .build()
         return runCatching { NotificationManagerCompat.from(context).notify(ID, notification) }.isSuccess
     }

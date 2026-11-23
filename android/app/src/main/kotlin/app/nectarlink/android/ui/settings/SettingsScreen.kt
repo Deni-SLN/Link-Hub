@@ -33,6 +33,7 @@ import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
@@ -1623,19 +1624,66 @@ private fun ElevatedAccess() {
                 )
             }
         }
-        if (state == Elevated.State.Waiting || state is Elevated.State.Failed) {
+        if (state != Elevated.State.Running && state != Elevated.State.Starting && !viaShizuku) {
+            var pairCodeInput by remember { mutableStateOf("") }
+            var pairingBusy by remember { mutableStateOf(false) }
+            var pairFeedback by remember { mutableStateOf<String?>(null) }
+
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                if (viaShizuku && shizukuInstalled) {
-                    OutlinedButton(onClick = { openShizuku(context) }) {
-                        Text(stringResource(R.string.elevated_open_shizuku))
-                    }
-                } else {
-                    OutlinedButton(onClick = {
-                        PairingNotification.show(context)
-                        openDeveloperOptionsSettings(context)
-                    }) {
-                        Text(stringResource(R.string.elevated_open_developer))
-                    }
+                OutlinedButton(onClick = {
+                    PairingNotification.show(context)
+                    openDeveloperOptionsSettings(context)
+                }) {
+                    Text(stringResource(R.string.elevated_open_developer))
+                }
+            }
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                OutlinedTextField(
+                    value = pairCodeInput,
+                    onValueChange = { next ->
+                        pairCodeInput = next.filter(Char::isDigit).take(6)
+                        pairFeedback = null
+                    },
+                    label = { Text("Kode 6 digit (Layar Terpisah)") },
+                    singleLine = true,
+                    modifier = Modifier.weight(1f),
+                )
+                Button(
+                    enabled = pairCodeInput.length == 6 && !pairingBusy,
+                    onClick = {
+                        pairingBusy = true
+                        pairFeedback = null
+                        scope.launch {
+                            val ok = Elevated.pair(pairCodeInput)
+                            pairingBusy = false
+                            pairFeedback = if (ok) {
+                                pairCodeInput = ""
+                                "Berhasil terhubung!"
+                            } else {
+                                "Gagal: pastikan dialog kode masih terbuka di layar."
+                            }
+                        }
+                    },
+                ) {
+                    Text(if (pairingBusy) "..." else "Pasangkan")
+                }
+            }
+            pairFeedback?.let { msg ->
+                Text(
+                    text = msg,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = if (msg.startsWith("Berhasil")) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error,
+                )
+            }
+        } else if ((state == Elevated.State.Waiting || state is Elevated.State.Failed) && viaShizuku && shizukuInstalled) {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                OutlinedButton(onClick = { openShizuku(context) }) {
+                    Text(stringResource(R.string.elevated_open_shizuku))
                 }
             }
         }
