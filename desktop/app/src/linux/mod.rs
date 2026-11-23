@@ -329,7 +329,12 @@ pub(crate) fn run_cmd_timeout(
     use std::process::Stdio;
 
     let mut cmd = Command::new(bin);
-    cmd.args(args).stdin(Stdio::null()).stdout(Stdio::piped()).stderr(Stdio::piped());
+    cmd.args(args)
+        .env("LC_ALL", "C")
+        .env("LANG", "C")
+        .stdin(Stdio::null())
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped());
     // SAFETY: `prctl(PR_SET_PDEATHSIG, SIGTERM)` is async-signal-safe.
     unsafe {
         cmd.pre_exec(|| {

@@ -181,8 +181,16 @@ fn sample_pc_stats() -> Option<PcStats> {
     None
 }
 
+static LAST_SPEAKER_STATE: Mutex<(u8, bool)> = Mutex::new((50, false));
+
 fn sample_live_state() -> DeckState {
-    let (volume, muted) = win::audio::speaker_state().unwrap_or((50, false));
+    let (volume, muted) = match win::audio::speaker_state() {
+        Some(st) => {
+            *lock(&LAST_SPEAKER_STATE) = st;
+            st
+        }
+        None => *lock(&LAST_SPEAKER_STATE),
+    };
     let mic_muted = win::audio::mic_muted();
     let playing = MEDIA_PLAYING.load(Ordering::Relaxed);
     let mut output_devices = win::audio::output_devices();
@@ -409,9 +417,11 @@ pub fn handle_set_audio(peer: &DeviceId, volume: Option<u8>, muted: Option<bool>
             return Ok(());
         }
         win::audio::set_speaker_volume(level)?;
+        lock(&LAST_SPEAKER_STATE).0 = level.min(100);
     }
     if let Some(m) = muted {
         win::audio::set_speaker_mute(m)?;
+        lock(&LAST_SPEAKER_STATE).1 = m;
     }
     core_host::spawn(async {
         refresh_live_state().await;

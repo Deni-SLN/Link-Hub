@@ -17,7 +17,7 @@ static WATCH_STARTED: OnceLock<()> = OnceLock::new();
 pub(crate) fn parse_wpctl_volume(output: &str) -> Option<(u8, bool)> {
     let muted = output.contains("[MUTED]");
     let after_colon = output.split_once("Volume:")?.1;
-    let vol_token = after_colon.split_whitespace().next()?;
+    let vol_token = after_colon.split_whitespace().next()?.replace(',', ".");
     let val = vol_token.parse::<f32>().ok()?;
     if !val.is_finite() {
         return None;
@@ -30,9 +30,17 @@ pub(crate) fn parse_wpctl_volume(output: &str) -> Option<(u8, bool)> {
 /// `"Mute: yes"` or `"Mute: no"`.
 pub(crate) fn parse_pactl_mute(mute_out: &str) -> Option<bool> {
     let rhs = mute_out.split_once(':').map(|(_, r)| r).unwrap_or(mute_out).trim();
-    if rhs.eq_ignore_ascii_case("yes") || rhs.eq_ignore_ascii_case("true") || rhs == "1" {
+    if rhs.eq_ignore_ascii_case("yes")
+        || rhs.eq_ignore_ascii_case("ya")
+        || rhs.eq_ignore_ascii_case("true")
+        || rhs == "1"
+    {
         Some(true)
-    } else if rhs.eq_ignore_ascii_case("no") || rhs.eq_ignore_ascii_case("false") || rhs == "0" {
+    } else if rhs.eq_ignore_ascii_case("no")
+        || rhs.eq_ignore_ascii_case("tidak")
+        || rhs.eq_ignore_ascii_case("false")
+        || rhs == "0"
+    {
         Some(false)
     } else {
         None
