@@ -22,7 +22,7 @@ Free and open source. Local-first, end-to-end encrypted, no account and no cloud
 
 ## Why LinkHub
 
-LinkHub brings all your devices into one unified, local-first P2P mesh — combining notifications, messaging, calls, universal clipboard relay, fast Wi-Fi file/folder transfers, screen mirroring, desktop app windows, and Desk Panel & PC system monitoring without any cloud account.
+**LinkHub** is a fork and ecosystem evolution combining **[NectarLink](https://github.com/thtbee/nectarlink)** and **[TwinDesk / PhoneBox](https://github.com/ersinkoc/phonebox)** into a single local-first P2P device mesh — bringing together notifications, messaging, calls, universal clipboard relay, fast Wi-Fi file/folder transfers, screen mirroring, desktop app windows, Desk Panel & live PC system monitoring, and Wireless ADB PC-side pairing without any cloud account.
 
 ## Download
 
