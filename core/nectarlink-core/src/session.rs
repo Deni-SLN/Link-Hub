@@ -668,22 +668,22 @@ async fn handle(shared: &Arc<Shared>, session: &Arc<Session>, env: Envelope) -> 
                     shared.remember_addrs(&msg.candidate_id, &msg.addrs);
                 }
                 let already_paired = shared.store.get_peer(&msg.candidate_id).ok().flatten().is_some();
-                shared.emit(NodeEvent::MeshIntroduction {
-                    introducer: peer,
-                    candidate_id: msg.candidate_id,
-                    candidate: candidate.clone(),
-                });
-                let online_same_device = {
+                let same_device_exists = {
                     let online: std::collections::HashSet<DeviceId> =
                         shared.live_sessions().into_iter().map(|s| s.peer).collect();
                     shared.store.list_peers().unwrap_or_default().into_iter().any(|p| {
                         p.id != msg.candidate_id
-                            && online.contains(&p.id)
                             && p.info.kind == candidate.kind
                             && p.info.name == candidate.name
+                            && (online.contains(&p.id) || p.info.model == candidate.model)
                     })
                 };
-                if !already_paired && !online_same_device {
+                if !already_paired && !same_device_exists {
+                    shared.emit(NodeEvent::MeshIntroduction {
+                        introducer: peer,
+                        candidate_id: msg.candidate_id,
+                        candidate: candidate.clone(),
+                    });
                     let shared = shared.clone();
                     let candidate_id = msg.candidate_id;
                     let addrs = msg.addrs;
