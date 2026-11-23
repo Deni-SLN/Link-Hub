@@ -138,8 +138,14 @@ pub fn set_on(device: DeviceId, on: bool) {
         stop_for_window(device);
         return;
     }
+    if crate::mirror::muted() {
+        crate::mirror::set_muted(false);
+    }
     if let Some((device, name)) = phone(device) {
+        tracing::info!(peer = %device.short(), name, "starting phone sound on PC");
         start(device, name, false);
+    } else {
+        tracing::warn!(peer = %device.short(), "cannot start phone sound: device offline or mirroring.sound unavailable");
     }
 }
 
@@ -291,6 +297,12 @@ impl MirrorSink for Sink {
         if !is_current(self.session) {
             return;
         }
+        tracing::info!(
+            peer = %self.session.device.short(),
+            rate = config.rate,
+            channels = config.channels,
+            "phone sound audio_config received"
+        );
         // A new format: a new player (the old one ends when dropped).
         let player = Player::start(config.rate, u16::from(config.channels))
             .inspect_err(|e| tracing::warn!(error = %e, "can't play the phone's sound"))
@@ -313,6 +325,7 @@ impl MirrorSink for Sink {
     }
 
     fn audio_ended(&self) {
+        tracing::info!(peer = %self.session.device.short(), "phone sound audio_ended");
         self.player.lock().unwrap_or_else(|e| e.into_inner()).take();
         // An empty Elevated stream can be followed by the phone's consent
         // prompt. Keep waiting for that fallback until sound plays or times out.

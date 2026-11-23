@@ -144,6 +144,25 @@ impl Jitter {
     }
 }
 
+fn try_spawn(name: &str, mut cmd: Command) -> Option<Child> {
+    let mut child = cmd.stdin(Stdio::piped()).stdout(Stdio::null()).stderr(Stdio::null()).spawn().ok()?;
+    thread::sleep(Duration::from_millis(15));
+    match child.try_wait() {
+        Ok(None) => {
+            tracing::info!(backend = name, "linux audio_out sink started");
+            Some(child)
+        }
+        Ok(Some(status)) => {
+            tracing::warn!(backend = name, %status, "linux audio_out sink exited immediately");
+            None
+        }
+        Err(e) => {
+            tracing::warn!(backend = name, error = %e, "linux audio_out sink wait failed");
+            None
+        }
+    }
+}
+
 fn spawn_pcm_sink(rate: u32, channels: u16, device_id: Option<&str>) -> Option<Child> {
     let rate_s = rate.to_string();
     let ch_s = channels.to_string();
@@ -163,7 +182,7 @@ fn spawn_pcm_sink(rate: u32, channels: u16, device_id: Option<&str>) -> Option<C
     if let Some(d) = dev {
         pacat.arg(format!("--device={d}"));
     }
-    if let Ok(child) = pacat.stdin(Stdio::piped()).stdout(Stdio::null()).stderr(Stdio::null()).spawn() {
+    if let Some(child) = try_spawn("pacat", pacat) {
         return Some(child);
     }
 
@@ -173,17 +192,13 @@ fn spawn_pcm_sink(rate: u32, channels: u16, device_id: Option<&str>) -> Option<C
         pw.arg(format!("--target={d}"));
     }
     pw.arg("-");
-    if let Ok(child) = pw.stdin(Stdio::piped()).stdout(Stdio::null()).stderr(Stdio::null()).spawn() {
+    if let Some(child) = try_spawn("pw-play", pw) {
         return Some(child);
     }
 
-    Command::new("aplay")
-        .args(["-q", "-t", "raw", "-f", "S16_LE", "-r", &rate_s, "-c", &ch_s, "--buffer-size=1920", "-"])
-        .stdin(Stdio::piped())
-        .stdout(Stdio::null())
-        .stderr(Stdio::null())
-        .spawn()
-        .ok()
+    let mut aplay = Command::new("aplay");
+    aplay.args(["-q", "-t", "raw", "-f", "S16_LE", "-r", &rate_s, "-c", &ch_s, "--buffer-size=1920", "-"]);
+    try_spawn("aplay", aplay)
 }
 
 #[derive(Debug)]
