@@ -684,7 +684,7 @@ fun TwinScreenControlTab(
     modifier: Modifier = Modifier,
 ) {
     val pal = LocalTwinPalette.current
-    val pcs = state.devices.filter { !it.isAndroid }
+    val pcs = state.devices.sortedByDescending { !it.isAndroid }
     var chosenPcId by rememberSaveable { mutableStateOf<String?>(null) }
     val selectedPc = pcs.firstOrNull { it.id == chosenPcId }
         ?: pcs.firstOrNull { it.online }
@@ -1267,7 +1267,7 @@ fun TwinMeshTab(
                         tileColors = if (dev.isAndroid) TwinTileGradients.purple else TwinTileGradients.blue,
                         activeDot = dev.online,
                         trailing = {
-                            if (dev.online && (!dev.isAndroid || dev.has("mirror.capture"))) {
+                            if (dev.online) {
                                 TwinPillButton(
                                     label = stringResource(R.string.remote_mode_screen),
                                     onClick = { onOpenRemote(dev.id, RemoteMode.Screen) },
