@@ -1,0 +1,43 @@
+[Desktop Entry]
+Type=Application
+Version=1.4
+Name=LinkHub
+Name[id]=LinkHub
+GenericName=Universal Device Ecosystem
+GenericName[id]=Ekosistem Perangkat Universal
+Comment=Universal Device Ecosystem: Connect your devices over a secure local P2P mesh
+Comment[id]=Ekosistem Perangkat Universal: Hubungkan perangkat Anda melalui mesh P2P lokal yang aman
+Exec=nectarlink-desktop %U
+Icon=nectarlink
+Terminal=false
+Categories=Network;FileTransfer;Telephony;
+Keywords=android;phone;sync;clipboard;notifications;files;mirror;sms;calls;
+StartupNotify=true
+StartupWMClass=nectarlink
+MimeType=x-scheme-handler/linkhub;x-scheme-handler/nectarlink;x-scheme-handler/tel;x-scheme-handler/sms;x-scheme-handler/smsto;x-scheme-handler/mms;x-scheme-handler/mmsto;x-scheme-handler/geo;
+Actions=send-files;send-clipboard;find-phone;take-photo;open-timeline;
+
+[Desktop Action send-files]
+Name=Send files to phone
+Name[id]=Kirim berkas ke perangkat
+Exec=nectarlink-desktop --task send-files
+
+[Desktop Action send-clipboard]
+Name=Send clipboard to phone
+Name[id]=Kirim papan klip ke perangkat
+Exec=nectarlink-desktop --task send-clipboard
+
+[Desktop Action find-phone]
+Name=Find my phone
+Name[id]=Cari perangkat saya
+Exec=nectarlink-desktop --task find-phone
+
+[Desktop Action take-photo]
+Name=Take photo with phone
+Name[id]=Ambil foto dengan ponsel
+Exec=nectarlink-desktop --task take-photo
+
+[Desktop Action open-timeline]
+Name=Open Timeline
+Name[id]=Buka Linimasa
+Exec=nectarlink-desktop --task open-timeline

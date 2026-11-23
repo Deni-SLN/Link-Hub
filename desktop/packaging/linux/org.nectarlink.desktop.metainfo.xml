@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.nectarlink.desktop</id>
+  <name>LinkHub</name>
+  <summary>Universal Device Ecosystem: Connect Windows, Linux, and Android</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <developer id="io.github.thtbee">
+    <name>thtbee</name>
+  </developer>
+  <description>
+    <p>
+      LinkHub connects your computers and smartphones in a single unified workspace over a secure local peer-to-peer mesh.
+    </p>
+    <ul>
+      <li>Universal bidirectional clipboard sync for text, URLs, and images</li>
+      <li>Mirror notifications and reply inline across all connected devices</li>
+      <li>Direct peer-to-peer file transfer and browsable storage with resume support</li>
+      <li>Low-latency remote screen, camera, and audio streaming</li>
+      <li>Seamless mouse and keyboard forwarding across screens</li>
+      <li>Integrated telephony, calls, and SMS messaging</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">nectarlink.desktop</launchable>
+  <url type="homepage">https://github.com/Deni-SLN/Link-Hub</url>
+  <url type="bugtracker">https://github.com/Deni-SLN/Link-Hub/issues</url>
+  <provides>
+    <binary>nectarlink-desktop</binary>
+    <mediatype>x-scheme-handler/linkhub</mediatype>
+    <mediatype>x-scheme-handler/nectarlink</mediatype>
+    <mediatype>x-scheme-handler/tel</mediatype>
+    <mediatype>x-scheme-handler/sms</mediatype>
+    <mediatype>x-scheme-handler/smsto</mediatype>
+    <mediatype>x-scheme-handler/mms</mediatype>
+    <mediatype>x-scheme-handler/mmsto</mediatype>
+  </provides>
+  <content_rating type="oars-1.1" />
+  <releases>
+    <release version="0.1.5" date="2026-11-05" />
+    <release version="0.1.4" date="2026-10-17" />
+  </releases>
+</component>

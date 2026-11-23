@@ -1,0 +1,1495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<resources>
+        <string name="app_name">LinkHub</string>
+
+    <!-- Pairing -->
+    <string name="pair_title">Sandingkan dengan PC Anda</string>
+    <string name="pair_show_title">Pasangkan ponsel atau tablet</string>
+    <string name="pair_show_hint">Di ponsel atau tablet Anda yang lain, buka LinkHub, ketuk Pasangkan, dan pindai kode ini.</string>
+    <string name="pair_show_qr_desc">Memasangkan kode untuk ponsel atau tablet lain</string>
+    <string name="action_show_code">Pasangkan ponsel atau tablet sebagai gantinya</string>
+    <string name="pair_scan_hint">Di PC Anda, buka LinkHub. Arahkan kamera ke kode yang ditampilkannya. Ponsel atau tablet lain menampilkan kodenya di bagian Pasangkan ponsel atau tablet.</string>
+    <string name="pair_nearby_title">Pasangkan di dekatnya</string>
+    <string name="pair_nearby_hint">Di PC Anda, buka LinkHub dan biarkan layar penyandingannya tetap terbuka. Itu muncul di sini.</string>
+    <string name="pair_looking">Mencari PC…</string>
+    <string name="pair_joining">Memasangkan…</string>
+    <string name="pair_connecting">Menghubungkan ke %1$s…</string>
+    <string name="pair_waiting">Menunggu %1$s…</string>
+    <string name="pair_check_code">Periksa kodenya</string>
+    <string name="pair_compare_hint">Pastikan %1$s menampilkan kode yang sama. Ini mencegah orang lain berpasangan di antara keduanya.</string>
+    <string name="pair_done_title">Tersanding</string>
+    <string name="pair_done">%1$s dipasangkan dengan ponsel ini.</string>
+    <string name="pair_failed_title">Penyandingan tidak berhasil</string>
+    <string name="pair_failed_rejected">Kodenya tidak cocok, jadi tidak ada yang dipasangkan.</string>
+    <string name="pair_failed_declined">Penyandingan ditolak di salah satu perangkat.</string>
+    <string name="pair_failed_expired">Kode sudah habis masa berlakunya. Tampilkan yang baru di PC Anda.</string>
+    <string name="pair_failed_unreachable">Tidak dapat menjangkau PC. Pastikan keduanya berada di jaringan yang sama.</string>
+    <string name="pair_failed_other">Itu bukan kode penyandingan LinkHub, atau ada yang tidak beres.</string>
+    <string name="your_pc">PC Anda</string>
+    <string name="camera_permission_needed">LinkHub memerlukan kamera untuk memindai kode penyandingan. Tidak ada yang direkam.</string>
+
+    <!-- Home -->
+    <string name="home_title">Beranda</string>
+    <string name="link_online">Terhubung</string>
+    <string name="link_online_rtt">Terhubung · %1$d ms</string>
+    <string name="link_usb">Di USB</string>
+    <string name="link_usb_rtt">Pada USB · %1$d ms</string>
+    <string name="link_away">Terhubung saat pergi</string>
+    <string name="link_connecting">Menghubungkan…</string>
+    <string name="link_offline_seen">Offline · terlihat %1$s</string>
+    <string name="link_offline_now">Offline · baru saja dilihat</string>
+    <string name="link_never">Belum terhubung</string>
+    <string name="link_not_reconnecting">Tidak menyambung kembali</string>
+    <string name="battery_level">%1$d%%</string>
+    <string name="battery_charging">%1$d%% · pengisian daya</string>
+    <string name="ringing_title">%1$s berdering di telepon Anda</string>
+    <string name="ringing_title_unknown">PC Anda berdering di telepon Anda</string>
+    <string name="connected">Terhubung</string>
+    <string name="not_connected">Tidak terhubung</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Pengaturan</string>
+    <string name="settings_appearance">Tampilan</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_mode">Mode</string>
+    <string name="settings_language">Bahasa</string>
+    <string name="settings_language_more">Lainnya</string>
+    <string name="settings_dynamic_color">Warna dari wallpaper</string>
+    <string name="settings_dynamic_color_hint">Gunakan warna wallpaper Anda.</string>
+    <string name="settings_devices">PC</string>
+    <string name="settings_about">Tentang</string>
+    <string name="settings_notifications">Notifikasi</string>
+    <string name="notifications_title">Tampilkan notifikasi di PC Anda</string>
+    <string name="notifications_on">Aktif. Pemberitahuan muncul di PC pasangan Anda, tempat Anda dapat membalas dan mengabaikannya.</string>
+    <string name="notifications_off">LinkHub memerlukan akses notifikasi untuk menampilkan notifikasi ponsel ini di PC Anda.</string>
+    <string name="notifications_restricted">Tombolnya berwarna abu-abu? Buka Info aplikasi, ketuk ⋮, pilih “Izinkan pengaturan terbatas”, lalu coba lagi.</string>
+    <string name="action_allow">Mengizinkan</string>
+    <string name="clip_share_label">Kirim dengan LinkHub</string>
+    <string name="channel_transfers">Transfer berkas</string>
+    <string name="channel_received">File yang diterima</string>
+    <string name="channel_pc_media">Media di PC Anda</string>
+    <string name="media_on">%1$s di %2$s</string>
+    <string name="media_play">Bermain</string>
+    <string name="media_pause">Berhenti sebentar</string>
+    <string name="media_next">Berikutnya</string>
+    <string name="media_previous">Sebelumnya</string>
+    <string name="media_seek">Posisi di trek</string>
+    <string name="action_send_files">Kirim file</string>
+    <string name="action_send_folder">Kirim folder</string>
+    <string name="input_service_label">LinkHub: kontrol dari PC Anda</string>
+    <string name="input_service_description">Memungkinkan mouse dan keyboard PC Anda mengetuk, menggeser, dan mengetik di ponsel ini saat Anda berbagi layarnya dengan PC yang dipasangkan. Tidak ada yang lain di dalamnya.</string>
+    <string name="settings_control">Kontrol dari PC Anda</string>
+    <string name="control_title">Gunakan mouse dan keyboard PC Anda</string>
+    <string name="control_on">Aktif: saat layar Anda ditampilkan di PC, Anda dapat mengetuk, menggeser, dan mengetik dari sana.</string>
+    <string name="control_off">Ketuk, geser, dan ketik dari PC Anda saat layar ini ditampilkan. Aktifkan LinkHub di Aksesibilitas.</string>
+    <string name="dnd_access_title">Jangan Ganggu dan mode senyap</string>
+    <string name="dnd_access_on">Menyala: PC Anda dapat mengaktifkan atau menonaktifkan mode Jangan Ganggu dan mengatur dering ke senyap.</string>
+    <string name="dnd_access_off">Biarkan PC Anda mengaktifkan atau menonaktifkan mode Jangan Ganggu dan mengatur dering ke senyap.</string>
+    <string name="write_settings_title">Kecerahan layar</string>
+    <string name="write_settings_on">Menyala: PC Anda dapat menyesuaikan kecerahan layar ponsel ini.</string>
+    <string name="write_settings_off">Biarkan PC Anda menyesuaikan kecerahan layar ponsel ini.</string>
+    <string name="local_network_title">Jangkau PC Anda di jaringan ini</string>
+    <string name="local_network_text">Android bertanya sebelum aplikasi berkomunikasi dengan perangkat di jaringan Anda. LinkHub membutuhkannya untuk menjangkau PC Anda.</string>
+    <string name="channel_elevated">Pengaturan debugging nirkabel</string>
+    <string name="elevated_title">Tinggi</string>
+    <string name="elevated_not_set_up">Sentuhan real-time, setiap tombol, dan mute, tahan, dan keypad pada panggilan dari PC Anda.</string>
+    <string name="elevated_turn_on_wireless">Aktifkan Wireless debugging dengan sendirinya</string>
+    <string name="elevated_turn_on_wireless_hint">Elevated membutuhkannya, jadi ia menyalakannya kembali ketika dimatikan, pada Wi-Fi apa pun. Matikan ini untuk mengaktifkannya sendiri di opsi Pengembang.</string>
+    <string name="elevated_waiting">Menunggu debugging Nirkabel. Aktifkan di opsi Pengembang.</string>
+    <string name="elevated_starting">Mulai…</string>
+    <string name="elevated_running">Aktif: mouse dan keyboard PC Anda berfungsi seperti layar sentuh dan keyboard sungguhan.</string>
+    <string name="elevated_failed">Tidak dapat memulainya. Periksa apakah Wireless debugging sudah aktif, lalu coba lagi.</string>
+    <string name="elevated_not_paired">Ponsel lupa memasangkan LinkHub. Atur lagi.</string>
+    <string name="elevated_start_with">Mulailah dengan</string>
+    <string name="elevated_method_wireless">Nirkabel</string>
+    <string name="elevated_method_shizuku" translatable="false">Shizuku</string>
+    <string name="elevated_method_root" translatable="false">Root</string>
+    <string name="elevated_set_up">Mendirikan</string>
+    <string name="elevated_root_hint">Ponsel ini telah di-root, jadi Elevated dapat memulai melalui root: tidak ada penyandingan, dan ponsel akan kembali dengan sendirinya setelah restart atau jauh dari Wi-Fi. Ia mendapat izin yang sama dengan debugging Nirkabel.</string>
+    <string name="elevated_running_root">Aktif, melalui root: mouse dan keyboard PC Anda berfungsi seperti layar sentuh dan keyboard sungguhan.</string>
+    <string name="elevated_root_failed">Root tidak diizinkan, atau manajer root Anda tidak dapat memulai pembantu LinkHub sebagai pengguna shell. Di KernelSU atau APatch, tambahkan LinkHub ke daftar Pengguna Supernya terlebih dahulu, lalu coba lagi. Atau atur dengan Wireless debugging.</string>
+    <string name="elevated_shizuku_hint">Shizuku telah terinstal, jadi Elevated dapat memulainya: tidak ada pasangannya sendiri, dan terus bekerja jauh dari Wi-Fi saat Shizuku berjalan. Ia mendapat izin yang sama dengan debugging Nirkabel.</string>
+    <string name="elevated_running_shizuku">Aktif, melalui Shizuku: mouse dan keyboard PC Anda berfungsi seperti layar sentuh dan keyboard sungguhan.</string>
+    <string name="elevated_shizuku_waiting">Menunggu Shizuku. Mulai di aplikasi Shizuku, lalu buka LinkHub.</string>
+    <string name="elevated_shizuku_not_running">Shizuku tidak berjalan. Mulai di aplikasi Shizuku, lalu coba lagi.</string>
+    <string name="elevated_shizuku_denied">Shizuku tidak mengizinkan LinkHub masuk. Izinkan di Shizuku (dan perbarui Shizuku jika sudah lama), lalu coba lagi.</string>
+    <string name="elevated_shizuku_root">Shizuku berjalan dengan root, dan Elevated hanya memulai pembantunya sebagai pengguna shell. Mulai Shizuku dengan debugging Nirkabel, atau gunakan root.</string>
+    <string name="elevated_open_shizuku">Buka Shizuku</string>
+    <string name="elevated_turn_off">Mematikan</string>
+    <string name="elevated_try_again">Coba lagi</string>
+    <string name="elevated_steps_title">Siapkan debugging Nirkabel</string>
+    <string name="elevated_steps">Kode satu kali dalam notifikasi yang disembunyikan Android sebagai sensitif juga menjangkau PC Anda.\n\n1. Aktifkan opsi Pengembang: di Setelan › Tentang ponsel, ketuk Nomor pembuatan 7 kali.\n2. Di opsi Pengembang, aktifkan Proses debug nirkabel (di Wi-Fi), buka, lalu ketuk Pasangkan perangkat dengan kode penyandingan.\n3. Ketik kode 6 digit tersebut pada notifikasi LinkHub, tanpa menutup kode tersebut.</string>
+    <string name="elevated_open_developer">Buka opsi Pengembang</string>
+    <string name="elevated_pair_title">Pasangkan LinkHub dengan debugging Nirkabel</string>
+    <string name="elevated_pair_text">Di Penelusuran kesalahan nirkabel, ketuk Pasangkan perangkat dengan kode penyandingan, lalu ketikkan kode di sini.</string>
+    <string name="elevated_pair_action">Masukkan kode</string>
+    <string name="elevated_pair_collapsed">Geser notifikasi ini ke bawah (di ponsel Xiaomi, tekan lama), lalu ketuk Masukkan kode.</string>
+    <string name="elevated_pair_hint">Kode penyandingan 6 digit</string>
+    <string name="elevated_pairing">Memasangkan…</string>
+    <string name="elevated_no_dialog">Kode penyandingan tidak muncul. Di Wireless debugging, ketuk Pasangkan perangkat dengan kode penyandingan, lalu ketik di sini.</string>
+    <string name="elevated_wrong_code">Kode itu tidak berfungsi. Periksa dan ketik lagi.</string>
+    <string name="channel_mirroring">Berbagi layar</string>
+    <string name="channel_mirror_requests">Permintaan berbagi layar</string>
+    <string name="mirror_request_title">%1$s ingin melihat layar Anda</string>
+    <string name="mirror_request_title_sound">%1$s ingin memutar suara ponsel Anda</string>
+    <string name="mirror_request_text">Ketuk untuk membagikannya. Anda bisa berhenti kapan saja.</string>
+    <string name="mirror_request_text_sound">Ketuk untuk membagikannya. Android meminta untuk membagikan layar Anda; hanya suara yang masuk ke PC.</string>
+    <string name="mirror_sharing">Berbagi layar Anda dengan %1$s</string>
+    <string name="mirror_sharing_sound">Berbagi suara ponsel Anda dengan %1$s</string>
+    <string name="action_stop">Berhenti</string>
+    <plurals name="app_windows_title">
+        <item quantity="one">%1$d aplikasi terbuka di jendela pada PC</item>
+        <item quantity="other">%1$d aplikasi terbuka di jendela pada PC</item>
+    </plurals>
+    <string name="app_windows_text">Ditampilkan di %1$s. Mereka berjalan di sini, di samping apa yang ada di layar Anda.</string>
+    <string name="action_close_all">Tutup semua</string>
+    <string name="settings_calls_and_contacts">Panggilan, kontak, dan pesan</string>
+    <string name="sms_title">Kirim SMS dari PC Anda</string>
+    <string name="sms_on">Aktif. Percakapan muncul di PC Anda, tempat Anda dapat membaca dan mengirim teks.</string>
+    <string name="sms_off">Membaca dan mengirim teks dari PC Anda. Membutuhkan akses ke pesan dan kontak.</string>
+    <string name="calls_title">Panggilan di PC Anda</string>
+    <string name="calls_on">Aktif. PC Anda menampilkan panggilan masuk dan panggilan terkini, serta dapat memulai atau menjawab panggilan.</string>
+    <string name="calls_off">Lihat siapa yang menelepon dan memulai atau menjawab panggilan dari PC Anda. Audio tetap ada di telepon. Membutuhkan akses ke panggilan, riwayat panggilan, dan kontak.</string>
+    <string name="contacts_title">Kontak di PC Anda</string>
+    <string name="contacts_on">Aktif. Kontak Anda tersedia di Panggilan dan Pesan di PC Anda.</string>
+    <string name="contacts_off">Cari kontak dan telepon atau SMS dari PC Anda. Membutuhkan akses ke kontak.</string>
+    <string name="settings_photos">Foto dan video</string>
+    <string name="photos_title">Foto dan video di PC Anda</string>
+    <string name="photos_on">Aktif. Foto, tangkapan layar, dan video Anda tersedia di PC Anda.</string>
+    <string name="photos_partial">Hanya beberapa foto yang dibagikan. Izinkan semua orang menelusuri seluruh galeri di PC Anda.</string>
+    <string name="photos_off">Jelajahi foto dan video di PC Anda dan dapatkan tangkapan layar baru segera. Membutuhkan akses ke foto dan video.</string>
+    <string name="action_select_photos">Izinkan semua</string>
+    <string name="transfer_too_many">Folder tersebut memiliki terlalu banyak file untuk dikirim sekaligus.</string>
+    <string name="transfers_title">Transfer</string>
+    <string name="transfer_sending">Mengirim ke %1$s</string>
+    <string name="transfer_receiving">Menerima dari %1$s</string>
+    <string name="transfer_waiting">Menunggu %1$s</string>
+    <string name="transfer_pause">Berhenti sebentar</string>
+    <string name="transfer_resume">Melanjutkan</string>
+    <string name="transfer_paused_progress">Dijeda · %1$s / %2$s</string>
+    <string name="transfer_received_from">Dari %1$s · di Unduh/LinkHub</string>
+    <string name="transfer_sent_to">Dikirim ke %1$s</string>
+    <string name="transfer_cancelled">Dibatalkan</string>
+    <string name="transfer_denied">%1$s tidak menerima file dari ponsel ini.</string>
+    <string name="transfer_unreachable">Tidak dapat mencapai %1$s.</string>
+    <string name="transfer_no_space">Tidak ada cukup ruang.</string>
+    <string name="transfer_failed_integrity">Pemeriksaan integritas file gagal; sebagian file disimpan untuk dilanjutkan</string>
+    <string name="transfer_failed">Transfernya tidak berhasil.</string>
+    <string name="transfer_nothing">File-file itu tidak dapat dibuka.</string>
+    <string name="transfer_off_for">File dimatikan untuk %1$s.</string>
+    <string name="transfer_pick_pc">Kirim ke PC mana?</string>
+    <string name="clip_tile_label">Kirim papan klip</string>
+    <string name="action_send_clipboard">Kirim papan klip</string>
+    <string name="clip_sent_to">Dikirim ke %1$s</string>
+    <string name="clip_no_pc">Tidak ada PC yang terhubung saat ini.</string>
+    <string name="clip_off_for">Papan klip dimatikan untuk %1$s.</string>
+    <string name="clip_too_large">Terlalu banyak teks untuk dikirim sekaligus.</string>
+    <string name="clip_private">Apa yang Anda salin ditandai sebagai pribadi oleh aplikasinya, sehingga tidak dikirimkan.</string>
+    <string name="clip_empty">Tidak ada teks atau gambar di clipboard.</string>
+    <string name="clip_image_too_large">Gambar itu terlalu besar untuk dikirim.</string>
+    <string name="clip_image_unreadable">Gambar itu tidak dapat dibaca.</string>
+    <string name="clip_image_unsupported">Perbarui LinkHub di %1$s untuk mengirimkan gambar.</string>
+    <string name="clip_nothing_shared">Tidak ada teks untuk dikirim.</string>
+    <string name="clipboard_history_title">Sejarah papan klip</string>
+    <string name="clipboard_history_subtitle">50 klip terakhir Anda dengan PC Anda, tetap terenkripsi di ponsel ini.</string>
+    <string name="clipboard_history_just_now">baru saja</string>
+    <string name="clipboard_history_empty">Belum ada apa-apa. Klip yang dibagikan dengan PC Anda muncul di sini.</string>
+    <string name="clipboard_history_search">Cari riwayat papan klip</string>
+    <string name="clipboard_history_no_match">Tidak ada yang cocok dengan "%1$s".</string>
+    <string name="clipboard_history_from">Dari %1$s</string>
+    <string name="clipboard_history_sent_to">Dikirim ke %1$s</string>
+    <string name="clipboard_history_image">Gambar</string>
+    <string name="clipboard_history_copy">Salin</string>
+    <string name="clipboard_history_copied">Disalin ke papan klip</string>
+    <string name="clipboard_history_pin">Pin</string>
+    <string name="clipboard_history_unpin">Membuka peniti</string>
+    <string name="clipboard_history_delete">Hapus</string>
+    <string name="clipboard_history_clear">Hapus riwayat</string>
+    <string name="clipboard_history_done">Selesai</string>
+    <string name="settings_clipboard_title">Papan klip</string>
+    <string name="settings_clipboard_passwords">Sinkronkan kata sandi yang disalin</string>
+    <string name="settings_clipboard_passwords_hint">Juga mengirimkan apa yang ditandai oleh pengelola kata sandi sebagai pribadi. Ia meninggalkan clipboard PC setelah satu menit, dan tidak pernah disimpan dalam riwayat.</string>
+    <string name="settings_clipboard_suggestions">Sarankan tindakan untuk teks yang disalin</string>
+    <string name="settings_clipboard_suggestions_hint">Sarankan tindakan untuk teks dari PC Anda: tautan terbuka, peta, panggilan, paket, dan email.</string>
+    <string name="clip_received_from">Disalin dari %1$s</string>
+    <string name="clip_action_open">Membuka</string>
+    <string name="clip_action_maps">Buka di Peta</string>
+    <string name="clip_action_call">Panggilan</string>
+    <string name="clip_action_track">Melacak</string>
+    <string name="clip_action_email">E-mail</string>
+    <string name="background_title">Tetap dapat dijangkau di latar belakang</string>
+    <string name="background_text">Android menjeda LinkHub untuk menghemat baterai, sehingga PC Anda tidak dapat menjangkaunya. Biarkan itu berjalan di latar belakang.</string>
+    <string name="background_on">Diizinkan untuk tetap terhubung di latar belakang</string>
+    <string name="settings_background_title">Latar belakang &amp; baterai</string>
+    <string name="settings_run_in_background">Jalankan di latar belakang</string>
+    <string name="settings_run_in_background_hint">Jaga agar ponsel ini dapat dijangkau dari PC Anda. Jika nonaktif, LinkHub hanya terhubung saat terbuka, dan notifikasi akan hilang.</string>
+    <string name="home_background_off_title">Koneksi latar belakang tidak aktif</string>
+    <string name="home_background_off_text">LinkHub hanya terhubung saat aplikasi terbuka. Aktifkan agar ponsel ini tetap dapat dijangkau dari PC Anda.</string>
+    <string name="battery_open_oem_settings">Pengaturan baterai</string>
+    <string name="battery_guide_samsung">Di Samsung: buka Info aplikasi › Baterai › pilih Tidak Dibatasi, dan di Perawatan perangkat › Baterai › Batas penggunaan latar belakang, pastikan LinkHub tidak pernah dialihkan ke mode tidur.</string>
+    <string name="battery_guide_xiaomi">Di Xiaomi / HyperOS / MIUI: aktifkan Autostart untuk LinkHub, dan di Info aplikasi › Penghemat baterai pilih Tanpa batasan.</string>
+    <string name="battery_guide_oneplus">Di OnePlus / OxygenOS: buka Info aplikasi › Penggunaan baterai › aktifkan Izinkan aktivitas latar belakang dan Izinkan peluncuran otomatis.</string>
+    <string name="battery_guide_oppo_realme">Di Oppo / Realme: buka Info aplikasi › Penggunaan baterai › aktifkan Izinkan aktivitas latar belakang dan Izinkan peluncuran otomatis.</string>
+    <string name="battery_guide_vivo">Di Vivo / Funtouch / OriginOS: buka Info aplikasi › Baterai › pilih Tidak Terbatas (Penggunaan daya latar belakang tinggi) dan izinkan Mulai Otomatis.</string>
+    <string name="battery_guide_huawei">Di Huawei / Honor: buka Peluncuran aplikasi (Manajer Telepon) › matikan Kelola secara otomatis untuk LinkHub dan terus aktifkan Peluncuran otomatis, Peluncuran sekunder, dan Jalankan di latar belakang.</string>
+    <string name="battery_guide_pixel">Di Pixel: buka Info aplikasi › Penggunaan baterai aplikasi › ketuk Izinkan penggunaan latar belakang dan pilih Tidak Dibatasi.</string>
+    <string name="action_manage">Mengelola</string>
+    <string name="action_app_info">Informasi aplikasi</string>
+    <string name="theme_hive">Sarang lebah</string>
+    <string name="hive_invite_title">Coba Hive, tema baru</string>
+    <string name="hive_invite_text">Madu di atas arang atau lilin hangat, dengan sarang lebah hidup di belakang aplikasinya. Ubah kapan saja di Pengaturan.</string>
+    <string name="hive_invite_try">Coba Sarang</string>
+    <string name="hive_invite_dismiss">Tidak sekarang</string>
+    <string name="star_channel">Proyek LinkHub</string>
+    <string name="star_title">Menikmati LinkHub?</string>
+    <string name="star_text">Ketuk untuk membintanginya di GitHub. Ini membantu orang lain menemukannya.</string>
+    <string name="support_title">Mendukung LinkHub</string>
+    <string name="support_body">LinkHub gratis dan bersumber terbuka. Jika itu membuat hari-hari Anda lebih mudah, Anda dapat membantu mempertahankannya. Terima kasih!</string>
+    <string name="support_action">Mendukung</string>
+    <string name="settings_comb_motion">Sisir animasi</string>
+    <string name="settings_comb_motion_hint">Sarang lebah bernafas dan berdenyut. Itu tetap bertahan dengan Hapus animasi atau penghemat baterai aktif.</string>
+    <string name="theme_bloom">Bunga</string>
+    <string name="theme_graphite">Grafit</string>
+    <string name="mode_system">Sistem</string>
+    <string name="mode_light">Lampu</string>
+    <string name="mode_dark">Gelap</string>
+    <string name="about_version">LinkHub %1$s</string>
+    <string name="unpair_title">Putuskan sambungan %1$s?</string>
+    <string name="unpair_text">Kedua perangkat saling melupakan. Anda dapat memasangkannya lagi kapan saja.</string>
+    <string name="core_failed">LinkHub tidak dapat memulai: %1$s</string>
+
+    <!-- Actions -->
+    <string name="action_pair">Sandingkan</string>
+    <string name="action_pair_nearby">Pasangkan di dekatnya</string>
+    <string name="action_scan_instead">Pindai kode saja</string>
+    <string name="action_codes_match">Kode cocok</string>
+    <string name="action_codes_differ">Mereka tidak cocok</string>
+    <string name="action_try_again">Coba lagi</string>
+    <string name="action_cancel">Batal</string>
+    <string name="action_allow_camera">Izinkan kamera</string>
+    <string name="action_ring_pc">Deringkan PC</string>
+    <string name="action_stop_ringing">Hentikan dering</string>
+    <string name="action_stop_service">Mematikan</string>
+    <string name="action_turn_on">Menyalakan</string>
+    <string name="action_ring_device">Deringkan</string>
+    <string name="peer_kind_phone">Telepon</string>
+    <string name="peer_kind_tablet">Tablet</string>
+    <string name="action_unpair">Putuskan pasangan</string>
+    <string name="action_pair_new">Pasangkan PC lain</string>
+    <string name="action_refresh">Segarkan</string>
+    <string name="action_update">Memperbarui</string>
+    <string name="update_title">LinkHub %1$s tersedia</string>
+    <string name="update_text">Dapatkan peningkatan dan perbaikan terbaru.</string>
+    <string name="update_downloading">Mengunduh…</string>
+    <string name="update_downloading_progress">Mengunduh · %1$s dari %2$s</string>
+    <string name="update_waiting_network">Menunggu koneksi. Pengunduhan berlanjut di tempat berhentinya.</string>
+    <string name="update_installing">Menginstal. Android mungkin meminta Anda untuk mengonfirmasi.</string>
+    <string name="update_not_allowed">Izinkan LinkHub menginstal pembaruannya. Pembaruan berlanjut saat Anda kembali.</string>
+    <string name="update_damaged">Downloadnya rusak, jadi tidak diinstal. Coba lagi.</string>
+    <string name="update_offline">Pembaruan tidak dapat diunduh. Coba lagi saat Anda online.</string>
+    <string name="update_install_failed">Android tidak menginstal pembaruan. Coba lagi.</string>
+    <string name="update_whats_new">Apa yang baru</string>
+    <string name="update_check">Periksa pembaruan</string>
+    <string name="update_checking">Memeriksa pembaruan…</string>
+    <string name="update_up_to_date_version">LinkHub %1$s sudah yang terbaru.</string>
+    <string name="update_current_version">Anda memiliki LinkHub %1$s.</string>
+    <string name="update_check_failed">Tidak dapat memeriksa pembaruan. Periksa koneksi internet Anda.</string>
+    <string name="action_lock_pc">Kunci PC</string>
+    <string name="action_sleep_pc">Tidur</string>
+    <string name="action_hibernate_pc">Hibernasi</string>
+    <string name="action_phone_sound_on_pc">Putar suara telepon di PC</string>
+    <string name="phone_sound_on_pc_off">%1$s tidak memutar suara ponsel ini. Di PC, aktifkan Pencerminan layar untuk ponsel ini di Pengaturan › Perangkat.</string>
+    <string name="action_shutdown_pc">Matikan</string>
+    <string name="shutdown_pc_title">Matikan %1$s?</string>
+    <string name="shutdown_pc_text">Buka aplikasi tutup. Seseorang dengan pekerjaan yang belum disimpan masih dapat menghentikannya.</string>
+    <string name="action_wake_pc">Bangun</string>
+    <string name="action_disconnect">Putuskan sambungan</string>
+    <string name="action_stop_reconnecting">Berhenti menyambung kembali</string>
+    <string name="action_reconnect">Hubungkan kembali</string>
+    <string name="wake_waking">Bangun %1$s…</string>
+    <string name="wake_timeout_title">%1$s belum bangun</string>
+    <string name="wake_timeout_text">Periksa apakah:\n• Wake-on-LAN diaktifkan di BIOS/UEFI dan dalam setelan adaptor jaringan di Windows (Manajemen Daya dan Wake on Magic Packet).\n• %1$s menggunakan Ethernet jika dimatikan (pengaktifan Wi-Fi jarang berfungsi setelah dimatikan).\n• Ponsel ini berada di jaringan yang sama dengan %1$s.</string>
+    <string name="wake_not_ready">Hubungkan ke %1$s satu kali agar ponsel ini mengetahui alamat jaringannya.</string>
+    <string name="pc_locked">%1$s terkunci.</string>
+    <string name="pc_sleeping">%1$s akan tidur.</string>
+    <string name="pc_hibernating">%1$s sedang berhibernasi.</string>
+    <string name="pc_shutting_down">%1$s sedang dimatikan.</string>
+    <string name="pc_actions_off">Penguncian dan mode tidur dimatikan untuk ponsel ini di %1$s.</string>
+    <string name="channel_links">Tautan dari PC Anda</string>
+    <!-- Play on phone: what a PC plays, streamed to the phone. -->
+    <string name="watch_offer_title">Tonton dari %1$s</string>
+    <string name="watch_offer_untitled">Apa yang sedang diputar di PC Anda</string>
+    <string name="watch_back_10">Kembali 10 detik</string>
+    <string name="watch_forward_10">Maju 10 detik</string>
+    <string name="watch_seek">Posisi</string>
+    <string name="watch_file_failed">Tidak dapat memutar video ini.</string>
+    <string name="watch_offer_action">Tonton</string>
+    <string name="watch_from">Dari %1$s</string>
+    <string name="watch_close">Tutup</string>
+    <string name="link_from">Tautan dari %1$s</string>
+    <string name="link_opened_on">Dibuka pada %1$s</string>
+    <string name="link_pick_pc">Buka di PC yang mana?</string>
+    <string name="channel_pc_tasks">Tugas di PC Anda</string>
+    <string name="channel_pc_tasks_running">Menjalankan tugas di PC Anda</string>
+    <string name="task_running_on">Berjalan di %1$s</string>
+
+    <!-- Notifications -->
+    <string name="channel_connection">Koneksi</string>
+    <string name="channel_ringing">Temukan telepon saya</string>
+    <string name="notification_connected_to">Terhubung ke %1$s</string>
+    <plurals name="notification_connected_pcs">
+        <item quantity="one">Terhubung ke %1$d PC</item>
+        <item quantity="other">Terhubung ke %1$d PC</item>
+    </plurals>
+    <string name="notification_waiting">Menunggu PC Anda</string>
+    <string name="notification_waiting_network">Menunggu Wi-Fi mencapai PC Anda</string>
+    <string name="notification_not_paired">Belum dipasangkan dengan PC</string>
+    <plurals name="transfer_files">
+        <item quantity="one">%1$d file</item>
+        <item quantity="other">%1$d file</item>
+    </plurals>
+    <plurals name="transfer_items">
+        <item quantity="one">%1$d item</item>
+        <item quantity="other">%1$d item</item>
+    </plurals>
+
+    <!-- Remote input (touchpad, air mouse, keyboard, voice typing &amp; presentation) -->
+    <string name="action_remote_pc">Kontrol PC</string>
+    <string name="action_back">Kembali</string>
+    <string name="settings_remote">Kontrol PC Anda</string>
+    <string name="settings_volume_keys_control_pc">Tombol volume mengontrol PC Anda</string>
+    <string name="settings_volume_keys_control_pc_hint">Saat PC Anda memutar musik atau video, tombol volume ponsel Anda mengubah volume PC.</string>
+    <string name="settings_quiet_while_using_pc">Tenang saat Anda menggunakan PC</string>
+    <string name="settings_quiet_while_using_pc_hint">Ponsel Anda melewatkan suara dan getarannya sendiri untuk notifikasi saat Anda menggunakan PC berpasangan yang menampilkannya.</string>
+    <string name="settings_hide_from_recents">Sembunyikan dari aplikasi terbaru</string>
+    <string name="settings_hide_from_recents_hint">LinkHub tetap berada di luar layar aplikasi terbaru, jadi menghapus layar tersebut tidak dapat menutupnya secara tidak sengaja.</string>
+    <string name="settings_assist_on_demand">Bantu hanya saat PC menggunakan telepon</string>
+    <string name="settings_assist_on_demand_hint">Dengan Elevated, Assist menyala saat PC menampilkan ponsel ini atau mengetiknya, dan mati sesaat setelahnya. Untuk aplikasi yang tidak terbuka saat layanan aksesibilitas aktif.</string>
+    <string name="settings_touchpad_sensitivity">Kecepatan panel sentuh</string>
+    <string name="settings_touchpad_sensitivity_value">%1$.1f×</string>
+    <string name="remote_mode_touchpad">Panel sentuh</string>
+    <string name="remote_mode_air">Tikus udara</string>
+    <string name="remote_mode_presentation">Presentasi</string>
+    <string name="remote_touchpad_hint">Seret untuk memindahkan · Ketuk untuk mengeklik · Dua jari untuk mengeklik kanan atau menggulir · Ketuk dua kali dan tahan untuk menyeret</string>
+    <string name="remote_air_hold">Tahan untuk membidik %1$s</string>
+    <string name="remote_air_active">Pindah ke %1$s · miringkan ponsel atau ketuk untuk mengklik</string>
+    <string name="remote_air_hint">Pegang pad dan miringkan ponsel Anda untuk menggerakkan penunjuk · Ketuk pad untuk mengklik · Tarik dua jari untuk menggulir</string>
+    <string name="gamepad_open">papan permainan</string>
+    <string name="gamepad_title">Gamepad untuk %1$s</string>
+    <string name="gamepad_close">Tutup</string>
+    <string name="gamepad_retry">Coba lagi</string>
+    <string name="gamepad_connecting">Memasukkan pengontrol ke %1$s…</string>
+    <string name="gamepad_offline">%1$s sedang offline</string>
+    <string name="gamepad_failed">Tidak dapat menyambungkan pengontrol ke %1$s</string>
+    <string name="gamepad_driver_title">%1$s membutuhkan driver pengontrol</string>
+    <string name="gamepad_driver_text">Instal ViGEmBus di %1$s, lalu coba lagi. Game di sana akan melihat pengontrol Xbox.</string>
+    <string name="remote_air_no_gyro_title">Tidak ada giroskop di ponsel ini</string>
+    <string name="remote_air_no_gyro_text">Mouse udara menggunakan giroskop untuk mengikuti cara Anda memiringkan ponsel. Gunakan mode Touchpad sebagai gantinya.</string>
+    <string name="remote_left_click">Kiri</string>
+    <string name="remote_right_click">Benar</string>
+    <string name="remote_middle_click">Tengah</string>
+    <string name="remote_keyboard">papan ketik</string>
+    <string name="remote_more_controls">Lagi</string>
+    <string name="remote_touchpad_only">Hanya panel sentuh</string>
+    <string name="remote_type_placeholder">Ketik %1$s…</string>
+    <string name="remote_dictate">Mendikte</string>
+    <string name="remote_dictate_stop">Berhenti</string>
+    <string name="remote_dictate_hint">Ketuk atau tahan Dikte untuk berbicara ke %1$s</string>
+    <string name="remote_dictate_listening">Mendengarkan %1$s…</string>
+    <string name="remote_dictate_typing">Mengetik di %1$s…</string>
+    <string name="remote_dictate_typed">Diketik di %1$s: “%2$s”</string>
+    <string name="remote_dictate_no_recognizer">Ponsel ini tidak memasang pengenalan suara.</string>
+    <string name="remote_dictate_no_speech">Tidak menangkap apa pun. Ketuk atau tahan Dikte untuk mencoba lagi.</string>
+    <string name="remote_dictate_error">Pengenalan ucapan tidak dapat diselesaikan. Ketuk atau tahan Dikte untuk mencoba lagi.</string>
+    <string name="remote_dictate_permission_needed">LinkHub memerlukan akses mikrofon untuk mendiktekan ke %1$s.</string>
+    <string name="remote_denied_title">Izinkan kontrol pada %1$s</string>
+    <string name="remote_denied_text">Di %1$s, izinkan kontrol dari ponsel ini melalui perintah LinkHub atau di Pengaturan › Perangkat.</string>
+    <string name="remote_offline_text">%1$s tidak terhubung saat ini.</string>
+    <string name="remote_unsupported_text">Perbarui LinkHub di %1$s untuk mengontrolnya dari ponsel ini.</string>
+    <string name="remote_slide_next">Slide berikutnya</string>
+    <string name="remote_slide_prev">Sebelumnya</string>
+    <string name="remote_slide_start">Mulai pertunjukan</string>
+    <string name="remote_slide_stop">Akhiri pertunjukan</string>
+    <string name="remote_slide_black">Layar hitam</string>
+    <string name="remote_laser_hold">Tahan untuk penunjuk laser</string>
+    <string name="remote_laser_active">Laser pada %1$s · miringkan ponsel atau seret ke sini</string>
+    <string name="remote_volume_hint">Tombol volume juga mengubah slide saat layar ini terbuka.</string>
+    <string name="remote_mode_screen">Layar</string>
+    <string name="pc_mirror_connecting">Menghubungkan ke %1$s…</string>
+    <string name="pc_mirror_capture_failed">Berbagi layar gagal. Buka kunci PC, periksa izin berbagi dan coba lagi.</string>
+    <string name="pc_mirror_fullscreen">Layar penuh</string>
+    <string name="pc_mirror_exit_fullscreen">Keluar dari layar penuh</string>
+    <string name="pc_mirror_right_click">Klik kanan</string>
+    <string name="pc_mirror_task_view">Tampilan Tugas</string>
+    <string name="pc_mirror_keyboard">papan ketik</string>
+    <string name="pc_mirror_hide_keyboard">Sembunyikan kunci</string>
+    <string name="pc_mirror_enter">Memasuki</string>
+    <string name="pc_mirror_backspace">Ruang belakang</string>
+    <string name="pc_mirror_quality_720p">720p</string>
+    <string name="pc_mirror_quality_1080p">1080p</string>
+    <string name="pc_mirror_quality_desc">Kualitas streaming: %1$s</string>
+    <string name="pc_mirror_viewport_desc">layar %1$s</string>
+
+    <!-- Voice recorder to PC -->
+    <string name="action_record_pc">Catatan</string>
+    <string name="channel_recorder">Perekam suara</string>
+    <!-- Phone as microphone. -->
+    <string name="channel_mic">Mikrofon untuk PC Anda</string>
+    <string name="channel_mic_requests">Permintaan mikrofon</string>
+    <string name="mic_notification_title">Mikrofon aktif untuk %1$s</string>
+    <string name="mic_notification_text">PC Anda mendengar mikrofon ponsel ini.</string>
+    <string name="channel_call_audio">Suara panggilan di PC Anda</string>
+    <string name="call_audio_notification_title">Suara panggilan di %1$s</string>
+    <string name="call_audio_notification_text">Anda berbicara dan mendengarkan di PC.</string>
+    <string name="call_audio_back">Kembali ke telepon</string>
+    <string name="mic_request_title">%1$s menginginkan mikrofon ponsel ini</string>
+    <string name="mic_request_text">Ketuk untuk memulai. Ini tetap menyala sampai Anda atau PC menghentikannya.</string>
+    <string name="mic_request_start">Awal</string>
+    <string name="mic_request_card_text">Ini tetap menyala sampai Anda atau PC menghentikannya.</string>
+    <string name="mic_pc_toggle">Gunakan ponsel ini sebagai mikrofon</string>
+    <string name="mic_pc_toggle_hint">Aktif secara default. PC ini dapat meminta mikrofon. Ini hanya menyala ketika Anda mengetuk Mulai.</string>
+    <string name="mic_pc_toggle_hint_auto">Aktif secara default. PC ini dapat meminta mikrofon, dan langsung menyala.</string>
+    <string name="start_without_asking_toggle">Mulai kamera dan mikrofon tanpa diminta</string>
+    <string name="start_without_asking_hint">Ketika PC ini bertanya, mereka langsung menyala, tanpa perlu mengetuk telepon. Memerlukan mode Elevated. Tanpa itu, telepon bertanya seperti biasa.</string>
+    <string name="mirror_ask_toggle">Tanyakan sebelum membagikan layar saya</string>
+    <string name="mirror_ask_hint">Setiap kali PC ini ingin melihat layar Anda, ia menunggu ketukan Anda. Tanpa ini, Elevated membagikannya sekaligus.</string>
+    <string name="clip_share_toggle">Bagikan papan klip saya dengannya</string>
+    <string name="clip_share_hint">Apa yang Anda salin akan tersimpan di sana dengan sendirinya saat Elevated aktif. Mengirimnya dengan tangan masih berfungsi.</string>
+    <string name="clip_accept_toggle">Terima papan klipnya</string>
+    <string name="clip_accept_hint">Apa yang disalin akan disimpan di papan klip ponsel ini.</string>
+    <string name="recorder_notification_recording">Merekam untuk %1$s</string>
+    <string name="recorder_notification_paused">Perekaman dijeda (%1$s)</string>
+    <string name="recorder_permission_title">Izinkan akses mikrofon</string>
+    <string name="recorder_permission_text">LinkHub hanya menggunakan mikrofon saat Anda merekam catatan suara untuk dikirim ke %1$s.</string>
+    <string name="recorder_allow_mic">Izinkan mikrofon</string>
+    <string name="recorder_offline_hint">Rekaman disimpan di ponsel ini dan dikirim secara otomatis saat %1$s terhubung.</string>
+    <string name="recorder_status_ready">Siap merekam untuk %1$s</string>
+    <string name="recorder_status_recording">Merekam untuk %1$s</string>
+    <string name="recorder_status_paused">Dijeda</string>
+    <string name="recorder_start">Mulai merekam</string>
+    <string name="recorder_pause">Berhenti sebentar</string>
+    <string name="recorder_resume">Melanjutkan</string>
+    <string name="recorder_marker_hint">Label penanda (opsional)</string>
+    <string name="recorder_add_marker">Tambahkan penanda</string>
+    <string name="recorder_marker_default">Penanda %1$d</string>
+    <string name="recorder_saved_title">Rekaman</string>
+    <string name="recorder_send_now">Kirim</string>
+    <string name="recorder_send_again">Kirim lagi</string>
+    <string name="recorder_delete">Hapus</string>
+    <string name="recorder_denied_text">Rekaman suara dimatikan untuk ponsel ini di %1$s.</string>
+    <plurals name="recorder_markers_count">
+        <item quantity="one">%1$d penanda</item>
+        <item quantity="other">%1$d penanda</item>
+    </plurals>
+
+    <!-- Deck (macro pad to PC) -->
+    <string name="action_deck_pc">Dek</string>
+    <string name="action_desk_pc">Jam meja</string>
+    <string name="deck_fullscreen">Layar penuh</string>
+    <string name="deck_exit_fullscreen">Keluar dari layar penuh</string>
+    <string name="deck_playing">Bermain</string>
+    <string name="deck_paused">Dijeda</string>
+    <string name="deck_muted">Meredam</string>
+    <string name="deck_live">Hidup</string>
+    <string name="deck_volume_percent">%1$d%%</string>
+    <string name="deck_empty_page">Belum ada ubin di halaman ini. Tambahkan ubin di LinkHub di %1$s.</string>
+    <string name="deck_commands_denied_title">Izinkan perintah di %1$s</string>
+    <string name="deck_commands_denied_text">Untuk menjalankan perintah shell dari ponsel ini, aktifkan “Jalankan perintah Deck” untuk ponsel ini di LinkHub › Pengaturan › Perangkat di %1$s.</string>
+    <string name="deck_hint">Sesuaikan ubin di Deck pada %1$s</string>
+    <string name="pc_audio_volume">Volume</string>
+    <string name="pc_audio_mute">Bisu</string>
+    <string name="pc_audio_unmute">Membunyikan</string>
+    <string name="pc_audio_muted">Meredam</string>
+    <string name="pc_audio_output">Keluaran: %1$s</string>
+    <string name="pc_audio_outputs_title">Output audio pada %1$s</string>
+    <string name="pc_audio_default_badge">Bawaan</string>
+    <string name="pc_audio_outputs_hint">Ketuk salah satu untuk memutar suara %1$s di sana.</string>
+    <string name="pc_audio_use_phone_speaker">Gunakan telepon sebagai speaker</string>
+    <string name="pc_audio_use_phone_speaker_sub">Putar audio PC di ponsel ini</string>
+    <string name="pc_audio_use_phone_speaker_on">Streaming audio PC ke ponsel ini</string>
+    <string name="pc_audio_use_phone_mic">Gunakan telepon sebagai mikrofon</string>
+    <string name="pc_audio_use_phone_mic_sub">Kirim mikrofon ponsel ini ke PC</string>
+    <string name="pc_audio_use_phone_mic_on">PC mendengar mikrofon ponsel ini</string>
+
+    <!-- Phone storage in File Explorer -->
+    <string name="storage_all_files_title">Semua akses file</string>
+    <string name="storage_all_files_on">Aktif. PC yang Anda izinkan dapat menelusuri, membuka, dan menyalin file ponsel ini di File Explorer.</string>
+    <string name="storage_all_files_off">Jelajahi folder ponsel ini di File Explorer pada PC Anda. Membutuhkan akses Semua file, atau pilih folder tertentu di bawah.</string>
+    <string name="storage_saf_title">Hanya folder yang dipilih</string>
+    <string name="storage_saf_hint">Bagikan hanya folder yang Anda pilih.</string>
+    <string name="storage_add_folder">Tambahkan map</string>
+    <string name="storage_remove_folder">Menghapus</string>
+    <string name="storage_pc_toggle">Telusuri penyimpanan ponsel ini di File Explorer</string>
+    <string name="storage_pc_toggle_hint">Mati secara default. Izinkan PC ini mendaftar, membuka, mengunggah, mengganti nama, dan menghapus file bersama Anda.</string>
+    <string name="storage_request_title">%1$s ingin menelusuri penyimpanan ponsel ini</string>
+    <string name="storage_request_text">Izinkan %1$s menelusuri penyimpanan bersama Anda (atau folder yang dipilih) di File Explorer?</string>
+    <string name="action_not_now">Tidak sekarang</string>
+
+    <!-- Phone as webcam to PC -->
+    <string name="action_webcam_pc">Kamera web</string>
+    <string name="channel_webcam">Kamera web</string>
+    <string name="channel_webcam_requests">Permintaan kamera web</string>
+    <string name="webcam_notification_streaming">Streaming kamera ke %1$s</string>
+    <string name="webcam_notification_detail">%1$d × %2$d · Kamera %3$s</string>
+    <string name="webcam_request_title">%1$s ingin menggunakan kamera Anda</string>
+    <string name="webcam_request_text">Ketuk untuk membuka kontrol webcam dan mulai streaming.</string>
+    <string name="webcam_permission_title">Izinkan akses kamera</string>
+    <string name="webcam_permission_text">LinkHub hanya menggunakan kamera saat Anda melakukan streaming video ke %1$s sebagai webcam.</string>
+    <string name="webcam_allow_camera">Izinkan kamera</string>
+    <string name="webcam_status_connecting">Menghubungkan kamera ke %1$s…</string>
+    <string name="webcam_status_ready">Siap untuk streaming ke %1$s</string>
+    <string name="webcam_start">Mulai kamera web</string>
+    <string name="webcam_stop">Hentikan kamera web</string>
+    <string name="webcam_camera_back">Kembali</string>
+    <string name="webcam_camera_front">Depan</string>
+    <string name="webcam_switch_to_front">Beralih ke kamera depan</string>
+    <string name="webcam_switch_to_back">Beralih ke kamera belakang</string>
+    <string name="webcam_turn_torch_on">Nyalakan obor</string>
+    <string name="webcam_turn_torch_off">Matikan obor</string>
+    <string name="webcam_switch_camera">Balik kamera</string>
+    <string name="webcam_zoom_label">Perbesar %1$.1f×</string>
+    <string name="webcam_resolution_label">Resolusi</string>
+    <string name="webcam_denied_text">Webcam dimatikan untuk ponsel ini di %1$s.</string>
+    <string name="webcam_offline_hint">Hubungkan %1$s di jaringan yang sama untuk mulai streaming kamera Anda.</string>
+
+    <!-- Timeline -->
+    <string name="timeline_title">Garis Waktu</string>
+    <string name="timeline_subtitle">File, klip, tautan, foto, dan sesi dibagikan dengan PC Anda.</string>
+    <string name="timeline_search">Garis waktu pencarian</string>
+    <string name="timeline_empty">Belum ada apa pun di timeline Anda.</string>
+    <string name="timeline_no_match">Tidak ada yang cocok dengan "%1$s".</string>
+    <string name="timeline_filter_all">Semua</string>
+    <string name="timeline_filter_files">File</string>
+    <string name="timeline_filter_clips">Klip</string>
+    <string name="timeline_filter_links">Tautan</string>
+    <string name="timeline_filter_photos">Foto</string>
+    <string name="timeline_filter_recordings">Rekaman</string>
+    <string name="timeline_filter_sessions">Sesi</string>
+    <string name="timeline_action_open">Membuka</string>
+    <string name="timeline_action_folder">Tampilkan di folder</string>
+    <string name="timeline_action_copy">Salin</string>
+    <string name="timeline_action_send_again">Kirim lagi</string>
+    <string name="timeline_action_remove">Menghapus</string>
+    <string name="timeline_action_clear_all">Hapus semuanya</string>
+    <string name="timeline_action_load_more">Muat lebih banyak</string>
+    <string name="timeline_today">Hari ini</string>
+    <string name="timeline_yesterday">Kemarin</string>
+    <string name="timeline_retention_30d">30d</string>
+    <string name="timeline_retention_90d">90d</string>
+    <string name="timeline_retention_1y">1 tahun</string>
+    <string name="timeline_retention_all">Semua</string>
+
+    <!-- Data &amp; storage -->
+    <string name="settings_data_storage_title">Data &amp; penyimpanan</string>
+    <string name="data_action_clear">Bersihkan</string>
+    <string name="data_notifications_title">Riwayat pemberitahuan</string>
+    <string name="data_notifications_subtitle">Dicerminkan langsung ke PC yang dipasangkan · tidak disimpan di ponsel ini (PC terus mengabaikan notifikasi hingga 24 jam / 300 item)</string>
+    <string name="data_clipboard_title">Sejarah papan klip</string>
+    <string name="data_clipboard_subtitle">Dienkripsi pada perangkat (tidak termasuk kata sandi dan OTP) · disimpan selama 7 hari, hingga 50 klip / 128 MB</string>
+    <plurals name="data_clipboard_count">
+        <item quantity="one">%1$d klip tersimpan</item>
+        <item quantity="other">%1$d klip tersimpan</item>
+    </plurals>
+    <string name="data_timeline_title">Garis Waktu</string>
+    <string name="data_timeline_subtitle">File, klip, link, foto, rekaman dan sesi · hingga 5.000 item</string>
+    <string name="data_messages_title">Tembolok pesan</string>
+    <string name="data_messages_subtitle">Notifikasi SMS dan chat dibaca langsung dari Android; file pementasan MMS sementara disimpan hingga 5 menit (benang obrolan cache PC selama 90 hari)</string>
+    <string name="data_photos_title">Thumbnail foto &amp; cache kamera</string>
+    <string name="data_photos_subtitle">Foto dibaca langsung dari MediaStore berdasarkan permintaan; pengambilan Kamera Berkelanjutan sementara disimpan hingga 24 jam</string>
+    <string name="data_received_files_title">Riwayat file yang diterima</string>
+    <string name="data_received_files_subtitle">Log transfer disimpan di Timeline (file yang disimpan di Unduhan tidak pernah dihapus)</string>
+    <string name="data_clear_everything_hint">Menghapus riwayat clipboard, Timeline, catatan transfer dan cache. PC dan pengaturan yang dipasangkan disimpan.</string>
+    <string name="data_clear_everything_button">Hapus semuanya…</string>
+    <string name="data_clear_everything_dialog_title">Hapus semua data lokal?</string>
+    <string name="data_clear_everything_dialog_body">Menghapus riwayat clipboard, Timeline, catatan file yang diterima, dan cache di ponsel ini. PC dan pengaturan yang dipasangkan disimpan.</string>
+    <string name="data_clear_everything_confirm">Hapus semuanya</string>
+    <string name="data_cleared_everything_toast">Menghapus semua data lokal di ponsel ini.</string>
+
+    <!-- LocalSend -->
+    <string name="settings_localsend_title">Kirim Lokal</string>
+    <string name="settings_localsend_subtitle">Kirim dan terima file dengan perangkat LocalSend terdekat. Mati secara default. File yang masuk selalu ditanyakan terlebih dahulu.</string>
+    <string name="localsend_card_title">LokalKirim di dekatnya</string>
+    <string name="localsend_card_empty">Belum ada perangkat LocalSend yang ditemukan di jaringan Wi-Fi ini.</string>
+    <string name="localsend_nearby_device">Perangkat terdekat</string>
+    <string name="action_accept">Menerima</string>
+    <string name="action_decline">Menolak</string>
+    <string name="action_dismiss">Membubarkan</string>
+
+    <!-- Continuity Camera -->
+    <string name="channel_camera_requests">Permintaan pengambilan kamera</string>
+    <string name="continuity_camera_request_scan_title">%1$s ingin memindai dokumen</string>
+    <string name="continuity_camera_request_photo_title">%1$s ingin mengambil foto</string>
+    <string name="continuity_camera_request_scan_text">Ketuk untuk memindai dokumen dengan kamera Anda.</string>
+    <string name="continuity_camera_request_photo_text">Ketuk untuk mengambil foto dengan kamera Anda.</string>
+    <string name="continuity_camera_scan_title">Pindai dokumen</string>
+    <string name="continuity_camera_photo_title">Ambil foto</string>
+    <string name="continuity_camera_for_pc">Untuk %1$s</string>
+    <string name="continuity_camera_mode_photo">Foto</string>
+    <string name="continuity_camera_mode_scan">Pindai</string>
+    <string name="continuity_camera_enhance">Sempurnakan dokumen</string>
+    <string name="continuity_camera_adjust_corners">Sesuaikan sudut</string>
+    <string name="continuity_camera_preview_scan">Pratinjau pemindaian</string>
+    <string name="continuity_camera_retake">Merebut kembali</string>
+    <string name="continuity_camera_send_scan">Kirim pindaian</string>
+    <string name="continuity_camera_use_photo">Gunakan foto</string>
+    <string name="continuity_camera_shutter_photo">Ambil foto</string>
+    <string name="continuity_camera_shutter_scan">Tangkap dokumen</string>
+    <string name="continuity_camera_preview_desc">Pratinjau yang diambil</string>
+    <string name="continuity_camera_corners_desc">Seret sudut untuk menyesuaikan tepi dokumen</string>
+    <string name="continuity_camera_permission_denied">Izin kamera ditolak di ponsel</string>
+    <string name="continuity_camera_cancelled">Dibatalkan di telepon</string>
+
+    <!-- Task notifications -->
+    <string name="task_default_label">Tugas</string>
+    <string name="task_finished_title">%1$s selesai</string>
+    <string name="task_failed_title">%1$s gagal (keluar dari %2$d)</string>
+    <string name="task_took_from">%1$s · %2$s</string>
+    <string name="task_took_hm">Mengambil %1$dh %2$02dm</string>
+    <string name="task_took_ms">Mengambil %1$dm %2$02ds</string>
+    <string name="task_took_s">Mengambil %1$d</string>
+    <string name="task_running_short">Berlari</string>
+
+    <!-- Errors -->
+    <string name="error_not_connected">PC tidak terhubung saat ini.</string>
+    <string name="error_not_paired">PC tersebut tidak dipasangkan lagi.</string>
+    <string name="error_timed_out">PC tidak menjawab tepat waktu.</string>
+    <string name="error_unsupported">Aplikasi di PC belum mendukung hal tersebut.</string>
+    <string name="error_generic">Ada yang tidak beres.</string>
+
+    <!-- Theme seed names -->
+    <string name="settings_seed_honey">Sayang</string>
+    <string name="settings_seed_lavender">warna lembayung muda</string>
+    <string name="settings_seed_ocean">Laut</string>
+    <string name="settings_seed_sage">Sage</string>
+    <string name="settings_seed_black">Hitam</string>
+    <string name="settings_amoled">Hitam murni (AMOLED)</string>
+    <string name="settings_amoled_hint">Benar #000000 permukaan gelap untuk layar OLED.</string>
+
+    <!-- Deck defaults &amp; accessibility -->
+    <string name="deck_tile_with_badge">%1$s, %2$s</string>
+    <string name="deck_default_page_main">Utama</string>
+    <string name="deck_default_play_pause">Putar / jeda</string>
+    <string name="deck_default_previous">Sebelumnya</string>
+    <string name="deck_default_next">Berikutnya</string>
+    <string name="deck_default_volume_down">Volume turun</string>
+    <string name="deck_default_volume_up">Naikkan volume</string>
+    <string name="deck_default_volume_mute">Bisukan audio</string>
+    <string name="deck_default_mic_mute">Mikrofon tidak bersuara</string>
+    <string name="deck_default_show_desktop">Tampilkan desktop</string>
+    <string name="deck_default_switch_window">Beralih jendela</string>
+    <string name="deck_default_screenshot">Tangkapan layar</string>
+    <string name="deck_default_lock_pc">Kunci PC</string>
+
+    <!-- Remote special keys -->
+    <string name="remote_key_ctrl">Ctrl</string>
+    <string name="remote_key_alt">alternatif</string>
+    <string name="remote_key_shift">Menggeser</string>
+    <string name="remote_key_win">Menang</string>
+    <string name="remote_key_esc">Esc</string>
+    <string name="remote_key_esc_desc">Melarikan diri</string>
+    <string name="remote_key_tab">tab</string>
+    <string name="remote_key_left_desc">Panah kiri</string>
+    <string name="remote_key_up_desc">Panah atas</string>
+    <string name="remote_key_down_desc">Panah bawah</string>
+    <string name="remote_key_right_desc">Panah kanan</string>
+    <string name="remote_key_home">Beranda</string>
+    <string name="remote_key_end">Akhir</string>
+    <string name="remote_key_del">Del</string>
+    <string name="remote_key_del_desc">Hapus</string>
+    <string name="remote_key_copy">Salin</string>
+    <string name="remote_key_paste">Tempel</string>
+    <string name="remote_key_undo">Membuka</string>
+
+    <!-- Webcam formatting -->
+    <string name="webcam_stream_spec">%1$d × %2$d · %3$d fps</string>
+    <string name="webcam_stream_camera_spec">%1$d × %2$d · %3$s</string>
+    <string name="webcam_status_streaming_camera">Streaming %1$d × %2$d ke %3$s · %4$s</string>
+    <string name="webcam_res_720p">720p</string>
+    <string name="webcam_res_1080p">1080p</string>
+    <string name="webcam_res_4k">4K</string>
+    <string name="webcam_zoom_preset">%1$d×</string>
+
+    <!-- Formatted status &amp; metadata phrases -->
+    <string name="transfer_requested_from_size">%1$s ingin mengirim file · %2$s</string>
+    <string name="transfer_sending_progress">Mengirim ke %1$s · %2$s / %3$s</string>
+    <string name="transfer_receiving_progress">Menerima dari %1$s · %2$s / %3$s</string>
+    <string name="clipboard_history_meta">%1$s · %2$s</string>
+    <string name="clipboard_history_meta_pinned">%1$s · %2$s · Disematkan</string>
+    <string name="timeline_latest_summary">%1$s · %2$s</string>
+    <string name="recorder_marker_chip">%1$s · %2$s</string>
+
+    <!-- Rich Handoff -->
+    <string name="handoff_map_from">Peta dari %1$s</string>
+    <string name="handoff_video_from">Video dari %1$s</string>
+    <string name="handoff_action_continue_video">Lanjutkan menonton</string>
+    <string name="handoff_doc_received_from">Dari %1$s · ketuk untuk membuka</string>
+
+    <!-- Remote PC keyboard typing without mirroring -->
+    <string name="keyboard_from_pc_banner">Mengetik dari %1$s</string>
+    <string name="keyboard_stop">Berhenti mengetik</string>
+
+    <!-- Home-screen PC widget -->
+    <string name="widget_pc_title">Sekilas tentang PC</string>
+    <string name="widget_pc_description">Apakah PC Anda terhubung, dengan Dering, opsi daya, dan Bangun.</string>
+    <string name="widget_now_playing_title">Sekarang sedang diputar</string>
+    <string name="widget_now_playing_description">Apa yang sedang diputar di PC Anda, beserta kontrolnya.</string>
+    <string name="widget_actions_title">Tindakan cepat</string>
+    <string name="widget_actions_description">Kirim clipboard atau file Anda, telepon PC Anda, atau kunci, tidurkan, atau matikan.</string>
+    <string name="widget_from_pc_title">Dari PC Anda</string>
+    <string name="widget_from_pc_description">Klip dan file terakhir yang dikirim PC Anda, untuk disalin atau dibuka.</string>
+    <string name="widget_from_pc_empty">Klip dan file yang dikirimkan PC Anda muncul di sini.</string>
+    <string name="widget_media_on_pc">Pada %1$s</string>
+    <string name="widget_media_nothing">Tidak ada yang dimainkan</string>
+    <string name="widget_media_nothing_hint">Musik dan video yang diputar di %1$s muncul di sini.</string>
+    <string name="widget_battery">Baterai %1$d%%</string>
+    <string name="widget_battery_charging">Baterai %1$d%% · pengisian daya</string>
+    <string name="widget_link_lan">Di jaringan Anda</string>
+    <string name="widget_seen">Terlihat %1$s</string>
+    <string name="widget_pc_send_clipboard">Kirim papan klip</string>
+    <string name="widget_power">Kekuatan</string>
+    <string name="widget_power_lock">Kunci</string>
+    <string name="widget_power_suspend">Menskors</string>
+    <string name="widget_power_off">Matikan</string>
+    <string name="widget_power_off_title">Matikan %1$s?</string>
+    <string name="widget_choose_pc">Pilih komputer</string>
+    <string name="widget_power_offline">Opsi daya muncul saat %1$s terhubung.</string>
+    <string name="widget_pc_no_pc">Tidak ada PC yang dipasangkan</string>
+    <string name="widget_pc_tap_to_pair">Ketuk untuk membuka LinkHub dan memasangkan PC</string>
+    <string name="widget_pc_connected">Terhubung</string>
+    <string name="widget_pc_offline">Offline</string>
+    <string name="widget_pc_waking">Bangun…</string>
+    <string name="widget_pc_wake">Bangun</string>
+    <string name="widget_pc_ring">Deringkan PC</string>
+    <string name="widget_pc_ringing_toast">Dering %1$s…</string>
+    <string name="widget_pc_waking_toast">Bangun %1$s…</string>
+
+    <!-- Companion Device Manager proximity wake -->
+    <string name="companion_wake_title">Bangun saat PC berada di dekatnya (Perangkat Pendamping)</string>
+    <string name="companion_wake_on">Terkait · Android membangunkan LinkHub ketika PC Anda berada di dekatnya</string>
+    <string name="companion_wake_off">Kaitkan PC Anda sehingga Android membangunkan LinkHub saat suar BLE-nya berada dalam jangkauan</string>
+    <string name="companion_wake_associate">Rekan</string>
+
+    <!-- Flick to Send sheet -->
+
+    <!-- PC notifications &amp; Browse PC files -->
+    <string name="channel_pc_notifications">Pemberitahuan PC</string>
+    <string name="channel_peer_notifications">Notifikasi dari ponsel atau tablet Anda yang lain</string>
+    <string name="action_browse_pc_files">Jelajahi file PC</string>
+    <string name="pc_files_title">File di %1$s</string>
+    <string name="pc_files_root">Beranda</string>
+    <string name="pc_files_up">Ke atas</string>
+    <string name="pc_files_empty">Folder ini kosong.</string>
+    <string name="pc_files_loading">Memuat file…</string>
+    <string name="pc_files_downloading">Mengunduh %1$s…</string>
+    <string name="pc_files_saved">Menyimpan %1$s ke Unduhan</string>
+    <string name="pc_files_failed">Tidak dapat mengunduh %1$s</string>
+    <string name="pc_files_not_shared">Aktifkan “PC Anda di saku Anda” di Pengaturan LinkHub di %1$s.</string>
+    <string name="pc_files_offline">%1$s tidak terhubung.</string>
+    <string name="pc_files_update">Perbarui LinkHub di %1$s untuk menelusuri filenya.</string>
+    <string name="pc_files_not_found">Folder ini tidak lagi ada di %1$s.</string>
+    <string name="pc_files_error">Tidak dapat mencantumkan folder ini di %1$s. Coba lagi.</string>
+    <string name="pc_files_folder_downloads">Unduhan</string>
+    <string name="pc_files_folder_documents">Dokumen</string>
+    <string name="pc_files_folder_desktop">Desktop</string>
+    <string name="pc_files_folder_pictures">Gambar</string>
+
+    <!-- Live streaming banners, remote input setup, collapsible permissions &amp; clipboard privacy -->
+    <string name="mirror_banner_subtitle_control_on">Ketuk, geser, dan ketik dari PC Anda</string>
+    <string name="mirror_banner_subtitle_audio">Layar dan audio · ketuk Berhenti kapan saja</string>
+    <string name="mirror_banner_subtitle">Streaming layar langsung · ketuk Berhenti kapan saja</string>
+    <string name="mirror_banner_subtitle_sound">Hanya suara · ketuk Berhenti kapan saja</string>
+    <string name="mirror_allow_pc_control">Izinkan kontrol mouse PC</string>
+    <string name="action_open_controls">Kontrol</string>
+    <string name="remote_input_requested_title">PC Anda mencoba mengendalikan telepon ini</string>
+    <string name="remote_input_requested_text">Aktifkan “LinkHub: kontrol dari PC Anda” di Aksesibilitas untuk menggunakan mouse dan keyboard PC Anda di ponsel ini.</string>
+    <string name="permissions_setup_title">Izin &amp; pengaturan (sisa %1$d)</string>
+    <string name="permissions_setup_subtitle">Pemberitahuan, panggilan, teks, foto, dan akses latar belakang</string>
+    <string name="clipboard_preview_hidden">••••••••••••</string>
+    <string name="clipboard_preview_reveal">Menunjukkan</string>
+    <string name="clipboard_preview_hide">Bersembunyi</string>
+
+    <!-- Send queue -->
+    <string name="send_queue_title_count">Menunggu untuk dikirim · %1$d</string>
+    <string name="send_queue_cancel_all">Batalkan semuanya</string>
+    <string name="send_queue_clear">Bersihkan</string>
+    <string name="send_queue_waiting_for">Menunggu %1$s</string>
+    <string name="send_queue_sending_progress">Mengirim · %1$d%%</string>
+    <string name="send_queue_sending">Mengirim…</string>
+    <string name="send_queue_failed_reason">Gagal · %1$s</string>
+    <string name="send_queue_expired_reason">Kedaluwarsa · %1$s</string>
+    <string name="send_queue_retry">Coba lagi</string>
+    <string name="send_queue_dismiss">Membubarkan</string>
+    <string name="send_queue_offline_toast">%1$s sedang offline. Akan dikirim ketika sudah kembali.</string>
+    <string name="send_queue_undo">Membuka</string>
+    <string name="send_queue_full">Antrean kirim penuh. Hapus atau tunggu hingga item yang tertunda selesai.</string>
+    <string name="send_queue_dropped_unpair">Menghapus item antrian %1$d untuk %2$s (perangkat tidak berpasangan).</string>
+
+    <!-- Setup Walkthrough -->
+    <string name="walkthrough_step_progress">Langkah %1$d dari %2$d</string>
+    <string name="walkthrough_stage_desc">Tahap penyiapan Honeycomb, langkah %1$d dari %2$d</string>
+    <string name="walkthrough_action_skip">Lewati penyiapan</string>
+    <string name="walkthrough_action_back">Kembali</string>
+    <string name="walkthrough_action_get_started">Mulailah</string>
+    <string name="walkthrough_action_continue">Melanjutkan</string>
+    <string name="walkthrough_action_pair_later">Pasangkan nanti</string>
+    <string name="walkthrough_action_done">Selesai</string>
+    <string name="walkthrough_action_open_guide">Buka panduan fitur</string>
+
+    <string name="walkthrough_welcome_title">Hubungkan ponsel dan PC Anda</string>
+    <string name="walkthrough_welcome_subtitle">Pemberitahuan, panggilan, pesan, file, clipboard, kamera dan layar, dibagikan dengan PC Anda.</string>
+    <string name="walkthrough_welcome_card_heading">Pribadi berdasarkan desain</string>
+    <string name="walkthrough_welcome_tls_title">Terenkripsi ujung ke ujung (TLS 1.3)</string>
+    <string name="walkthrough_welcome_tls_body">Setiap koneksi menggunakan sertifikat perangkat yang saling diverifikasi.</string>
+    <string name="walkthrough_welcome_lan_title">Langsung melalui Wi-Fi, Ethernet, atau USB</string>
+    <string name="walkthrough_welcome_lan_body">Lalu lintas tetap di jaringan Anda. Relai hanya digunakan ketika Sambungkan melalui data seluler aktif.</string>
+    <string name="walkthrough_welcome_local_title">Tidak ada akun atau penyimpanan cloud</string>
+    <string name="walkthrough_welcome_local_body">Kunci perangkat dilindungi oleh Windows DPAPI dan Android Keystore.</string>
+
+    <string name="walkthrough_permissions_title">Izin</string>
+    <string name="walkthrough_permissions_subtitle">Berikan hanya apa yang Anda gunakan. Ubah izin apa pun nanti di Pengaturan.</string>
+    <string name="walkthrough_permissions_granted_badge">%1$d dari %2$d diberikan</string>
+    <string name="walkthrough_perm_counter">Izin %1$d dari %2$d</string>
+    <string name="walkthrough_perm_counter_optional">Izin %1$d dari %2$d · Opsional</string>
+    <string name="walkthrough_perm_status_granted">Diberikan</string>
+    <string name="walkthrough_perm_status_not_granted">Tidak diberikan</string>
+    <string name="walkthrough_perm_action_grant">Menganugerahkan</string>
+    <string name="walkthrough_perm_action_manage">Mengelola</string>
+    <string name="walkthrough_perm_action_next">Berikutnya</string>
+    <string name="walkthrough_perm_dot_desc">%1$s, %2$s</string>
+    <string name="walkthrough_perm_pill_number" translatable="false">%1$d</string>
+
+    <string name="walkthrough_perm_notif_title">Notifikasi</string>
+    <string name="walkthrough_perm_notif_does">Lihat, tutup, dan balas notifikasi telepon dan kontrol media di PC Anda.</string>
+    <string name="walkthrough_perm_notif_requires">Android memerlukan Akses Notifikasi dan izin notifikasi.</string>
+    <string name="walkthrough_restricted_title">Android memblokir pengaturan ini</string>
+    <string name="walkthrough_restricted_body">Android menahan beberapa izin untuk aplikasi yang diinstal dari file, bukan dari toko aplikasi. Untuk mengizinkan yang ini:</string>
+    <string name="walkthrough_restricted_step1">Ketuk Buka info aplikasi.</string>
+    <string name="walkthrough_restricted_step2">Ketuk ⋮ di kanan atas, lalu Izinkan pengaturan terbatas, dan konfirmasi.</string>
+    <string name="walkthrough_restricted_step3">Kembali ke sini dan ketuk Hibah lagi.</string>
+    <string name="walkthrough_restricted_note">Menu menampilkan opsi ini hanya setelah Anda mencoba memberikan izin satu kali. Beberapa telepon mengatakannya secara berbeda.</string>
+    <string name="walkthrough_restricted_open">Buka info aplikasi</string>
+
+    <string name="walkthrough_perm_battery_title">Baterai tidak terbatas</string>
+    <string name="walkthrough_perm_battery_does">Jaga agar ponsel Anda tetap terjangkau saat layar mati.</string>
+    <string name="walkthrough_perm_battery_requires">Menjaga link ke PC Anda tetap aktif saat ponsel terkunci.</string>
+
+    <string name="walkthrough_perm_calls_title">Panggilan</string>
+    <string name="walkthrough_perm_calls_does">Lihat panggilan masuk di PC Anda dan jawab, tolak, atau hubungi dari desktop Anda.</string>
+    <string name="walkthrough_perm_calls_requires">Android memerlukan izin Telepon dan Log Panggilan.</string>
+
+    <string name="walkthrough_perm_sms_title">Pesan</string>
+    <string name="walkthrough_perm_sms_does">Membaca dan mengirim pesan SMS dan MMS dari PC Anda dengan nama kontak.</string>
+    <string name="walkthrough_perm_sms_requires">Android memerlukan izin SMS dan Kontak.</string>
+
+    <string name="walkthrough_perm_photos_title">Foto</string>
+    <string name="walkthrough_perm_photos_does">Jelajahi foto ponsel terbaru di PC Anda dan simpan yang asli.</string>
+    <string name="walkthrough_perm_photos_requires">Android memerlukan akses Foto dan video.</string>
+
+    <string name="walkthrough_perm_storage_title">Penyimpanan di File Explorer</string>
+    <string name="walkthrough_perm_storage_does">Telusuri folder telepon Anda dari PC di File Explorer.</string>
+    <string name="walkthrough_perm_storage_requires">Android memerlukan akses Semua file atau folder yang dipilih.</string>
+
+    <string name="walkthrough_perm_access_title">Membantu</string>
+    <string name="walkthrough_perm_access_does">Kontrol layar ponsel cermin Anda dari PC dengan mouse dan keyboard.</string>
+    <string name="walkthrough_perm_access_requires">Android memerlukan layanan Aksesibilitas LinkHub atau Elevated.</string>
+
+    <string name="walkthrough_pair_title">Sandingkan dengan PC Anda</string>
+    <string name="walkthrough_pair_subtitle">Buka LinkHub di PC Anda. Pindai kode QR-nya atau pilih PC Anda di bawah.</string>
+    <string name="walkthrough_pair_ready_title">PC berpasangan</string>
+    <string name="walkthrough_pair_badge_paired">Tersanding</string>
+    <string name="walkthrough_pair_device_online">%1$s · Terhubung</string>
+    <string name="walkthrough_pair_device_offline">%1$s · Offline</string>
+    <string name="walkthrough_pair_scan_qr">Pindai kode QR</string>
+    <string name="walkthrough_pair_hide_qr">Sembunyikan pemindai QR</string>
+    <string name="walkthrough_pair_nearby_heading">PC terdekat</string>
+    <string name="walkthrough_pair_nearby_tap">Ketuk untuk memasangkan di jaringan lokal Anda</string>
+    <string name="walkthrough_pair_usb_title">Pemasangan otomatis USB</string>
+    <string name="walkthrough_pair_usb_hint">Hubungkan kabel USB dengan USB debugging diaktifkan untuk memasangkan secara otomatis.</string>
+
+    <string name="walkthrough_power_title">Pilih tingkat kekuatan Anda</string>
+    <string name="walkthrough_power_subtitle">Pilih seberapa besar kendali yang dimiliki PC Anda atas ponsel ini.</string>
+    <string name="walkthrough_power_current_badge">Saat ini: %1$s</string>
+    <string name="walkthrough_power_badge_active">Aktif</string>
+    <string name="walkthrough_power_badge_available">Tersedia</string>
+    <string name="walkthrough_power_badge_optional">Opsional</string>
+    <string name="walkthrough_power_standard_title">Standar</string>
+    <string name="walkthrough_power_standard_sub">Pemasangan bawaan</string>
+    <string name="walkthrough_power_standard_desc">Pemberitahuan, panggilan, pesan, foto, file, ubin Kirim papan klip, dan pencerminan hanya lihat.</string>
+    <string name="walkthrough_power_assist_title">Membantu</string>
+    <string name="walkthrough_power_assist_sub">Layanan aksesibilitas</string>
+    <string name="walkthrough_power_assist_desc">Menambahkan kontrol mouse dan keyboard dari PC Anda selama pencerminan layar.</string>
+    <string name="walkthrough_power_assist_manage">Mengelola</string>
+    <string name="walkthrough_power_assist_open">Menyalakan</string>
+    <string name="walkthrough_power_elevated_title">Tinggi</string>
+    <string name="walkthrough_power_elevated_sub">Proses debug nirkabel</string>
+    <string name="walkthrough_power_elevated_desc">Sinkronisasi papan klip latar belakang, aplikasi di jendela PC masing-masing, dan input latensi rendah.</string>
+    <string name="walkthrough_power_elevated_reconnect">Hubungkan kembali</string>
+    <string name="walkthrough_power_elevated_enable">Mendirikan</string>
+    <string name="walkthrough_power_elevated_hide_steps">Sembunyikan langkah</string>
+    <string name="walkthrough_power_elevated_show_steps">Tunjukkan langkah-langkahnya</string>
+    <string name="walkthrough_power_elevated_steps_heading">Pengaturan debugging nirkabel</string>
+    <string name="walkthrough_power_elevated_step1">1. Pada Pengaturan › Tentang ponsel, ketuk Nomor pembuatan 7 kali untuk mengaktifkan opsi Pengembang.</string>
+    <string name="walkthrough_power_elevated_step2">2. Ketuk Atur untuk membuka opsi Pengembang.</string>
+    <string name="walkthrough_power_elevated_step3">3. Aktifkan Wireless debugging, ketuk Pasangkan perangkat dengan kode penyandingan, lalu masukkan kode 6 digit di notifikasi.</string>
+
+    <string name="walkthrough_done_title">Penyiapan selesai</string>
+    <string name="walkthrough_done_subtitle">LinkHub sudah siap. Buka kembali panduan ini kapan saja dari Pengaturan › Tentang.</string>
+    <string name="walkthrough_done_summary_heading">Pengaturan Anda</string>
+    <string name="walkthrough_done_paired_label">PC berpasangan</string>
+    <string name="walkthrough_done_no_pc">Belum ada · pasangkan kapan saja di Beranda</string>
+    <string name="walkthrough_done_power_label">Tingkat kekuatan</string>
+    <string name="walkthrough_done_power_elevated">Elevated (Debug nirkabel)</string>
+    <string name="walkthrough_done_power_assist">Bantuan (Layanan aksesibilitas)</string>
+    <string name="walkthrough_done_power_standard">Standar</string>
+    <string name="walkthrough_done_permissions_label">Izin</string>
+    <string name="walkthrough_done_no_permissions">Belum ada yang diberikan</string>
+    <string name="walkthrough_done_try_heading">Coba dulu</string>
+    <string name="walkthrough_done_try_1">1. Salin teks dan ketuk ubin Kirim papan klip untuk ditempelkan di PC Anda.</string>
+    <string name="walkthrough_done_try_2">2. Bagikan file atau tautan apa pun ke LinkHub dari Android Share.</string>
+
+    <!-- Features Guide Chrome -->
+    <string name="guide_back">Kembali</string>
+    <string name="guide_open_walkthrough">Panduan pengaturan</string>
+    <string name="guide_title">Panduan fitur</string>
+    <string name="guide_subtitle">Periksa kesiapan fitur pada ponsel ini atau langsung buka kontrolnya.</string>
+    <string name="guide_search_placeholder">Fitur atau izin pencarian</string>
+    <string name="guide_search_desc">Fitur pencarian</string>
+    <string name="guide_connect_pc_banner">Hubungkan PC Anda untuk melihat fitur mana yang siap</string>
+    <string name="guide_empty_title">Tidak ada fitur yang cocok</string>
+    <string name="guide_empty_body">Coba kata kunci lain atau pilih Semua.</string>
+    <string name="guide_where_prefix">Dimana: %1$s</string>
+    <string name="guide_needs_prefix">Kebutuhan: %1$s</string>
+    <string name="guide_external_heading">Buka dari Android</string>
+    <string name="guide_action_show_me">Tunjukkan padaku</string>
+    <string name="guide_action_learn_more">Pelajari lebih lanjut</string>
+    <string name="guide_action_done">Selesai</string>
+    <string name="guide_sheet_where">Di mana menemukannya</string>
+    <string name="guide_sheet_needs">Apa yang Anda butuhkan</string>
+    <string name="guide_sheet_steps_phone">Di ponsel Anda</string>
+    <string name="guide_sheet_steps_pc">Di PC Anda</string>
+    <string name="guide_sheet_options">Pilihan</string>
+    <string name="guide_sheet_privacy">Data dan privasi</string>
+    <string name="guide_sheet_limits">Batasan</string>
+    <string name="guide_numbered_step">%1$d. %2$s</string>
+
+    <string name="guide_area_all">Semua</string>
+    <string name="guide_area_notifications_calls">Pemberitahuan &amp; Panggilan</string>
+    <string name="guide_area_messages">Pesan</string>
+    <string name="guide_area_clipboard_files">Papan Klip &amp; File</string>
+    <string name="guide_area_mirroring_camera">Pencerminan &amp; Kamera</string>
+    <string name="guide_area_input_control">Masukan &amp; Kontrol</string>
+    <string name="guide_area_power_network">Kekuatan &amp; Jaringan</string>
+
+    <string name="guide_badge_available">Siap</string>
+    <string name="guide_badge_needs_permission">Membutuhkan %1$s</string>
+    <string name="guide_badge_needs_power">Membutuhkan %1$s</string>
+    <string name="guide_badge_connect_pc">Hubungkan PC Anda untuk memeriksa</string>
+
+    <string name="guide_req_notification_access">Akses notifikasi</string>
+    <string name="guide_req_unrestricted_battery">Baterai tidak terbatas</string>
+    <string name="guide_req_calls">Log Telepon dan Panggilan</string>
+    <string name="guide_req_sms_contacts">SMS dan Kontak</string>
+    <string name="guide_req_photos">Foto</string>
+    <string name="guide_req_storage">Semua akses file</string>
+    <string name="guide_req_dnd">Jangan Ganggu akses</string>
+    <string name="guide_req_write_settings">Ubah pengaturan sistem</string>
+    <string name="guide_req_elevated">Tinggi</string>
+    <string name="guide_req_assist_or_elevated">Assist atau Elevated</string>
+
+    <string name="guide_fix_grant">Menganugerahkan</string>
+    <string name="guide_fix_allow">Mengizinkan</string>
+    <string name="guide_fix_enable">Memungkinkan</string>
+    <string name="guide_fix_pair">Sandingkan</string>
+
+    <!-- Features Guide Entries -->
+    <!-- 1. Notifications -->
+    <string name="guide_notif_title">Notifikasi</string>
+    <string name="guide_notif_summary">Lihat notifikasi telepon di PC Anda, tutup, atau balas secara inline.</string>
+    <string name="guide_notif_where">Pengaturan › Izin › Pemberitahuan</string>
+    <string name="guide_notif_needs">Akses notifikasi, Aktifkan notifikasi untuk PC</string>
+    <string name="guide_notif_need_1">Akses Notifikasi Android diaktifkan untuk LinkHub.</string>
+    <string name="guide_notif_need_2">Di Android 13+, Izinkan pengaturan terbatas diaktifkan di Info aplikasi jika di-sideload.</string>
+    <string name="guide_notif_need_3">PC dipasangkan dan online.</string>
+    <string name="guide_notif_phone_1">Buka Pengaturan › Izin › Pemberitahuan dan ketuk Izinkan.</string>
+    <string name="guide_notif_phone_2">Aktifkan LinkHub di Akses Notifikasi Android.</string>
+    <string name="guide_notif_pc_1">Lihat notifikasi telepon di pusat notifikasi PC atau jendela LinkHub.</string>
+    <string name="guide_notif_pc_2">Ketik balasan di kartu dan tekan Kirim, atau tutup untuk menghapus di kedua perangkat.</string>
+    <string name="guide_notif_opt_1">Izinkan / Kelola: Membuka pengaturan Akses Notifikasi Android.</string>
+    <string name="guide_notif_opt_2">Tombol Notifikasi Per-PC: Mengontrol apakah PC yang dipasangkan menerima notifikasi.</string>
+    <string name="guide_notif_privacy">Notifikasi dialirkan melalui TLS 1.3 dan tetap tersimpan di memori ponsel ini.</string>
+    <string name="guide_notif_limits">Notifikasi sistem yang sedang berlangsung tidak dapat ditutup dari jarak jauh.</string>
+
+    <!-- 2. Calls -->
+    <string name="guide_calls_title">Panggilan</string>
+    <string name="guide_calls_summary">Lihat panggilan masuk di PC Anda, jawab atau tolak, dan hubungi nomor dari desktop Anda.</string>
+    <string name="guide_calls_where">Pengaturan › Izin › Panggilan, kontak dan pesan</string>
+    <string name="guide_calls_needs">Izin Telepon, Log Panggilan, dan Kontak</string>
+    <string name="guide_calls_need_1">Izin Telepon dan Log Panggilan diberikan di Android.</string>
+    <string name="guide_calls_need_2">Izin kontak diberikan untuk nama penelepon dan foto.</string>
+    <string name="guide_calls_phone_1">Buka Pengaturan › Izin › Panggilan, kontak dan pesan dan ketuk Izinkan.</string>
+    <string name="guide_calls_phone_2">Gunakan notifikasi panggilan aktif untuk kontrol Mute, Speaker, dan Hang up.</string>
+    <string name="guide_calls_pc_1">Jawab, tolak, atau balas dengan SMS dari banner panggilan masuk di PC Anda.</string>
+    <string name="guide_calls_pc_2">Buka Panggilan di PC Anda untuk menelusuri riwayat panggilan atau menghubungi nomor.</string>
+    <string name="guide_calls_opt_1">Jawab / Tolak: Menerima atau menolak panggilan masuk di ponsel Anda.</string>
+    <string name="guide_calls_opt_2">Mute / Speaker: Mengalihkan mute mikrofon ponsel atau speakerphone selama panggilan.</string>
+    <string name="guide_calls_privacy">Riwayat panggilan dibaca dari Android saat PC Anda terhubung dan tidak pernah meninggalkan perangkat pasangan Anda.</string>
+    <string name="guide_calls_limits">Audio panggilan tetap ada di ponsel atau headset Anda. Bisukan dan tahan panggilan dari PC memerlukan Elevated di Android 12+.</string>
+
+    <!-- 3. Now playing -->
+    <string name="guide_media_title">Sekarang sedang diputar</string>
+    <string name="guide_media_summary">Kontrol pemutaran media ponsel dan PC, sesuaikan volume PC, atau streaming audio PC ke speaker ponsel Anda.</string>
+    <string name="guide_media_where">Beranda › Kartu PC berpasangan › Audio PC</string>
+    <string name="guide_media_needs">Akses notifikasi untuk media telepon, PC berpasangan online untuk audio PC</string>
+    <string name="guide_media_need_1">Akses Notifikasi di Android untuk membaca sesi media aktif.</string>
+    <string name="guide_media_need_2">PC berpasangan online.</string>
+    <string name="guide_media_phone_1">Di Beranda, perluas audio PC pada kartu PC pasangan Anda.</string>
+    <string name="guide_media_phone_2">Sesuaikan penggeser volume PC atau aktifkan Gunakan telepon sebagai speaker.</string>
+    <string name="guide_media_pc_1">Kontrol pemutaran ponsel dengan Putar, Jeda, Berikutnya, dan Sebelumnya di PC Anda.</string>
+    <string name="guide_media_opt_1">Gunakan ponsel sebagai speaker: Streaming audio dari PC ke ponsel Anda dengan latensi rendah.</string>
+    <string name="guide_media_opt_2">Volume dan Mute: Mengontrol perangkat pemutaran default di PC Anda.</string>
+    <string name="guide_media_privacy">Metadata media dan karya seni berasal dari sesi media lokal melalui TLS 1.3.</string>
+    <string name="guide_media_limits">Streaming audio PC langsung memerlukan koneksi Wi-Fi atau USB yang stabil.</string>
+
+    <!-- 4. Messages -->
+    <string name="guide_sms_title">Pesan</string>
+    <string name="guide_sms_summary">Baca rangkaian percakapan, lihat lampiran MMS, dan kirim teks dari PC Anda.</string>
+    <string name="guide_sms_where">Pengaturan › Izin › Panggilan, kontak dan pesan</string>
+    <string name="guide_sms_needs">Izin SMS dan Kontak</string>
+    <string name="guide_sms_need_1">Izin SMS diberikan di Android.</string>
+    <string name="guide_sms_need_2">Izin kontak diberikan untuk nama kontak dan avatar.</string>
+    <string name="guide_sms_phone_1">Buka Pengaturan › Izin › Panggilan, kontak dan pesan dan izinkan Teks dari PC dan Kontak Anda.</string>
+    <string name="guide_sms_pc_1">Buka Pesan di PC Anda untuk membaca rangkaian pesan atau mengirim balasan SMS dan MMS.</string>
+    <string name="guide_sms_opt_1">Izinkan / Kelola: Membuka pengaturan izin Android untuk SMS dan Kontak.</string>
+    <string name="guide_sms_opt_2">Cache pesan: Hapus file MMS bertahap di Pengaturan › Fitur &amp; Data › Data &amp; penyimpanan.</string>
+    <string name="guide_sms_privacy">Pesan dibaca dari telepon Android sesuai permintaan.</string>
+    <string name="guide_sms_limits">Pengiriman menggunakan kartu SIM ponsel dan paket operator Anda.</string>
+
+    <!-- 5. Clipboard -->
+    <string name="guide_clip_title">Papan klip</string>
+    <string name="guide_clip_summary">Bagikan salinan teks dan gambar antara ponsel dan PC, dan jelajahi 50 klip terakhir dalam riwayat Clipboard.</string>
+    <string name="guide_clip_where">Beranda › Riwayat papan klip (atau Pengaturan › Fitur &amp; Data › Papan Klip)</string>
+    <string name="guide_clip_needs">PC berpasangan; Elevated untuk sinkronisasi telepon-ke-PC latar belakang otomatis</string>
+    <string name="guide_clip_need_1">Sinkronisasi clipboard PC-ke-ponsel dan ubin Kirim clipboard berfungsi dengan baik.</string>
+    <string name="guide_clip_need_2">Elevated menambahkan sinkronisasi clipboard ponsel-ke-PC secara otomatis.</string>
+    <string name="guide_clip_phone_1">Salin teks atau gambar di ponsel Anda, lalu buka LinkHub atau ketuk ubin Kirim papan klip.</string>
+    <string name="guide_clip_phone_2">Ketuk Riwayat papan klip di Beranda untuk melihat, menyematkan, menyalin, atau menghapus klip terbaru.</string>
+    <string name="guide_clip_pc_1">Salin teks atau gambar di PC Anda untuk mengirimkannya ke clipboard ponsel Anda.</string>
+    <string name="guide_clip_opt_1">Tampilkan / Sembunyikan: Menyembunyikan atau menampilkan pratinjau klip terbaru di Beranda.</string>
+    <string name="guide_clip_opt_2">Pin: Menyimpan klip di bagian atas riwayat 50 item.</string>
+    <string name="guide_clip_opt_3">Sarankan tindakan untuk teks yang disalin: Menawarkan untuk membuka tautan, peta, atau nomor dari PC Anda.</string>
+    <string name="guide_clip_privacy">Riwayat papan klip dienkripsi pada disk dan tidak termasuk klip yang ditandai sensitif oleh pengelola kata sandi.</string>
+    <string name="guide_clip_limits">Android 10+ memblokir pembacaan papan klip di latar belakang tanpa Elevated atau mengetuk Kirim papan klip.</string>
+
+    <!-- 6. Send clipboard -->
+    <string name="guide_tile_title">Kirim papan klip</string>
+    <string name="guide_tile_summary">Kirim clipboard ponsel Anda ke PC dari aplikasi apa pun menggunakan ubin Pengaturan Cepat.</string>
+    <string name="guide_tile_where">Bayangan Pengaturan Cepat Android › Kirim papan klip</string>
+    <string name="guide_tile_needs">PC berpasangan</string>
+    <string name="guide_tile_ext_1">1. Gesek ke bawah dua kali dari atas layar Anda untuk membuka Pengaturan Cepat.</string>
+    <string name="guide_tile_ext_2">2. Ketuk Edit dan seret Kirim papan klip ke ubin aktif Anda.</string>
+    <string name="guide_tile_ext_3">3. Salin teks di aplikasi apa pun, geser ke bawah, lalu ketuk Kirim papan klip.</string>
+    <string name="guide_tile_need_1">Setidaknya satu PC berpasangan.</string>
+    <string name="guide_tile_phone_1">Tambahkan ubin Kirim papan klip ke Pengaturan Cepat satu kali, lalu ketuk setelah menyalin.</string>
+    <string name="guide_tile_pc_1">Tempel di PC Anda dengan Ctrl+V.</string>
+    <string name="guide_tile_opt_1">Kirim ubin papan klip: Membaca papan klip telepon saat ini setelah diketuk dan mengirim atau mengantrekannya.</string>
+    <string name="guide_tile_privacy">Membaca clipboard hanya ketika diketuk. Klip offline mengantri hingga 24 jam.</string>
+    <string name="guide_tile_limits">Digunakan ketika sinkronisasi papan klip latar belakang yang ditinggikan tidak aktif.</string>
+
+    <!-- 7. Send files -->
+    <string name="guide_files_title">Kirim file</string>
+    <string name="guide_files_summary">Transfer file atau folder antara ponsel dan PC melalui Wi-Fi, Ethernet, atau USB dengan jeda dan lanjutkan.</string>
+    <string name="guide_files_where">Beranda › Kartu PC berpasangan › Kirim file / Kirim folder</string>
+    <string name="guide_files_needs">PC berpasangan</string>
+    <string name="guide_files_need_1">PC yang dipasangkan (file offline menunggu di antrian Kirim hingga 7 hari).</string>
+    <string name="guide_files_phone_1">Di Beranda, ketuk Kirim file atau Kirim folder pada kartu PC pasangan Anda.</string>
+    <string name="guide_files_phone_2">Jeda, lanjutkan, atau batalkan transfer aktif di kartu Transfer di Beranda.</string>
+    <string name="guide_files_pc_1">Seret file ke jendela LinkHub atau pulau tepi atas di PC Anda.</string>
+    <string name="guide_files_opt_1">Kirim file / Kirim folder: Mentransfer file individual atau pohon folder penuh.</string>
+    <string name="guide_files_opt_2">Jeda / Lanjutkan: Melanjutkan transfer yang terputus tanpa mengirim ulang byte yang telah selesai.</string>
+    <string name="guide_files_privacy">File dialirkan melalui QUIC TLS 1.3 dengan verifikasi integritas BLAKE3 ke Download/LinkHub.</string>
+    <string name="guide_files_limits">Hingga 5.000 file per batch.</string>
+
+    <!-- 8. Send queue -->
+    <string name="guide_queue_title">Kirim antrian</string>
+    <string name="guide_queue_summary">Antrian file, tautan, klip, dan rekaman saat PC Anda offline dan kirimkan saat terhubung kembali.</string>
+    <string name="guide_queue_where">Beranda › Menunggu pengiriman kartu</string>
+    <string name="guide_queue_needs">PC berpasangan</string>
+    <string name="guide_queue_need_1">Setidaknya satu PC berpasangan.</string>
+    <string name="guide_queue_phone_1">Kirim file, klip, atau tautan ke PC offline; mereka muncul di Menunggu untuk dikirim ke Beranda.</string>
+    <string name="guide_queue_phone_2">Item dalam antrean dikirim secara otomatis secara berurutan segera setelah PC Anda tersambung kembali.</string>
+    <string name="guide_queue_pc_1">Item yang diantri di PC Anda saat ponsel Anda offline juga dikirimkan saat tersambung kembali.</string>
+    <string name="guide_queue_opt_1">Coba Lagi / Tutup / Batalkan semua: Kelola satu per satu atau semua item antrean di Beranda.</string>
+    <string name="guide_queue_privacy">Payload yang berada dalam antrean tetap berada di penyimpanan aplikasi pribadi dan dihapus saat pengiriman atau pelepasan pasangan.</string>
+    <string name="guide_queue_limits">Menampung hingga 200 item atau 10 GiB. File kedaluwarsa setelah 7 hari; klip dan tautan setelah 24 jam.</string>
+
+    <!-- 9. Send to PC -->
+    <string name="guide_share_title">Kirim ke PC</string>
+    <string name="guide_share_summary">Bagikan tautan, teks, foto, atau dokumen dari aplikasi Android apa pun ke PC Anda melalui lembar Berbagi sistem.</string>
+    <string name="guide_share_where">Lembar Berbagi Android › Kirim dengan LinkHub</string>
+    <string name="guide_share_needs">PC berpasangan</string>
+    <string name="guide_share_ext_1">1. Ketuk Bagikan di browser, galeri, atau aplikasi dokumen apa pun di ponsel Anda.</string>
+    <string name="guide_share_ext_2">2. Pilih LinkHub (Kirim dengan LinkHub atau Buka di PC).</string>
+    <string name="guide_share_need_1">Setidaknya satu PC berpasangan.</string>
+    <string name="guide_share_phone_1">Bagikan tautan atau file apa pun dari Android Bagikan dan pilih PC target Anda.</string>
+    <string name="guide_share_pc_1">Tautan terbuka di browser PC default Anda; simpan file ke Unduhan.</string>
+    <string name="guide_share_opt_1">Kirim ke PC / Buka di PC: Menyimpan file atau membuka tautan dan dokumen aman pada saat kedatangan.</string>
+    <string name="guide_share_privacy">Eksekusi dan skrip tidak pernah dibuka secara otomatis di PC Anda.</string>
+    <string name="guide_share_limits">Hanya jenis dokumen aman yang terbuka otomatis; semua file lainnya disimpan ke Unduhan.</string>
+
+    <!-- 10. Storage in File Explorer -->
+    <string name="guide_storage_title">Penyimpanan di File Explorer</string>
+    <string name="guide_storage_summary">Telusuri penyimpanan bersama ponsel ini atau folder yang dipilih di Windows File Explorer.</string>
+    <string name="guide_storage_where">Pengaturan › Izin › Foto dan video (dan Pengaturan › Perangkat)</string>
+    <string name="guide_storage_needs">Semua akses file (atau folder yang dipilih) dan penyimpanan per PC beralih</string>
+    <string name="guide_storage_need_1">Semua file mengakses atau folder yang dipilih di Pengaturan › Izin › Foto dan video.</string>
+    <string name="guide_storage_need_2">Jelajahi penyimpanan ponsel ini di File Explorer yang diaktifkan untuk PC di Pengaturan › Perangkat.</string>
+    <string name="guide_storage_phone_1">Berikan akses kepada Semua file atau pilih folder di Pengaturan › Izin › Foto dan video.</string>
+    <string name="guide_storage_phone_2">Aktifkan sakelar penyimpanan untuk PC Anda di Pengaturan › Perangkat.</string>
+    <string name="guide_storage_pc_1">Buka penyimpanan ponsel Anda dari LinkHub atau Windows File Explorer di PC Anda.</string>
+    <string name="guide_storage_opt_1">Akses semua file / Folder yang dipilih saja: Bagikan penyimpanan penuh atau hanya folder SAF yang dipilih.</string>
+    <string name="guide_storage_privacy">Penjelajahan penyimpanan dinonaktifkan secara default untuk setiap PC hingga Anda menyalakannya.</string>
+    <string name="guide_storage_limits">Android memblokir akses ke direktori aplikasi pribadi di /Android/data.</string>
+
+    <!-- 11. Browse PC files -->
+    <string name="guide_pc_files_title">Jelajahi file PC</string>
+    <string name="guide_pc_files_summary">Jelajahi folder yang dibagikan oleh PC Anda dari ponsel Anda dan unduh file ke Unduhan.</string>
+    <string name="guide_pc_files_where">Beranda › Kartu PC berpasangan › Telusuri file PC</string>
+    <string name="guide_pc_files_needs">PC berpasangan online dengan berbagi penyimpanan diaktifkan</string>
+    <string name="guide_pc_files_need_1">PC berpasangan online yang berbagi foldernya (PC Anda di saku Anda).</string>
+    <string name="guide_pc_files_phone_1">Di Beranda, ketuk Telusuri file PC pada kartu PC pasangan Anda dan ketuk file apa pun untuk diunduh.</string>
+    <string name="guide_pc_files_pc_1">Nyalakan PC Anda di saku Anda di Pengaturan LinkHub di PC Anda.</string>
+    <string name="guide_pc_files_opt_1">Telusuri lembar file PC: Navigasikan folder PC dan unduh file ke Unduhan.</string>
+    <string name="guide_pc_files_privacy">File yang diunduh disimpan secara lokal di folder Unduhan ponsel Anda.</string>
+    <string name="guide_pc_files_limits">Memerlukan PC yang dipasangkan untuk online.</string>
+
+    <!-- 12. Photos -->
+    <string name="guide_photos_title">Foto</string>
+    <string name="guide_photos_summary">Jelajahi foto, tangkapan layar, dan video ponsel Anda di PC dan simpan dokumen asli beresolusi penuh.</string>
+    <string name="guide_photos_where">Pengaturan › Izin › Foto dan video</string>
+    <string name="guide_photos_needs">Izin foto dan video</string>
+    <string name="guide_photos_need_1">Izin foto dan video diberikan di Android.</string>
+    <string name="guide_photos_phone_1">Buka Pengaturan › Izin › Foto dan video dan ketuk Izinkan.</string>
+    <string name="guide_photos_pc_1">Buka Foto di PC Anda untuk menelusuri gambar mini dan menyalin atau menyimpan dokumen asli.</string>
+    <string name="guide_photos_opt_1">Izinkan semua: Memberikan akses galeri penuh saat akses sebagian foto aktif di Android 14+.</string>
+    <string name="guide_photos_privacy">Thumbnail dibuat secara lokal di ponsel Anda sesuai permintaan.</string>
+    <string name="guide_photos_limits">Akses foto sebagian di Android 14+ hanya menampilkan foto yang Anda pilih.</string>
+
+    <!-- 13. Timeline -->
+    <string name="guide_timeline_title">Garis Waktu</string>
+    <string name="guide_timeline_summary">Cari riwayat lokal file, klip, tautan, foto, rekaman, dan sesi yang dibagikan dengan PC Anda.</string>
+    <string name="guide_timeline_where">Beranda › Timeline (dan Pengaturan › Fitur &amp; Data › Data &amp; penyimpanan)</string>
+    <string name="guide_timeline_needs">Tidak ada izin tambahan</string>
+    <string name="guide_timeline_need_1">Setidaknya satu item dibagikan sehingga kartu Timeline muncul di Beranda.</string>
+    <string name="guide_timeline_phone_1">Ketuk Timeline di Beranda untuk mencari, memfilter berdasarkan jenis, atau ketuk Kirim lagi pada item sebelumnya.</string>
+    <string name="guide_timeline_pc_1">Buka Timeline di PC Anda untuk mencari riwayat aktivitas dari desktop Anda.</string>
+    <string name="guide_timeline_opt_1">Simpan item garis waktu (30 hari, 90 hari, 1 tahun, Semua): Atur retensi di Pengaturan › Fitur &amp; Data › Data &amp; penyimpanan.</string>
+    <string name="guide_timeline_privacy">Hanya disimpan di database SQLite lokal di perangkat Anda.</string>
+    <string name="guide_timeline_limits">Mempertahankan hingga 5.000 entri secara lokal.</string>
+
+    <!-- 14. LocalSend -->
+    <string name="guide_localsend_title">Kirim Lokal</string>
+    <string name="guide_localsend_summary">Kirim dan terima file dengan perangkat LocalSend terdekat di jaringan Wi-Fi yang sama tanpa memasangkan.</string>
+    <string name="guide_localsend_where">Pengaturan › Fitur &amp; Data › LocalSend (dan Beranda › LocalSend terdekat)</string>
+    <string name="guide_localsend_needs">LocalSend diaktifkan di Pengaturan › Fitur &amp; Data</string>
+    <string name="guide_localsend_need_1">Tombol LocalSend diaktifkan di Pengaturan › Fitur &amp; Data.</string>
+    <string name="guide_localsend_phone_1">Aktifkan LocalSend di Pengaturan › Fitur &amp; Data, lalu gunakan kartu LocalSend terdekat di Beranda.</string>
+    <string name="guide_localsend_pc_1">Kirim atau terima file dengan perangkat LocalSend apa pun di LAN yang sama.</string>
+    <string name="guide_localsend_opt_1">Sakelar LocalSend: Mengontrol penemuan multicast LAN pada port 53317.</string>
+    <string name="guide_localsend_privacy">Mati secara default; transfer masuk selalu tanya dulu sebelum disimpan.</string>
+    <string name="guide_localsend_limits">Hanya berfungsi di jaringan lokal yang sama.</string>
+
+    <!-- 15. Screen mirroring -->
+    <string name="guide_mirror_title">Pencerminan layar</string>
+    <string name="guide_mirror_summary">Streaming layar ponsel dan audio internal Anda ke jendela di PC Anda, atau lihat layar PC di ponsel Anda.</string>
+    <string name="guide_mirror_where">Pengaturan › Izin › Kontrol dari PC Anda (atau Beranda › Kontrol PC)</string>
+    <string name="guide_mirror_needs">PC berpasangan online; Assist atau Elevated untuk kontrol mouse dan keyboard</string>
+    <string name="guide_mirror_need_1">PC berpasangan online.</string>
+    <string name="guide_mirror_need_2">Opsional: Assist (Aksesibilitas) atau Elevated untuk input mouse dan keyboard PC.</string>
+    <string name="guide_mirror_phone_1">Ketuk Mulai sekarang pada perintah pengambilan Android saat pencerminan dimulai dari PC Anda.</string>
+    <string name="guide_mirror_phone_2">Ketuk Berhenti di spanduk Beranda kapan saja untuk mengakhiri berbagi layar.</string>
+    <string name="guide_mirror_pc_1">Mulai Pencerminan layar di PC Anda untuk membuka jendela langsung ponsel Anda.</string>
+    <string name="guide_mirror_opt_1">Berhenti: Segera mengakhiri tangkapan layar dari Beranda atau notifikasi.</string>
+    <string name="guide_mirror_privacy">Memerlukan konfirmasi di ponsel Anda kecuali dimulai melalui tampilan virtual yang ditinggikan.</string>
+    <string name="guide_mirror_limits">Aplikasi dengan FLAG_SECURE tampak hitam di aliran MediaProjection standar.</string>
+
+    <!-- 16. App streams -->
+    <string name="guide_apps_title">Aliran aplikasi</string>
+    <string name="guide_apps_summary">Buka masing-masing aplikasi Android di jendela khusus di PC Anda sementara layar ponsel Anda tetap independen.</string>
+    <string name="guide_apps_where">Pengaturan › Izin › Kontrol dari PC Anda › Elevated</string>
+    <string name="guide_apps_needs">Elevated (Debug nirkabel)</string>
+    <string name="guide_apps_need_1">Elevated, diatur melalui debugging Nirkabel.</string>
+    <string name="guide_apps_need_2">PC berpasangan online.</string>
+    <string name="guide_apps_phone_1">Atur debugging Nirkabel di Pengaturan › Izin › Kontrol dari PC Anda.</string>
+    <string name="guide_apps_pc_1">Buka App stream di PC Anda dan klik aplikasi telepon mana pun untuk meluncurkannya di jendelanya sendiri.</string>
+    <string name="guide_apps_opt_1">Tutup semua: Menutup semua jendela aplikasi tampilan virtual yang aktif dari spanduk Beranda.</string>
+    <string name="guide_apps_privacy">Streaming jendela aplikasi melalui TLS 1.3 dari tampilan virtual lokal di ponsel ini.</string>
+    <string name="guide_apps_limits">Membutuhkan Elevated untuk membuat tampilan virtual di Android.</string>
+
+    <!-- 17. Phone as webcam -->
+    <string name="guide_webcam_title">Telepon sebagai webcam</string>
+    <string name="guide_webcam_summary">Streaming kamera depan atau belakang ponsel Anda ke PC hingga 4K atau 60 fps.</string>
+    <string name="guide_webcam_where">Beranda › Kartu PC berpasangan › Kamera web</string>
+    <string name="guide_webcam_needs">Izin kamera, PC berpasangan online</string>
+    <string name="guide_webcam_need_1">Izin kamera di Android dan PC yang dipasangkan secara online.</string>
+    <string name="guide_webcam_phone_1">Di Beranda, ketuk Webcam pada kartu PC Anda yang dipasangkan, pilih resolusi dan lensa, lalu ketuk Mulai webcam.</string>
+    <string name="guide_webcam_pc_1">Lihat atau rekam aliran kamera langsung di LinkHub di PC Anda.</string>
+    <string name="guide_webcam_opt_1">Kamera balik / Senter / Zoom / Resolusi (720p, 1080p, 4K): Kontrol kamera langsung.</string>
+    <string name="guide_webcam_privacy">Jangan pernah memulai secara diam-diam; menunjukkan notifikasi yang sedang berlangsung saat streaming.</string>
+    <string name="guide_webcam_limits">1080p 60 fps dan 4K memerlukan dukungan encoder perangkat keras dan Wi-Fi atau USB cepat.</string>
+
+    <!-- 18. Continuity camera -->
+    <string name="guide_continuity_title">Kamera kontinuitas</string>
+    <string name="guide_continuity_summary">Ambil foto atau pindai dan potong dokumen dengan kamera ponsel Anda langsung ke PC Anda.</string>
+    <string name="guide_continuity_where">Diminta dari PC Anda › Perintah kamera kontinuitas di ponsel</string>
+    <string name="guide_continuity_needs">Izin kamera, PC berpasangan online</string>
+    <string name="guide_continuity_need_1">Izin kamera di Android dan PC yang dipasangkan secara online.</string>
+    <string name="guide_continuity_phone_1">Ketuk pemberitahuan permintaan atau spanduk, ambil foto atau sesuaikan sudut dokumen, lalu ketuk Kirim.</string>
+    <string name="guide_continuity_pc_1">Pemicu Ambil foto atau Pindai dokumen dari LinkHub di PC Anda.</string>
+    <string name="guide_continuity_opt_1">Sesuaikan sudut / Sempurnakan dokumen: Pemotongan perspektif dan peningkatan kontras untuk pemindaian.</string>
+    <string name="guide_continuity_privacy">Hasil jepretan hanya dikirim bila Anda mengetuk Gunakan foto atau Kirim pindaian.</string>
+    <string name="guide_continuity_limits">Permintaan kamera akan habis masa berlakunya setelah 2 menit jika tidak dijawab.</string>
+
+    <!-- 19. Voice recorder -->
+    <string name="guide_recorder_title">Perekam suara</string>
+    <string name="guide_recorder_summary">Rekam catatan suara dengan penanda stempel waktu untuk dikirim ke PC Anda, dengan antrian offline otomatis.</string>
+    <string name="guide_recorder_where">Beranda › Kartu PC berpasangan › Rekam</string>
+    <string name="guide_recorder_needs">Izin mikrofon, PC berpasangan</string>
+    <string name="guide_recorder_need_1">Izin mikrofon di Android dan PC yang dipasangkan.</string>
+    <string name="guide_recorder_phone_1">Di Beranda, ketuk Rekam pada kartu PC pasangan Anda dan ketuk Mulai merekam.</string>
+    <string name="guide_recorder_phone_2">Ketuk Tambahkan penanda untuk menandai momen; rekaman dikirim atau diantri setelah selesai.</string>
+    <string name="guide_recorder_pc_1">Rekaman yang sudah selesai tiba di folder Unduhan PC dan Timeline Anda.</string>
+    <string name="guide_recorder_opt_1">Tambahkan penanda / Kirim lagi / Hapus: Kelola penanda dan rekaman yang disimpan.</string>
+    <string name="guide_recorder_privacy">Menggunakan mikrofon hanya saat merekam; disimpan di penyimpanan pribadi sampai dikirimkan.</string>
+    <string name="guide_recorder_limits">Rekaman offline mengantri secara otomatis dan dikirim ketika PC Anda terhubung kembali.</string>
+
+    <!-- 20. Control PC -->
+    <string name="guide_remote_title">Kontrol PC</string>
+    <string name="guide_remote_summary">Gunakan ponsel Anda sebagai touchpad, keyboard, mikrofon dikte suara, mouse udara, atau remote presentasi untuk PC Anda.</string>
+    <string name="guide_remote_where">Beranda › Kartu PC berpasangan › Kontrol PC</string>
+    <string name="guide_remote_needs">PC berpasangan online dengan remote control diperbolehkan</string>
+    <string name="guide_remote_need_1">PC berpasangan online dengan kontrol yang diizinkan untuk ponsel ini.</string>
+    <string name="guide_remote_phone_1">Di Beranda, ketuk Kontrol PC pada kartu PC pasangan Anda.</string>
+    <string name="guide_remote_phone_2">Beralih antara Touchpad, Air mouse, Presentasi, Keyboard, dan Dikte.</string>
+    <string name="guide_remote_pc_1">Setujui kendali jarak jauh pada PC Anda saat diminta.</string>
+    <string name="guide_remote_opt_1">Kecepatan panel sentuh: Sesuaikan sensitivitas di Pengaturan › Fitur &amp; Data › Kontrol PC Anda.</string>
+    <string name="guide_remote_privacy">Peristiwa masukan dikirimkan melalui aliran QUIC terenkripsi ke PC pasangan Anda.</string>
+    <string name="guide_remote_limits">Mouse udara memerlukan giroskop perangkat keras di ponsel Anda.</string>
+
+    <!-- 21. Assist -->
+    <string name="guide_assist_title">Membantu</string>
+    <string name="guide_assist_summary">Biarkan mouse dan keyboard PC Anda mengetuk, menggeser, dan mengetik di ponsel ini menggunakan layanan Aksesibilitas.</string>
+    <string name="guide_assist_where">Pengaturan › Izin › Kontrol dari PC Anda › Gunakan mouse dan keyboard PC Anda</string>
+    <string name="guide_assist_needs">Layanan aksesibilitas diaktifkan</string>
+    <string name="guide_assist_need_1">Layanan Aksesibilitas LinkHub diaktifkan di Pengaturan Android.</string>
+    <string name="guide_assist_phone_1">Buka Pengaturan › Izin › Kontrol dari PC Anda dan ketuk Izinkan di bawah Gunakan mouse dan keyboard PC Anda.</string>
+    <string name="guide_assist_pc_1">Klik, seret, gulir, dan ketik di dalam jendela cermin telepon di PC Anda.</string>
+    <string name="guide_assist_opt_1">Berhenti mengetik: Mengakhiri pengetikan keyboard PC jarak jauh dari banner Beranda.</string>
+    <string name="guide_assist_privacy">Menyuntikkan gerakan dan teks dari PC pasangan Anda; tidak membaca konten layar atau kata sandi.</string>
+    <string name="guide_assist_limits">APK yang dipindahkan di Android 13+ harus mengaktifkan Izinkan pengaturan terbatas di Info aplikasi terlebih dahulu.</string>
+
+    <!-- 22. Elevated -->
+    <string name="guide_elevated_title">Tinggi</string>
+    <string name="guide_elevated_summary">Sentuhan dan tombol nyata, Aliran aplikasi, sinkronisasi papan klip latar belakang, dan kontrol panggilan, melalui debugging Nirkabel, Shizuku, atau root.</string>
+    <string name="guide_elevated_where">Pengaturan › Izin › Kontrol dari PC Anda › Elevated</string>
+    <string name="guide_elevated_needs">Proses debug nirkabel</string>
+    <string name="guide_elevated_need_1">Opsi pengembang dan debugging nirkabel diaktifkan.</string>
+    <string name="guide_elevated_phone_1">Buka Pengaturan › Izin › Kontrol dari PC Anda dan ketuk Atur di bawah Tinggi.</string>
+    <string name="guide_elevated_phone_2">Di Penelusuran kesalahan nirkabel, ketuk Pasangkan perangkat dengan kode penyandingan dan masukkan kode 6 digit di notifikasi.</string>
+    <string name="guide_elevated_pc_1">Gunakan aliran Aplikasi, sinkronisasi papan klip latar belakang, dan input latensi rendah dari PC Anda.</string>
+    <string name="guide_elevated_opt_1">Atur / Matikan: Memasangkan atau menghentikan pembantu debugging Nirkabel lokal.</string>
+    <string name="guide_elevated_privacy">Berjalan secara lokal di ponsel ini melalui loopback ADB; tidak ada server eksternal yang terlibat.</string>
+    <string name="guide_elevated_limits">Pemasangan debugging nirkabel pertama kali memerlukan Wi-Fi.</string>
+
+    <!-- 23. Deck -->
+    <string name="guide_deck_title">Dek</string>
+    <string name="guide_deck_summary">Gunakan ponsel Anda sebagai kotak ubin pintasan, tombol media, penggeser volume, dan pengukur sistem PC langsung.</string>
+    <string name="guide_deck_where">Beranda › Kartu PC berpasangan › Dek</string>
+    <string name="guide_deck_needs">PC berpasangan online</string>
+    <string name="guide_deck_need_1">PC berpasangan online.</string>
+    <string name="guide_deck_phone_1">Di Beranda, ketuk Dek pada kartu PC Anda yang dipasangkan dan ketuk ubin mana pun untuk memicu tindakannya.</string>
+    <string name="guide_deck_pc_1">Sesuaikan halaman dan ubin Dek di LinkHub pada PC Anda.</string>
+    <string name="guide_deck_opt_1">Layar penuh: Memperluas kisi Dek di seluruh layar ponsel Anda.</string>
+    <string name="guide_deck_privacy">Tata letak dek dan statistik sistem tetap berada di antara ponsel Anda dan PC yang dipasangkan.</string>
+    <string name="guide_deck_limits">Ubin perintah shell mengharuskan perintah Run Deck diaktifkan untuk ponsel ini di PC Anda.</string>
+
+    <!-- 24. Desk Mode -->
+    <string name="guide_desk_title">Mode Meja</string>
+    <string name="guide_desk_summary">Jam meja OLED yang selalu aktif dengan status koneksi PC langsung, kontrol media, dan tindakan cepat.</string>
+    <string name="guide_desk_where">Beranda › Kartu PC berpasangan › Jam meja</string>
+    <string name="guide_desk_needs">PC berpasangan</string>
+    <string name="guide_desk_need_1">PC berpasangan.</string>
+    <string name="guide_desk_phone_1">Di Beranda, ketuk Jam meja pada kartu PC yang dipasangkan dan letakkan ponsel Anda di dudukan atau pengisi daya.</string>
+    <string name="guide_desk_pc_1">Pemutaran media PC dan pembaruan status langsung di tampilan Mode Meja.</string>
+    <string name="guide_desk_opt_1">Perlindungan burn-in OLED: Menggeser piksel tata letak secara berkala untuk melindungi layar OLED.</string>
+    <string name="guide_desk_privacy">Merender secara lokal di ponsel Anda dari status PC langsung.</string>
+    <string name="guide_desk_limits">Menjaga layar tetap aktif saat terbuka.</string>
+
+    <!-- 25. Wake PC -->
+    <string name="guide_wake_title">Bangunkan komputer</string>
+    <string name="guide_wake_summary">Bangunkan PC berpasangan yang sedang tidur melalui jaringan lokal Anda menggunakan Wake-on-LAN.</string>
+    <string name="guide_wake_where">Beranda › Kartu PC berpasangan › Bangun</string>
+    <string name="guide_wake_needs">PC yang dipasangkan dengan Wake-on-LAN diaktifkan di BIOS dan adaptor jaringan</string>
+    <string name="guide_wake_need_1">PC yang dipasangkan terhubung melalui LAN setidaknya sekali sehingga LinkHub mempelajari alamat MAC-nya.</string>
+    <string name="guide_wake_need_2">Wake-on-LAN diaktifkan di pengaturan adaptor jaringan Windows dan BIOS/UEFI.</string>
+    <string name="guide_wake_phone_1">Saat PC pasangan Anda sedang offline di Rumah, ketuk Bangun di kartunya.</string>
+    <string name="guide_wake_pc_1">Aktifkan bangun paket Wake-on-LAN di Pengelola Perangkat › Adaptor jaringan › Manajemen Daya.</string>
+    <string name="guide_wake_opt_1">Wake: Mengirim paket Wake-on-LAN di jaringan lokal.</string>
+    <string name="guide_wake_privacy">Menggunakan alamat MAC yang dipelajari selama sesi LAN terotentikasi sebelumnya.</string>
+    <string name="guide_wake_limits">Memerlukan Ethernet atau adaptor Wi-Fi yang mendukung Wake on Wireless LAN.</string>
+
+    <!-- 26. Quick actions -->
+    <string name="guide_quick_title">Tindakan cepat</string>
+    <string name="guide_quick_summary">Deringkan, Kunci, atau Tidurkan PC Anda dari Rumah atau widget layar utama, dan kendalikan DND ponsel, senter, dan kecerahan dari PC Anda.</string>
+    <string name="guide_quick_where">Beranda › Kartu PC yang dipasangkan (dan Pengaturan › Izin › Kontrol dari PC Anda)</string>
+    <string name="guide_quick_needs">Akses Jangan Ganggu dan izin kecerahan layar untuk peralihan PC-ke-ponsel</string>
+    <string name="guide_quick_need_1">Deringkan PC, Kunci PC, Tidur, dan senter ponsel berfungsi tanpa izin tambahan.</string>
+    <string name="guide_quick_need_2">Mode Jangan Ganggu dan senyap memerlukan akses Jangan Ganggu.</string>
+    <string name="guide_quick_need_3">Kontrol kecerahan ponsel memerlukan izin kecerahan layar atau Elevated.</string>
+    <string name="guide_quick_phone_1">Gunakan Deringkan PC, Kunci PC, dan Tidur pada kartu PC yang dipasangkan di Rumah atau tambahkan widget tindakan cepat PC.</string>
+    <string name="guide_quick_pc_1">Alihkan DND telepon, dering, senter, volume, dan kecerahan dari LinkHub di PC Anda.</string>
+    <string name="guide_quick_opt_1">Jangan Ganggu / Kecerahan layar: Berikan di Pengaturan › Izin › Kontrol dari PC Anda.</string>
+    <string name="guide_quick_privacy">Perintah diautentikasi per perangkat melalui TLS 1.3.</string>
+    <string name="guide_quick_limits">Mengunci dan menidurkan PC dapat diubah per ponsel di Pengaturan PC › Perangkat.</string>
+
+    <!-- 27. Connect over mobile data -->
+    <string name="guide_away_title">Terhubung melalui data seluler</string>
+    <string name="guide_away_summary">Tetap terhubung ke PC Anda melalui data seluler saat jauh dari Wi-Fi, atau terhubung melalui kabel USB.</string>
+    <string name="guide_away_where">Pengaturan › Perangkat › Hubungkan melalui data seluler</string>
+    <string name="guide_away_needs">Baterai tidak dibatasi, Sambungkan melalui data seluler diaktifkan</string>
+    <string name="guide_away_need_1">Baterai tidak dibatasi di Pengaturan › Izin › Latar Belakang &amp; baterai.</string>
+    <string name="guide_away_need_2">Terhubung melalui data seluler diaktifkan di Pengaturan › Perangkat.</string>
+    <string name="guide_away_phone_1">Aktifkan Hubungkan melalui data seluler di Pengaturan › Perangkat.</string>
+    <string name="guide_away_pc_1">Kartu PC Anda menunjukkan Tersambung saat pergi atau Di USB berdasarkan tautan aktif.</string>
+    <string name="guide_away_opt_1">Terhubung melalui data seluler: Menggunakan relai terenkripsi ujung ke ujung saat LAN atau USB tidak tersedia.</string>
+    <string name="guide_away_privacy">Lalu lintas relai dienkripsi ujung ke ujung dengan kunci perangkat TLS 1.3 Anda yang dipasangkan.</string>
+    <string name="guide_away_limits">Transfer file melalui data seluler menggunakan paket data seluler Anda.</string>
+
+    <!-- 28. Connection Doctor -->
+    <string name="guide_doctor_title">Dokter Sambungan</string>
+    <string name="guide_doctor_summary">Periksa pengaturan baterai latar belakang, pengaktifan Perangkat Pendamping, dan akses jaringan lokal agar ponsel Anda tetap dapat dijangkau.</string>
+    <string name="guide_doctor_where">Pengaturan › Izin › Latar belakang &amp; baterai</string>
+    <string name="guide_doctor_needs">Baterai tidak terbatas</string>
+    <string name="guide_doctor_need_1">Penggunaan baterai latar belakang tidak terbatas diaktifkan.</string>
+    <string name="guide_doctor_need_2">Opsional: Bangunkan saat PC berada di dekatnya (Perangkat Pendamping) yang terkait.</string>
+    <string name="guide_doctor_phone_1">Buka Pengaturan › Izin › Latar Belakang &amp; baterai dan izinkan penggunaan baterai tanpa batas.</string>
+    <string name="guide_doctor_phone_2">Ikuti panduan baterai OEM jika vendor ponsel Anda membatasi aplikasi latar belakang.</string>
+    <string name="guide_doctor_pc_1">Buka Connection Doctor di PC Anda untuk memeriksa latensi transport, port, dan kesehatan tautan.</string>
+    <string name="guide_doctor_opt_1">Bangun ketika PC berada di dekatnya: Mengaitkan PC Anda sehingga Android membangunkan LinkHub ketika berada dalam jangkauan BLE.</string>
+    <string name="guide_doctor_privacy">Diagnostik dijalankan secara lokal antara ponsel Anda dan PC yang dipasangkan.</string>
+    <string name="guide_doctor_limits">Penghemat baterai beberapa produsen ponsel harus disetel ke Tidak Dibatasi.</string>
+    <string name="pair_link_title">Pasangkan dengan %1$s?</string>
+    <string name="pair_link_body">Tautan pasangan telah dibuka. Pasangkan hanya jika Anda baru saja memindai atau membuka sendiri kode perangkat ini. Perangkat yang dipasangkan dapat menerima notifikasi dan pesan ponsel ini.</string>
+    <string name="pair_link_confirm">Sandingkan</string>
+    <string name="pair_link_cancel">Batal</string>
+    <string name="pair_link_unknown_pc">perangkat ini</string>
+    <string name="data_clear_failed">Beberapa riwayat tidak dapat dihapus. Coba lagi.</string>
+    <string name="channel_updates">Pembaruan</string>
+    <string name="update_ready_title">LinkHub %1$s sudah siap</string>
+    <string name="update_ready_text">Ketuk untuk menginstal pembaruan.</string>
+    <string name="update_done_title">LinkHub diperbarui ke %1$s</string>
+    <string name="update_done_text">Ketuk untuk membukanya. PC Anda terhubung kembali dengan sendirinya.</string>
+    <string name="update_auto_title">Instal pembaruan secara otomatis</string>
+    <string name="update_auto_text">Versi baru dari GitHub dipasang di latar belakang.</string>
+    <string name="update_nightly">%1$d malam</string>
+    <string name="update_nightly_named">%1$d Malam (%2$s)</string>
+    <string name="update_channel_title">Perbarui saluran</string>
+    <string name="update_channel_stable">Stabil</string>
+    <string name="update_channel_nightly">Malam</string>
+    <string name="update_channel_stable_text">Rilis, diuji, dan lebih jarang.</string>
+    <string name="update_channel_nightly_text">Versi terbaru setiap beberapa jam, dengan perbaikan dan fitur terbaru, dan terkadang bug baru. Kembali ke Stabil, ponsel ini mempertahankan versinya hingga rilis berikutnya yang lebih baru.</string>
+
+    <string name="home_guide_title">Panduan</string>
+    <string name="home_whats_new_guide">Apa yang baru: Panduan fitur</string>
+    <string name="home_guide_card_body">Jelajahi setiap fitur LinkHub, periksa izin langsung, atau ketuk Tunjukkan pada saya untuk langsung menuju ke kontrol mana pun.</string>
+    <string name="home_no_pc_paired">Belum ada PC yang dipasangkan</string>
+    <string name="home_no_pc_body">Buka LinkHub di PC Windows atau Linux Anda untuk memasangkan dengan kode QR atau penemuan lokal, atau buka kembali panduan pengaturan.</string>
+    <string name="home_background_clipboard_title">Papan klip latar belakang &amp; kontrol penuh</string>
+    <string name="home_background_clipboard_body">Sinkronkan clipboard di latar belakang dan aktifkan kontrol sentuh melalui Wireless Debugging.</string>
+    <string name="home_section_screen">Layar, Kamera &amp; Input</string>
+    <string name="home_section_transfer">Transfer Cepat &amp; Papan Klip</string>
+    <string name="home_section_system">Sistem &amp; Kekuatan</string>
+    <string name="settings_category_devices">Perangkat</string>
+    <string name="settings_category_features">Fitur &amp; Data</string>
+    <string name="settings_theme_artwork_color">Warna karya seni media</string>
+    <string name="settings_mobile_data_body">Tetap terhubung melalui LTE/5G atau relay saat jauh dari Wi-Fi</string>
+    <string name="settings_background_clipboard_title">Akses papan klip latar belakang</string>
+    <string name="settings_guide_card_body">Jelajahi setiap fitur, periksa persyaratan langsung, atau langsung buka kontrolnya.</string>
+    <string name="settings_walkthrough_body">Buka kembali panduan pengaturan untuk izin, pemasangan, dan tingkat daya.</string>
+    <string name="desk_exit">Keluar dari Mode Meja</string>
+    <string name="desk_media_playing">Media PC · Memutar</string>
+    <string name="desk_media_audio">Media &amp; Audio PC</string>
+    <string name="desk_pc_screen">Layar PC</string>
+    <string name="queue_kind_clipboard">Papan klip</string>
+    <string name="queue_kind_clipboard_image">Gambar papan klip</string>
+    <string name="queue_kind_files">File</string>
+    <string name="queue_kind_folder">Map</string>
+    <string name="queue_kind_link">Link</string>
+    <string name="queue_kind_document">Dokumen</string>
+    <string name="queue_kind_recording">Rekaman</string>
+    <string name="queue_kind_task_alert">Peringatan tugas</string>
+    <string name="queue_kind_camera_request">Permintaan kamera</string>
+
+    <string name="settings_theme_artwork_body">Sinkronkan warna aplikasi &amp; kaca dengan memutar karya seni media</string>
+    <string name="settings_wireless_debugging_active">Elevated aktif · sinkronisasi papan klip secara otomatis</string>
+    <string name="settings_wireless_debugging_hint">Atur Elevated (Wireless debugging, Shizuku atau root) sehingga clipboard dapat disinkronkan di latar belakang, atau gunakan Kirim clipboard dalam notifikasi</string>
+
+    <!-- Pause for banking apps -->
+    <string name="banking_title">Jeda untuk aplikasi perbankan</string>
+    <string name="banking_text">Beberapa aplikasi perbankan tidak dapat dibuka saat opsi Pengembang, proses debug, atau layanan aksesibilitas aktif. Pilih di sini: LinkHub mematikannya saat terbuka dan menyalakannya kembali saat Anda keluar.</string>
+    <plurals name="banking_chosen">
+        <item quantity="one">%1$d aplikasi dipilih</item>
+        <item quantity="other">%1$d aplikasi dipilih</item>
+    </plurals>
+    <string name="banking_needs_elevated">Perlu pengaturan Elevated satu kali, sehingga LinkHub dapat mengubah pengaturan ini.</string>
+    <string name="banking_needs_usage">Izinkan akses penggunaan, sehingga LinkHub dapat melihat saat aplikasi perbankan dibuka.</string>
+    <string name="banking_paused_now">Dijeda sekarang untuk aplikasi perbankan.</string>
+    <string name="banking_choose">Pilih aplikasi</string>
+    <string name="banking_pick_title">Aplikasi perbankan</string>
+    <string name="banking_search">Cari aplikasi</string>
+    <string name="banking_shortcut">Tambahkan pintasan</string>
+    <string name="banking_shortcut_hint">Jika aplikasi masih menolak untuk dibuka, buka dari pintasannya: LinkHub dijeda terlebih dahulu, lalu dibuka.</string>
+    <string name="banking_channel">Jeda untuk aplikasi perbankan</string>
+    <string name="banking_paused_title">Dijeda untuk aplikasi perbankan</string>
+    <string name="banking_paused_text">Opsi pengembang, debugging, dan layanan aksesibilitas LinkHub tidak aktif hingga Anda meninggalkannya.</string>
+    <string name="banking_turn_back_on">Hidupkan kembali</string>
+    <string name="action_done">Selesai</string>
+    <!-- The phone's name as PCs see it when LinkHub runs in another Android profile: "Pixel 9a (Work)". -->
+    <string name="device_name_in_profile">%1$s (%2$s)</string>
+    <string name="profile_work">Bekerja</string>
+    <string name="profile_other">Profil kedua</string>
+    <string name="relay_settings_title">Server relai Iroh</string>
+    <string name="relay_waiting">Menunggu layanan koneksi…</string>
+    <string name="relay_away_hint">Aktifkan Hubungkan melalui data seluler untuk menggunakan relai yang diaktifkan.</string>
+    <string name="relay_selection_hint">Sakelar mengontrol server mana yang dapat dipilih iroh sebagai relai rumah untuk perangkat ini.</string>
+    <string name="relay_home">Relai rumah</string>
+    <string name="relay_home_empty">Tidak ada relai rumah yang dipilih</string>
+    <string name="relay_home_connected">Terhubung · %1$s</string>
+    <string name="relay_home_failed">Koneksi gagal · %1$s</string>
+    <string name="relay_home_connecting">Menghubungkan · %1$s</string>
+    <string name="relay_device_routes">Lalu lintas perangkat melalui relai</string>
+    <string name="relay_routes_empty">Tidak ada lalu lintas perangkat yang dirutekan melalui relai</string>
+    <string name="relay_route">%1$s melalui %2$s</string>
+    <string name="relay_check_all">Periksa semua relay</string>
+    <string name="relay_checking">Memeriksa relai…</string>
+    <string name="relay_checking_short">Memeriksa…</string>
+    <string name="relay_not_checked">Tidak diperiksa</string>
+    <string name="relay_rtt">%1$d ms</string>
+    <string name="relay_timed_out">Waktu habis</string>
+    <string name="relay_unreachable">Tidak dapat dijangkau</string>
+    <string name="relay_address">Alamat relai khusus</string>
+    <string name="relay_add">Tambahkan relai</string>
+    <string name="relay_enable">Aktifkan %1$s</string>
+    <string name="relay_invalid_address">Masukkan alamat relai HTTP atau HTTPS tanpa kredensial, jalur, atau kueri.</string>
+    <string name="relay_duplicate">Relai ini sudah ada dalam daftar.</string>
+    <string name="relay_limit">Daftar ini dapat menampung hingga 16 relai khusus.</string>
+    <string name="relay_save_failed">Tidak dapat menyimpan setelan relai.</string>
+    <string name="relay_region_na_east">Amerika Utara · Timur</string>
+    <string name="relay_region_na_west">Amerika Utara · Barat</string>
+    <string name="relay_region_europe">Eropa</string>
+    <string name="relay_region_asia_pacific">Asia-Pasifik</string>
+    <string name="relay_region_custom">Kebiasaan</string>
+</resources>
+
+
+
