@@ -312,6 +312,12 @@ pub mod qobject {
         /// Pairs Wireless Debugging on a phone from this PC using `ip:port` and the 6-digit PIN.
         #[qinvokable]
         fn pair_wireless_adb(self: &AppController, address: &QString, code: &QString) -> QString;
+        /// Generates an ADB Wireless Debugging pairing QR payload (`{"service","password","size","path"}`).
+        #[qinvokable]
+        fn start_wireless_adb_qr(self: &AppController) -> QString;
+        /// Polls `adb mdns services` and pairs when the phone scans the Wireless Debugging QR.
+        #[qinvokable]
+        fn poll_wireless_adb_qr(self: &AppController, service: &QString, password: &QString) -> QString;
 
         /// Starts a Continuity Camera capture (`"photo"` or `"scan"`) on the active phone.
         #[qinvokable]
@@ -1576,6 +1582,38 @@ impl qobject::AppController {
             Err(err) => format!("err:{err}"),
         };
         QString::from(&msg)
+    }
+
+    pub fn start_wireless_adb_qr(&self) -> QString {
+        let nanos = std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .map(|d| d.as_nanos())
+            .unwrap_or(1);
+        let service = format!("studio-{:06x}", (nanos & 0xff_ffff) as u32);
+        let password = format!("{:08x}", ((nanos >> 24) & 0xffff_ffff) as u32);
+        let payload = format!("WIFI:T:ADB;S:{service};P:{password};;");
+        let json = match crate::qr::encode(&payload) {
+            Ok(qr) => serde_json::json!({
+                "service": service,
+                "password": password,
+                "size": qr.size,
+                "path": qr.path,
+            })
+            .to_string(),
+            Err(e) => serde_json::json!({ "error": e.to_string() }).to_string(),
+        };
+        QString::from(&json)
+    }
+
+    pub fn poll_wireless_adb_qr(&self, service: &QString, password: &QString) -> QString {
+        let svc = String::from(service);
+        let pwd = String::from(password);
+        let out = match nectarlink_adb::poll_and_pair_qr(&svc, &pwd) {
+            Ok(Some(msg)) => format!("ok:{msg}"),
+            Ok(None) => String::new(),
+            Err(err) => format!("err:{err}"),
+        };
+        QString::from(&out)
     }
 
     pub fn start_continuity_camera(&self, mode: &QString) {

@@ -117,6 +117,32 @@ pub fn pair_wireless(address: &str, code: &str) -> Result<String, String> {
     }
 }
 
+/// Checks `adb mdns services` for an `_adb-tls-pairing._tcp` service matching `service_name`
+/// and automatically runs `adb pair <ip:port> <password>` when found.
+pub fn poll_and_pair_qr(service_name: &str, password: &str) -> Result<Option<String>, String> {
+    let adb = locate_adb().ok_or_else(|| "adb belum terpasang di PC ini.".to_owned())?;
+    let server = configured_server();
+    if !server_answers(server) {
+        start_server(server);
+    }
+    let out = std::process::Command::new(&adb)
+        .args(["mdns", "services"])
+        .output()
+        .map_err(|e| format!("Gagal menjalankan adb mdns services: {e}"))?;
+    let stdout = String::from_utf8_lossy(&out.stdout);
+    let target = service_name.trim();
+    for line in stdout.lines() {
+        let cols: Vec<&str> = line.split_whitespace().collect();
+        if cols.len() >= 3 && cols[1].contains("_adb-tls-pairing._tcp") {
+            if target.is_empty() || cols[0] == target {
+                let addr = cols[2];
+                return pair_wireless(addr, password).map(Some);
+            }
+        }
+    }
+    Ok(None)
+}
+
 /// The adb server adb clients use: `ANDROID_ADB_SERVER_PORT` on this
 /// machine when it's set (adb itself honours it), else [`DEFAULT_ADB_ADDR`].
 pub fn configured_server() -> SocketAddr {

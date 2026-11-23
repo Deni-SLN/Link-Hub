@@ -121,6 +121,25 @@ Item {
             visible: page.deviceId.length > 0 && page.feature.action === "raisePower" && page.feature.target === "elevated"
             property string statusText: ""
             property bool statusOk: false
+            property bool qrMode: false
+            property string qrService: ""
+            property string qrPassword: ""
+            property string qrPath: ""
+            property int qrSize: 0
+
+            Timer {
+                id: qrPollTimer
+                interval: 1500
+                repeat: true
+                running: wirelessPairCard.visible && wirelessPairCard.qrMode && wirelessPairCard.qrService.length > 0 && !wirelessPairCard.statusOk
+                onTriggered: {
+                    const res = AppController.pollWirelessAdbQr(wirelessPairCard.qrService, wirelessPairCard.qrPassword)
+                    if (res.length > 0) {
+                        wirelessPairCard.statusOk = res.startsWith("ok:")
+                        wirelessPairCard.statusText = res.slice(res.indexOf(":") + 1)
+                    }
+                }
+            }
 
             Column {
                 id: pairCol
@@ -130,21 +149,105 @@ Item {
                 anchors.margins: 12
                 spacing: 8
 
-                Txt {
+                Row {
                     width: parent.width
-                    role: "label"
-                    text: qsTr("Pasangkan Debugging Nirkabel lewat PC")
+                    spacing: 8
+                    Txt {
+                        width: parent.width - qrToggleBtn.width - 8
+                        anchors.verticalCenter: parent.verticalCenter
+                        role: "label"
+                        text: qsTr("Pasangkan Debugging Nirkabel lewat PC")
+                    }
+                    Rectangle {
+                        id: qrToggleBtn
+                        width: qrBtnLabel.implicitWidth + 20
+                        height: 28
+                        radius: Theme.radiusSm
+                        color: wirelessPairCard.qrMode ? Theme.primary : Theme.surfaceContainerHighest
+                        border.width: 1
+                        border.color: wirelessPairCard.qrMode ? Theme.primary : Theme.outlineVariant
+                        Txt {
+                            id: qrBtnLabel
+                            anchors.centerIn: parent
+                            role: "caption"
+                            color: wirelessPairCard.qrMode ? Theme.primaryContent : Theme.surfaceContent
+                            text: wirelessPairCard.qrMode ? qsTr("Pakai Kode 6 Digit") : qsTr("Scan Kode QR")
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: {
+                                wirelessPairCard.qrMode = !wirelessPairCard.qrMode
+                                wirelessPairCard.statusText = ""
+                                wirelessPairCard.statusOk = false
+                                if (wirelessPairCard.qrMode) {
+                                    try {
+                                        const data = JSON.parse(AppController.startWirelessAdbQr())
+                                        if (data.error) {
+                                            wirelessPairCard.statusText = data.error
+                                        } else {
+                                            wirelessPairCard.qrService = data.service || ""
+                                            wirelessPairCard.qrPassword = data.password || ""
+                                            wirelessPairCard.qrSize = data.size || 0
+                                            wirelessPairCard.qrPath = data.path || ""
+                                        }
+                                    } catch (e) {
+                                        wirelessPairCard.statusText = String(e)
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
                 Txt {
                     width: parent.width
                     wrapMode: Text.WordWrap
                     role: "caption"
                     muted: true
-                    text: qsTr("Buka Opsi Pengembang › Proses debug nirkabel › Sambungkan perangkat dengan kode penyambungan, lalu masukkan IP:Port & kode 6 digit di sini:")
+                    text: wirelessPairCard.qrMode
+                        ? qsTr("Buka Opsi Pengembang › Proses debug nirkabel › Sambungkan perangkat dengan kode QR, lalu scan QR ini:")
+                        : qsTr("Buka Opsi Pengembang › Proses debug nirkabel › Sambungkan perangkat dengan kode penyambungan, lalu masukkan IP:Port & kode 6 digit di sini:")
+                }
+                Row {
+                    width: parent.width
+                    spacing: 12
+                    visible: wirelessPairCard.qrMode && wirelessPairCard.qrPath.length > 0
+                    Rectangle {
+                        width: 136
+                        height: 136
+                        radius: Theme.radiusSm
+                        color: "#ffffff"
+                        QrCode {
+                            anchors.fill: parent
+                            anchors.margins: 8
+                            path: wirelessPairCard.qrPath
+                            modules: wirelessPairCard.qrSize
+                        }
+                    }
+                    Column {
+                        width: parent.width - 148
+                        anchors.verticalCenter: parent.verticalCenter
+                        spacing: 6
+                        Txt {
+                            width: parent.width
+                            wrapMode: Text.WordWrap
+                            role: "body"
+                            text: qsTr("Menunggu ponsel memindai QR…")
+                            visible: !wirelessPairCard.statusOk
+                        }
+                        Txt {
+                            width: parent.width
+                            wrapMode: Text.WordWrap
+                            role: "caption"
+                            muted: true
+                            text: qsTr("Setelah terhubung, mode Tinggi otomatis aktif tanpa kabel USB.")
+                        }
+                    }
                 }
                 Row {
                     width: parent.width
                     spacing: 8
+                    visible: !wirelessPairCard.qrMode
                     Rectangle {
                         width: (parent.width - 16) * 0.48
                         height: 36
