@@ -695,6 +695,31 @@ NativeWindow {
             tonal: true
             onClicked: window.openPairing()
         }
+        Rectangle {
+            id: railUpdatePill
+            visible: AppController.updateVersion.length > 0
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: railVerLabel.top
+            anchors.bottomMargin: 6
+            width: rail.width - 14
+            height: 24
+            radius: 12
+            color: railUpdateArea.containsMouse ? Theme.primaryContainer : Theme.primary
+            Txt {
+                anchors.centerIn: parent
+                role: "caption"
+                size: 10
+                color: railUpdateArea.containsMouse ? Theme.primaryContainerContent : Theme.primaryContent
+                text: qsTr("Update")
+            }
+            MouseArea {
+                id: railUpdateArea
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.PointingHandCursor
+                onClicked: AppController.installUpdate()
+            }
+        }
         Txt {
             id: railVerLabel
             anchors.horizontalCenter: parent.horizontalCenter
@@ -703,7 +728,7 @@ NativeWindow {
             role: "caption"
             size: 10
             muted: true
-            text: "v" + (AppController.version.length > 0 ? AppController.version : "0.2.0")
+            text: "v" + (AppController.version.length > 0 ? AppController.version : "0.2.1")
         }
     }
 

@@ -121,7 +121,7 @@ class AppUpdater(context: Context) {
     val state: StateFlow<State> = _state.asStateFlow()
 
     /** Whether this build updates itself. */
-    val enabled: Boolean get() = !BuildConfig.DEBUG
+    val enabled: Boolean get() = true
 
     private val _autoInstall = MutableStateFlow(prefs.getBoolean(AUTO_INSTALL, true))
 
