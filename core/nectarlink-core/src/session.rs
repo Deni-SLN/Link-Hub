@@ -673,7 +673,17 @@ async fn handle(shared: &Arc<Shared>, session: &Arc<Session>, env: Envelope) -> 
                     candidate_id: msg.candidate_id,
                     candidate: candidate.clone(),
                 });
-                if !already_paired {
+                let online_same_device = {
+                    let online: std::collections::HashSet<DeviceId> =
+                        shared.live_sessions().into_iter().map(|s| s.peer).collect();
+                    shared.store.list_peers().unwrap_or_default().into_iter().any(|p| {
+                        p.id != msg.candidate_id
+                            && online.contains(&p.id)
+                            && p.info.kind == candidate.kind
+                            && p.info.name == candidate.name
+                    })
+                };
+                if !already_paired && !online_same_device {
                     let shared = shared.clone();
                     let candidate_id = msg.candidate_id;
                     let addrs = msg.addrs;

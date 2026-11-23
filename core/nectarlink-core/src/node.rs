@@ -1199,22 +1199,26 @@ impl Shared {
         // move its history and queue to the new pairing and forget the old one. Only the
         // install ID decides; same-name devices (two family phones) stay separate.
         let online_peers: Vec<DeviceId> = self.live_sessions().into_iter().map(|s| s.peer).collect();
-        let replaced: Vec<DeviceId> = match info.install_id.as_deref() {
-            Some(install_id) => self
-                .store
-                .list_peers()
-                .unwrap_or_default()
-                .into_iter()
-                .filter(|old| {
-                    old.id != peer
-                        && !online_peers.contains(&old.id)
-                        && old.info.kind == info.kind
-                        && old.info.install_id.as_deref() == Some(install_id)
-                })
-                .map(|old| old.id)
-                .collect(),
-            None => Vec::new(),
-        };
+        let replaced: Vec<DeviceId> = self
+            .store
+            .list_peers()
+            .unwrap_or_default()
+            .into_iter()
+            .filter(|old| {
+                if old.id == peer || online_peers.contains(&old.id) || old.info.kind != info.kind {
+                    return false;
+                }
+                let same_install = info
+                    .install_id
+                    .as_deref()
+                    .is_some_and(|id| old.info.install_id.as_deref() == Some(id));
+                let same_device = !info.name.is_empty()
+                    && old.info.name == info.name
+                    && old.info.model.as_deref() == info.model.as_deref();
+                same_install || same_device
+            })
+            .map(|old| old.id)
+            .collect();
         // Store the new pairing first: if that fails, the old one is untouched.
         // Storing it also moves the old entry's history and queue over.
         self.store.upsert_peer_skipping(&peer, &info, paired_at, &online_peers)?;

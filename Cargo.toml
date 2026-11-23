@@ -17,7 +17,7 @@ members = [
 exclude = ["third_party"]
 
 [workspace.package]
-version = "0.2.0"
+version = "0.2.1"
 edition = "2024"
 rust-version = "1.97"
 authors = ["Deni-SLN <deniofficial123@gmail.com>"]
@@ -29,12 +29,12 @@ repository = "https://github.com/Deni-SLN/Link-Hub.git"
 name = "Pollen"
 
 [workspace.dependencies]
-nectarlink-adb = { path = "core/nectarlink-adb", version = "0.2.0" }
-nectarlink-protocol = { path = "core/nectarlink-protocol", version = "0.2.0" }
-nectarlink-core = { path = "core/nectarlink-core", version = "0.2.0" }
-nectarlink-actions = { path = "core/nectarlink-actions", version = "0.2.0" }
-nectarlink-mcp = { path = "core/nectarlink-mcp", version = "0.2.0" }
-nectarlink-vcam = { path = "desktop/vcam", version = "0.2.0" }
+nectarlink-adb = { path = "core/nectarlink-adb", version = "0.2.1" }
+nectarlink-protocol = { path = "core/nectarlink-protocol", version = "0.2.1" }
+nectarlink-core = { path = "core/nectarlink-core", version = "0.2.1" }
+nectarlink-actions = { path = "core/nectarlink-actions", version = "0.2.1" }
+nectarlink-mcp = { path = "core/nectarlink-mcp", version = "0.2.1" }
+nectarlink-vcam = { path = "desktop/vcam", version = "0.2.1" }
 
 anyhow = "1"
 ciborium = "0.2"
