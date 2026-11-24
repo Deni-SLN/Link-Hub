@@ -12,6 +12,7 @@ Item {
     id: page
     property bool active: true
     property int current: AppController.currentDevice
+    property bool viewingThisDevice: false
     Connections {
         target: AppController
         function onCurrentDeviceChanged() {
@@ -464,10 +465,22 @@ Item {
                 }
             }
 
-            // Device switcher (only with more than one device).
-            Row {
+            // Device switcher: "Perangkat Ini" (this PC) + paired devices.
+            Flow {
+                width: column.width
                 spacing: 8
-                visible: DeviceList.count > 1
+                Chip {
+                    interactive: true
+                    text: AppController.deviceName.length > 0
+                        ? qsTr("%1 (Perangkat Ini)").arg(AppController.deviceName)
+                        : qsTr("Perangkat Ini")
+                    iconPath: Icons.laptop
+                    selected: page.viewingThisDevice
+                    onClicked: {
+                        page.viewingThisDevice = true
+                        DeckController.refreshAudio()
+                    }
+                }
                 Repeater {
                     model: DeviceList
                     delegate: Chip {
@@ -477,10 +490,18 @@ Item {
                         interactive: true
                         text: name
                         iconPath: kind === "tablet" || kind === "phone" ? Icons.phone : Icons.laptop
-                        selected: index === page.current
-                        onClicked: page.current = index
+                        selected: !page.viewingThisDevice && index === page.current
+                        onClicked: {
+                            page.viewingThisDevice = false
+                            page.current = index
+                        }
                     }
                 }
+            }
+
+            ThisDeviceHome {
+                visible: page.viewingThisDevice
+                width: visible ? column.width : 0
             }
 
             Repeater {
@@ -488,7 +509,7 @@ Item {
                 delegate: DeviceHome {
                     required property int index
                     required property string os
-                    visible: index === page.current && !page.isPc(kind, os)
+                    visible: !page.viewingThisDevice && index === page.current && !page.isPc(kind, os)
                     width: visible ? column.width : 0
                 }
             }
@@ -498,7 +519,7 @@ Item {
                 model: DeviceList
                 delegate: PcHome {
                     required property int index
-                    visible: index === page.current && page.isPc(kind, os)
+                    visible: !page.viewingThisDevice && index === page.current && page.isPc(kind, os)
                     width: visible ? column.width : 0
                 }
             }
@@ -3901,6 +3922,334 @@ Item {
                 Button {
                     text: qsTr("Done")
                     onClicked: imagePreviewSheet.close()
+                }
+            }
+        }
+    }
+
+    component ThisDeviceHome: Column {
+        id: localHome
+        spacing: 14
+
+        readonly property var outputDevices: {
+            try {
+                return DeckController.output_devices_json && DeckController.output_devices_json.length > 0
+                    ? JSON.parse(DeckController.output_devices_json)
+                    : []
+            } catch (e) {
+                return []
+            }
+        }
+        readonly property string speakerMode: Preferences.surroundAudio
+            ? "surround"
+            : (Preferences.streamPcAudioToPhone ? "phone" : "pc")
+        readonly property bool wide: width >= 720
+
+        Flow {
+            width: parent.width
+            spacing: 14
+
+            // Left: Volume, Mic, Media Playback & PC Audio Output Devices
+            Column {
+                width: localHome.wide ? Math.round((parent.width - 14) * 0.54) : parent.width
+                spacing: 14
+
+                Card {
+                    width: parent.width
+                    Column {
+                        width: parent.width
+                        spacing: 14
+
+                        Row {
+                            width: parent.width
+                            spacing: 12
+                            Rectangle {
+                                width: 46; height: 46
+                                radius: Theme.radiusMd
+                                color: Theme.primaryContainer
+                                Icon {
+                                    anchors.centerIn: parent
+                                    width: 22; height: 22
+                                    path: Icons.laptop
+                                    color: Theme.primaryContainerContent
+                                }
+                            }
+                            Column {
+                                anchors.verticalCenter: parent.verticalCenter
+                                spacing: 2
+                                Txt {
+                                    role: "titleLarge"
+                                    text: AppController.deviceName.length > 0
+                                        ? AppController.deviceName
+                                        : qsTr("Perangkat Ini")
+                                }
+                                Row {
+                                    spacing: 6
+                                    StatusDot {
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        online: true
+                                    }
+                                    Txt {
+                                        role: "bodySmall"
+                                        muted: true
+                                        text: qsTr("Perangkat Ini · Aktif di Mesh (%1 terhubung)").arg(DeviceList.count)
+                                    }
+                                }
+                            }
+                        }
+
+                        Divider { width: parent.width }
+
+                        // Master Volume & Mute
+                        Column {
+                            width: parent.width
+                            spacing: 8
+                            Item {
+                                width: parent.width
+                                height: 24
+                                Txt {
+                                    anchors.left: parent.left
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    role: "label"
+                                    muted: true
+                                    text: qsTr("Volume Utama")
+                                }
+                                Txt {
+                                    anchors.right: parent.right
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    role: "bodySmall"
+                                    muted: true
+                                    text: DeckController.muted ? qsTr("Dibisukan (%1%)").arg(DeckController.volume) : (DeckController.volume + "%")
+                                }
+                            }
+                            Row {
+                                width: parent.width
+                                spacing: 10
+                                IconButton {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    iconPath: DeckController.muted || DeckController.volume === 0 ? Icons.soundOff : Icons.speaker
+                                    tooltip: DeckController.muted ? qsTr("Bunyikan") : qsTr("Bisukan")
+                                    onClicked: DeckController.setSpeakerMuted(!DeckController.muted)
+                                }
+                                ValueSlider {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    width: parent.width - 46
+                                    from: 0
+                                    to: 100
+                                    step: 2
+                                    value: DeckController.volume
+                                    label: qsTr("Volume Utama")
+                                    valueText: DeckController.volume + "%"
+                                    onMoved: (v) => DeckController.setSpeakerVolume(v)
+                                }
+                            }
+                        }
+
+                        // Media & Mic Quick Controls
+                        Row {
+                            width: parent.width
+                            spacing: 8
+                            Button {
+                                variant: "tonal"
+                                size: "sm"
+                                iconPath: Icons.prev
+                                text: qsTr("Sebelumnya")
+                                onClicked: DeckController.mediaCommand("prev_track")
+                            }
+                            Button {
+                                variant: "tonal"
+                                size: "sm"
+                                iconPath: DeckController.playing ? Icons.pause : Icons.play
+                                text: DeckController.playing ? qsTr("Jeda") : qsTr("Putar")
+                                onClicked: DeckController.mediaCommand("play_pause")
+                            }
+                            Button {
+                                variant: "tonal"
+                                size: "sm"
+                                iconPath: Icons.next
+                                text: qsTr("Berikutnya")
+                                onClicked: DeckController.mediaCommand("next_track")
+                            }
+                            Button {
+                                visible: DeckController.mic_state >= 0
+                                variant: DeckController.mic_state === 1 ? "filled" : "tonal"
+                                size: "sm"
+                                iconPath: Icons.mic
+                                text: DeckController.mic_state === 1 ? qsTr("Mikrofon Mati") : qsTr("Mikrofon Hidup")
+                                onClicked: DeckController.toggleMicMute()
+                            }
+                        }
+
+                        Divider { width: parent.width; visible: localHome.outputDevices.length > 0 }
+
+                        // PC Audio Output Device Picker
+                        Column {
+                            width: parent.width
+                            spacing: 8
+                            visible: localHome.outputDevices.length > 0
+                            Txt {
+                                role: "label"
+                                muted: true
+                                text: qsTr("Perangkat Output Audio PC")
+                            }
+                            Flow {
+                                width: parent.width
+                                spacing: 8
+                                Repeater {
+                                    model: localHome.outputDevices
+                                    delegate: Chip {
+                                        required property var modelData
+                                        interactive: true
+                                        iconPath: Icons.speaker
+                                        text: modelData.name || modelData.id
+                                        selected: Boolean(modelData.isDefault)
+                                        onClicked: DeckController.setOutputDevice(modelData.id)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Right: Speaker Output Routing (Perangkat Ini / Speaker HP / Surround) & Other Controls
+            Column {
+                width: localHome.wide ? (parent.width - Math.round((parent.width - 14) * 0.54) - 14) : parent.width
+                spacing: 14
+
+                Card {
+                    width: parent.width
+                    Column {
+                        width: parent.width
+                        spacing: 12
+
+                        Txt {
+                            role: "label"
+                            muted: true
+                            text: qsTr("Output Speaker")
+                        }
+
+                        Segmented {
+                            width: parent.width
+                            value: localHome.speakerMode
+                            options: [
+                                { value: "pc", label: qsTr("Perangkat Ini") },
+                                { value: "phone", label: qsTr("Speaker HP") },
+                                { value: "surround", label: qsTr("Surround") }
+                            ]
+                            onPicked: (val) => {
+                                if (val === "pc") {
+                                    Preferences.surroundAudio = false
+                                    Preferences.streamPcAudioToPhone = false
+                                } else if (val === "phone") {
+                                    Preferences.surroundAudio = false
+                                    Preferences.streamPcAudioToPhone = true
+                                } else if (val === "surround") {
+                                    Preferences.surroundAudio = true
+                                    Preferences.streamPcAudioToPhone = true
+                                }
+                            }
+                        }
+
+                        Txt {
+                            width: parent.width
+                            role: "bodySmall"
+                            muted: true
+                            wrapMode: Text.WordWrap
+                            text: localHome.speakerMode === "surround"
+                                ? qsTr("Semua perangkat Mesh yang online memutar audio PC secara bersamaan.")
+                                : (localHome.speakerMode === "phone"
+                                    ? qsTr("Audio PC dialirkan ke satu perangkat HP/tablet.")
+                                    : qsTr("Audio diputar langsung di speaker perangkat ini."))
+                        }
+
+                        // Per-device surround role selector when Surround is active
+                        Column {
+                            width: parent.width
+                            spacing: 8
+                            visible: Preferences.surroundAudio && DeviceList.count > 0
+
+                            Divider { width: parent.width }
+
+                            Txt {
+                                role: "caption"
+                                muted: true
+                                text: qsTr("Channel Per Perangkat:")
+                            }
+
+                            Repeater {
+                                model: DeviceList
+                                delegate: Row {
+                                    id: localDevRole
+                                    required property string deviceId
+                                    required property string name
+                                    required property bool online
+                                    width: parent.width
+                                    spacing: 8
+
+                                    Row {
+                                        width: parent.width - roleSeg.width - 8
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        spacing: 6
+                                        StatusDot {
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            online: localDevRole.online
+                                        }
+                                        Txt {
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            width: parent.width - 14
+                                            role: "bodySmall"
+                                            text: localDevRole.name
+                                            elide: Text.ElideRight
+                                        }
+                                    }
+
+                                    Segmented {
+                                        id: roleSeg
+                                        value: Preferences.surroundRoleOf(localDevRole.deviceId)
+                                        options: [
+                                            { value: "stereo", label: qsTr("Stereo") },
+                                            { value: "left", label: qsTr("Kiri") },
+                                            { value: "right", label: qsTr("Kanan") }
+                                        ]
+                                        onPicked: (val) => Preferences.setSurroundRole(localDevRole.deviceId, val)
+                                    }
+                                }
+                            }
+                        }
+
+                        Divider { width: parent.width }
+
+                        Txt {
+                            role: "label"
+                            muted: true
+                            text: qsTr("Kontrol Lainnya")
+                        }
+
+                        SwitchBar {
+                            width: parent.width
+                            iconPath: Icons.soundOff
+                            title: qsTr("Bisukan PC saat dipantau")
+                            checked: Preferences.muteWhileWatched
+                            onToggled: (on) => Preferences.muteWhileWatched = on
+                        }
+
+                        SwitchBar {
+                            width: parent.width
+                            iconPath: Icons.globe
+                            title: qsTr("Akses jarak jauh / beda jaringan")
+                            checked: Preferences.awayMode
+                            onToggled: (on) => Preferences.awayMode = on
+                        }
+
+                        SwitchBar {
+                            width: parent.width
+                            iconPath: Icons.sparkles
+                            title: qsTr("Kapsul status mengambang")
+                            checked: Preferences.nectarIsland
+                            onToggled: (on) => Preferences.nectarIsland = on
+                        }
+                    }
                 }
             }
         }

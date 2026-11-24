@@ -610,7 +610,7 @@ pub fn install_update_in_background() {
                     object.as_mut().set_update_progress(-1.0);
                     object
                         .as_mut()
-                        .set_update_status(QString::from("Installing. NectarLink reopens by itself."));
+                        .set_update_status(QString::from("Installing. LinkHub reopens by itself."));
                 }
                 Err(message) => {
                     object.as_mut().set_update_busy(false);
@@ -903,7 +903,7 @@ impl cxx_qt::Initialize for qobject::AppController {
         );
 
         let labels = tray::MenuLabels {
-            open: tr!("App", "Open NectarLink"),
+            open: tr!("App", "Open LinkHub"),
             command_palette: tr!("App", "Command palette"),
             shelf: tr!("App", "Toggle Shelf"),
             take_photo: tr!("App", "Take photo with phone"),
@@ -912,9 +912,9 @@ impl cxx_qt::Initialize for qobject::AppController {
             open_link: tr!("App", "Open copied link on phone"),
             pause_notifications: tr!("App", "Pause phone notifications"),
             resume_notifications: tr!("App", "Resume phone notifications"),
-            quit: tr!("App", "Quit NectarLink"),
+            quit: tr!("App", "Quit LinkHub"),
         };
-        match tray::Tray::create("NectarLink", labels, move |event| on_tray_event(&qt, event)) {
+        match tray::Tray::create("LinkHub", labels, move |event| on_tray_event(&qt, event)) {
             Ok(tray) => self.rust_mut().tray = Some(tray),
             Err(e) => tracing::warn!(error = %e, "no tray icon"),
         }
@@ -1388,13 +1388,13 @@ impl qobject::AppController {
         self.as_mut().set_phone_toggles_revision(toggles_version as i32);
 
         let mut tooltip = match (devices, online) {
-            (0, _) => tr!("App", "NectarLink · no devices paired"),
-            (_, 0) => tr!("App", "NectarLink · not connected"),
+            (0, _) => tr!("App", "LinkHub · no devices paired"),
+            (_, 0) => tr!("App", "LinkHub · not connected"),
             (_, 1) => battery.map_or_else(
-                || tr!("App", "NectarLink · 1 device connected"),
-                |b| tr!("App", "NectarLink · %1", b),
+                || tr!("App", "LinkHub · 1 device connected"),
+                |b| tr!("App", "LinkHub · %1", b),
             ),
-            (_, n) => tr!("App", "NectarLink · %1 devices connected", n),
+            (_, n) => tr!("App", "LinkHub · %1 devices connected", n),
         };
         if waiting_count > 0 {
             tooltip.push_str(&format!(" · {waiting_count} waiting"));
@@ -2214,7 +2214,7 @@ impl qobject::AppController {
             let json = compute_shelf_items_json(idx);
             self.as_mut().set_shelf_items(QString::from(&json));
             self.as_mut().set_shelf_open(true);
-            win::tray::apply_no_activate_style_by_title("NectarLink Shelf");
+            win::tray::apply_no_activate_style_by_title("LinkHub Shelf");
         }
     }
 
@@ -2236,7 +2236,7 @@ impl qobject::AppController {
     }
 
     pub fn style_shelf_window(&self) {
-        win::tray::apply_no_activate_style_by_title("NectarLink Shelf");
+        win::tray::apply_no_activate_style_by_title("LinkHub Shelf");
         win::tray::apply_no_activate_style_by_title("LinkHub Island");
     }
 
@@ -2520,7 +2520,7 @@ fn find_guide_file_on_disk(file_stem: &str) -> Option<String> {
 fn load_guide_doc_content(raw_key: &str) -> (String, String) {
     let key = raw_key.trim().trim_end_matches(".md").to_ascii_lowercase();
     let top_level_title = match key.as_str() {
-        "overview" => Some(tr!("Guide", "NectarLink overview")),
+        "overview" => Some(tr!("Guide", "LinkHub overview")),
         "setup" => Some(tr!("Guide", "Install and first-time setup")),
         "features" => Some(tr!("Guide", "Features reference")),
         "permissions" => Some(tr!("Guide", "Android permissions and why each is optional")),
@@ -2537,7 +2537,7 @@ fn load_guide_doc_content(raw_key: &str) -> (String, String) {
 
     let (title, body) = match key.as_str() {
         "overview" => (
-            tr!("Guide", "NectarLink overview"),
+            tr!("Guide", "LinkHub overview"),
             tr!(
                 "Guide",
                 "NectarLink links your Android phone and your PC directly on your local network or over a USB cable.\n\n\

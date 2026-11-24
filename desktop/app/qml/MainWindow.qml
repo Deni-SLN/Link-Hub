@@ -561,20 +561,16 @@ NativeWindow {
         color: "transparent"
         property string hoveredNav: ""
 
-        Rectangle {
+        Image {
             id: mark
             anchors.horizontalCenter: parent.horizontalCenter
             // Centered on the top bar, level with the page title and the window buttons.
             y: (Theme.topBarHeight - height) / 2
             width: 38; height: 38
-            radius: Theme.radiusSm
-            color: Theme.graphite ? Theme.surfaceContent : Theme.primary
-            Icon {
-                anchors.centerIn: parent
-                path: Icons.mark
-                stroke: 2.4
-                color: Theme.graphite ? Theme.surface : Theme.primaryContent
-            }
+            source: "qrc:/brand/icon-512.png"
+            fillMode: Image.PreserveAspectFit
+            smooth: true
+            mipmap: true
         }
         Column {
             anchors.horizontalCenter: parent.horizontalCenter

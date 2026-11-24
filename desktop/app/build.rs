@@ -112,6 +112,20 @@ fn fonts_qrc() -> PathBuf {
     out
 }
 
+/// Writes a resource file listing the brand icon (`:/brand/icon-512.png`).
+fn brand_qrc() -> PathBuf {
+    let icon = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("../../assets/brand/icon-512.png")
+        .canonicalize()
+        .expect("missing assets/brand/icon-512.png");
+    println!("cargo::rerun-if-changed={}", icon.display());
+    let path = icon.display().to_string().trim_start_matches(r"\\?\").replace('\\', "/");
+    let qrc = format!("<RCC>\n  <qresource prefix=\"/brand\">\n    <file alias=\"icon-512.png\">{path}</file>\n  </qresource>\n</RCC>\n");
+    let out = PathBuf::from(std::env::var_os("OUT_DIR").expect("OUT_DIR")).join("brand.qrc");
+    write_if_changed(&out, qrc);
+    out
+}
+
 /// Icon sizes in the .exe: what Explorer, the taskbar and Start ask for at
 /// 100–200% scale.
 const ICON_SIZES: &[u32] = &[16, 20, 24, 32, 40, 48, 64, 256];
@@ -399,6 +413,7 @@ fn main() {
             "cpp/video_view.cpp",
         ])
         .qrc(fonts_qrc())
+        .qrc(brand_qrc())
         .qrc(shaders_qrc())
         .files([
             "src/bridge/native.rs",

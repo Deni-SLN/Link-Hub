@@ -21,6 +21,7 @@ pub struct DeckControllerRust {
     pub(super) muted: bool,
     pub(super) mic_state: i32,
     pub(super) playing: bool,
+    pub(super) output_devices_json: QString,
 }
 
 #[derive(Serialize)]
@@ -154,6 +155,14 @@ impl qobject::DeckController {
             Some(true) => 1,
         });
         self.as_mut().set_playing(st.playing);
+        let outputs: Vec<_> = st
+            .output_devices
+            .iter()
+            .filter(|d| d.id != "nectarlink:phone_speaker")
+            .map(|d| serde_json::json!({ "id": d.id, "name": d.name, "isDefault": d.is_default }))
+            .collect();
+        let outputs_json = serde_json::to_string(&outputs).unwrap_or_else(|_| "[]".into());
+        self.as_mut().set_output_devices_json(QString::from(&outputs_json));
     }
 
     pub fn default_label_for(&self, kind: &QString) -> QString {
@@ -255,5 +264,58 @@ impl qobject::DeckController {
 
     pub fn set_page_active(&self, active: bool) {
         deck::set_page_active(active);
+    }
+
+    pub fn set_speaker_volume(mut self: Pin<&mut Self>, level: i32) {
+        let clamped = level.clamp(0, 100) as u8;
+        if crate::win::audio::set_speaker_volume(clamped).is_ok() {
+            self.as_mut().set_volume(i32::from(clamped));
+            crate::core_host::spawn(async {
+                deck::refresh_live_state().await;
+            });
+        }
+    }
+
+    pub fn set_speaker_muted(mut self: Pin<&mut Self>, muted: bool) {
+        if crate::win::audio::set_speaker_mute(muted).is_ok() {
+            self.as_mut().set_muted(muted);
+            crate::core_host::spawn(async {
+                deck::refresh_live_state().await;
+            });
+        }
+    }
+
+    pub fn toggle_mic_mute(self: Pin<&mut Self>) {
+        if crate::win::audio::toggle_mic_mute().is_ok() {
+            crate::core_host::spawn(async {
+                deck::refresh_live_state().await;
+            });
+        }
+    }
+
+    pub fn set_output_device(self: Pin<&mut Self>, id: &QString) {
+        let id_str = String::from(id);
+        if let Err(e) = deck::handle_set_output(&id_str) {
+            show_message(e);
+        }
+    }
+
+    pub fn media_command(self: Pin<&mut Self>, cmd: &QString) {
+        let key = match String::from(cmd).as_str() {
+            "play_pause" => "play_pause",
+            "next_track" => "next_track",
+            "prev_track" => "prev_track",
+            _ => return,
+        };
+        crate::win::input::press_key(key, &[]);
+        crate::core_host::spawn(async {
+            deck::refresh_live_state().await;
+        });
+    }
+
+    pub fn refresh_audio(self: Pin<&mut Self>) {
+        crate::core_host::spawn(async {
+            deck::refresh_live_state().await;
+        });
     }
 }

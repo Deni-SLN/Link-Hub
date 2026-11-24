@@ -18,9 +18,59 @@ fn pick_target(
     }
 }
 
+/// In Surround Audio mode: returns ALL online devices (broadcast).
+/// In normal mode: delegates to `pick_target` (1 or 0 devices).
+#[cfg_attr(not(any(windows, target_os = "linux", target_os = "macos")), allow(dead_code))]
+fn pick_targets(
+    wanted: Option<nectarlink_core::DeviceId>,
+    online: &[nectarlink_core::DeviceId],
+) -> Vec<nectarlink_core::DeviceId> {
+    if crate::settings::surround_audio() {
+        online.to_vec()
+    } else {
+        pick_target(wanted, online).into_iter().collect()
+    }
+}
+
+/// Applies a surround channel role to a 2-channel s16le PCM buffer.
+/// - Stereo: pass through
+/// - Left: both channels = left source (copy L → R)
+/// - Right: both channels = right source (copy R → L)
+#[cfg_attr(not(any(windows, target_os = "linux", target_os = "macos")), allow(dead_code))]
+fn apply_role(pcm: &[u8], role: crate::settings::SurroundRole) -> Vec<u8> {
+    use crate::settings::SurroundRole;
+    match role {
+        SurroundRole::Stereo => pcm.to_vec(),
+        SurroundRole::Left => {
+            let mut out = pcm.to_vec();
+            // s16le stereo: L=[i*4..i*4+2], R=[i*4+2..i*4+4]
+            let frames = out.len() / 4;
+            for i in 0..frames {
+                let base = i * 4;
+                // copy left bytes into right slot
+                out[base + 2] = out[base];
+                out[base + 3] = out[base + 1];
+            }
+            out
+        }
+        SurroundRole::Right => {
+            let mut out = pcm.to_vec();
+            let frames = out.len() / 4;
+            for i in 0..frames {
+                let base = i * 4;
+                // copy right bytes into left slot
+                out[base] = out[base + 2];
+                out[base + 1] = out[base + 3];
+            }
+            out
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
-    use super::pick_target;
+    use super::{apply_role, pick_target, pick_targets};
+    use crate::settings::{SurroundRole, set_surround_audio};
     use nectarlink_core::DeviceId;
 
     #[test]
@@ -30,6 +80,44 @@ mod tests {
         assert_eq!(pick_target(Some(a), &[b]), None);
         assert_eq!(pick_target(None, &[b, a]), Some(b));
         assert_eq!(pick_target(None, &[]), None);
+    }
+
+    #[test]
+    fn surround_broadcasts_to_all_devices() {
+        let (a, b) = (DeviceId([1; 32]), DeviceId([2; 32]));
+        set_surround_audio(false);
+        assert_eq!(pick_targets(Some(a), &[b, a]), vec![a]);
+        assert_eq!(pick_targets(None, &[b, a]), vec![b]);
+
+        set_surround_audio(true);
+        assert_eq!(pick_targets(Some(a), &[b, a]), vec![b, a]);
+        assert_eq!(pick_targets(None, &[b, a]), vec![b, a]);
+        assert_eq!(pick_targets(None, &[]), Vec::<DeviceId>::new());
+        set_surround_audio(false);
+    }
+
+    #[test]
+    fn surround_role_downmix_works() {
+        // Sample frame: L = 1000 (0x03E8), R = 2000 (0x07D0)
+        let l_bytes = 1000i16.to_le_bytes();
+        let r_bytes = 2000i16.to_le_bytes();
+        let mut pcm = Vec::new();
+        pcm.extend_from_slice(&l_bytes);
+        pcm.extend_from_slice(&r_bytes);
+
+        // Stereo returns as-is
+        let stereo = apply_role(&pcm, SurroundRole::Stereo);
+        assert_eq!(stereo, pcm);
+
+        // Left returns L in both slots
+        let left = apply_role(&pcm, SurroundRole::Left);
+        assert_eq!(&left[0..2], &l_bytes);
+        assert_eq!(&left[2..4], &l_bytes);
+
+        // Right returns R in both slots
+        let right = apply_role(&pcm, SurroundRole::Right);
+        assert_eq!(&right[0..2], &r_bytes);
+        assert_eq!(&right[2..4], &r_bytes);
     }
 }
 
@@ -326,10 +414,11 @@ mod imp {
             .map(|d| d.id)
             .collect();
         let wanted = *TARGET.lock().unwrap_or_else(|e| e.into_inner());
-        let Some(peer) = super::pick_target(wanted, &peers) else {
+        let targets = super::pick_targets(wanted, &peers);
+        if targets.is_empty() {
             std::thread::sleep(Duration::from_millis(500));
             return Ok(());
-        };
+        }
 
         let monitor = resolve_default_monitor_source();
         let rate: u32 = 48_000;
@@ -362,11 +451,16 @@ mod imp {
         let mut enhancer = SpeakerEnhancer::new(rate);
         let (tx, mut rx) = tokio::sync::mpsc::channel::<(u32, u8, Vec<u8>)>(64);
         let send_node = node.clone();
+        let broadcast_targets = targets.clone();
         core_host::spawn(async move {
             while let Some((r, ch, pcm)) = rx.recv().await {
-                for chunk in pcm.chunks(960) {
-                    if send_node.send_pc_audio_pcm(&peer, r, ch, chunk.to_vec()).await.is_err() {
-                        return;
+                for target in &broadcast_targets {
+                    let role = crate::settings::surround_role(target);
+                    let role_pcm = super::apply_role(&pcm, role);
+                    for chunk in role_pcm.chunks(960) {
+                        if send_node.send_pc_audio_pcm(target, r, ch, chunk.to_vec()).await.is_err() {
+                            return;
+                        }
                     }
                 }
             }
@@ -603,10 +697,11 @@ mod imp {
             .map(|d| d.id)
             .collect();
         let wanted = *TARGET.lock().unwrap_or_else(|e| e.into_inner());
-        let Some(peer) = super::pick_target(wanted, &peers) else {
+        let targets = super::pick_targets(wanted, &peers);
+        if targets.is_empty() {
             std::thread::sleep(Duration::from_millis(500));
             return Ok(());
-        };
+        }
 
         // Avoid repeatedly invoking ScreenCaptureKit while Screen Recording permission is still missing.
         // SAFETY: `CGPreflightScreenCaptureAccess` is thread-safe and takes no arguments.
@@ -617,13 +712,18 @@ mod imp {
         let rate: u32 = 48_000;
         let (tx, mut rx) = tokio::sync::mpsc::channel::<(u32, u8, Vec<u8>)>(64);
         let send_node = node.clone();
+        let broadcast_targets = targets.clone();
         core_host::spawn(async move {
             while let Some((r, ch, pcm)) = rx.recv().await {
                 // Slice into 960-byte (5 ms at 48 kHz stereo) sub-MTU chunks so each
                 // chunk travels in a single QUIC datagram without HOL blocking.
-                for chunk in pcm.chunks(960) {
-                    if send_node.send_pc_audio_pcm(&peer, r, ch, chunk.to_vec()).await.is_err() {
-                        return;
+                for target in &broadcast_targets {
+                    let role = crate::settings::surround_role(target);
+                    let role_pcm = super::apply_role(&pcm, role);
+                    for chunk in role_pcm.chunks(960) {
+                        if send_node.send_pc_audio_pcm(target, r, ch, chunk.to_vec()).await.is_err() {
+                            return;
+                        }
                     }
                 }
             }
@@ -871,10 +971,11 @@ mod imp {
             .map(|d| d.id)
             .collect();
         let wanted = *TARGET.lock().unwrap_or_else(|e| e.into_inner());
-        let Some(peer) = super::pick_target(wanted, &peers) else {
+        let targets = super::pick_targets(wanted, &peers);
+        if targets.is_empty() {
             std::thread::sleep(Duration::from_millis(500));
             return Ok(());
-        };
+        }
 
         let without_own = crate::win::audio_out::playing();
         let (client, capture, rate, channels, bits_per_sample) = open_capture(without_own)?;
@@ -882,13 +983,18 @@ mod imp {
         let mut enhancer = SpeakerEnhancer::new(rate);
         let (tx, mut rx) = tokio::sync::mpsc::channel::<(u32, u8, Vec<u8>)>(64);
         let send_node = node.clone();
+        let broadcast_targets = targets.clone();
         core_host::spawn(async move {
             while let Some((r, ch, pcm)) = rx.recv().await {
                 // Slice into 960-byte (5 ms at 48 kHz stereo) sub-MTU chunks so each
                 // chunk travels in a single QUIC datagram without HOL blocking.
-                for chunk in pcm.chunks(960) {
-                    if send_node.send_pc_audio_pcm(&peer, r, ch, chunk.to_vec()).await.is_err() {
-                        return;
+                for target in &broadcast_targets {
+                    let role = crate::settings::surround_role(target);
+                    let role_pcm = super::apply_role(&pcm, role);
+                    for chunk in role_pcm.chunks(960) {
+                        if send_node.send_pc_audio_pcm(target, r, ch, chunk.to_vec()).await.is_err() {
+                            return;
+                        }
                     }
                 }
             }
@@ -1154,3 +1260,28 @@ mod imp {
 }
 
 pub use imp::*;
+
+#[cfg(target_os = "linux")]
+pub fn play_incoming_frame(sample_rate: u32, channels: u8, pcm: &[u8]) {
+    static INCOMING_PLAYER: std::sync::Mutex<Option<(u32, u8, crate::win::audio_out::Player)>> =
+        std::sync::Mutex::new(None);
+    let mut guard = INCOMING_PLAYER.lock().unwrap_or_else(|e| e.into_inner());
+    let needs_new = match guard.as_ref() {
+        Some((r, c, _)) => *r != sample_rate || *c != channels,
+        None => true,
+    };
+    if needs_new {
+        if let Ok(player) = crate::win::audio_out::Player::start(sample_rate, channels as u16) {
+            *guard = Some((sample_rate, channels, player));
+        } else {
+            return;
+        }
+    }
+    if let Some((_, _, player)) = guard.as_ref() {
+        player.push(pcm.to_vec());
+    }
+}
+
+#[cfg(not(target_os = "linux"))]
+pub fn play_incoming_frame(_sample_rate: u32, _channels: u8, _pcm: &[u8]) {}
+

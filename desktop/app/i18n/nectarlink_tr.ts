@@ -167,7 +167,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="8" />
-        <source>%1. Open NectarLink to allow or deny it.</source>
+        <source>%1. Open LinkHub to allow or deny it.</source>
         <translation>%1. İzin vermek ya da reddetmek için LinkHub'i aç.</translation>
     </message>
     <message>
@@ -177,7 +177,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="10" />
-        <source>Its settings file has comments or something NectarLink can't safely change. Paste the lines below into it instead.</source>
+        <source>Its settings file has comments or something LinkHub can't safely change. Paste the lines below into it instead.</source>
         <translation>Ayar dosyasında yorumlar ya da LinkHub'in güvenle değiştiremeyeceği bir şey var. Bunun yerine aşağıdaki satırları dosyaya yapıştır.</translation>
     </message>
     <message>
@@ -587,27 +587,27 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="24" />
-        <source>NectarLink · %1</source>
+        <source>LinkHub · %1</source>
         <translation>LinkHub · %1</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="25" />
-        <source>NectarLink · %1 devices connected</source>
+        <source>LinkHub · %1 devices connected</source>
         <translation>LinkHub · %1 cihaz bağlı</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="26" />
-        <source>NectarLink · 1 device connected</source>
+        <source>LinkHub · 1 device connected</source>
         <translation>LinkHub · 1 cihaz bağlı</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="27" />
-        <source>NectarLink · no devices paired</source>
+        <source>LinkHub · no devices paired</source>
         <translation>LinkHub · eşleştirilmiş cihaz yok</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="28" />
-        <source>NectarLink · not connected</source>
+        <source>LinkHub · not connected</source>
         <translation>LinkHub · bağlı değil</translation>
     </message>
     <message>
@@ -617,7 +617,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="30" />
-        <source>Open NectarLink</source>
+        <source>Open LinkHub</source>
         <translation>LinkHub'i aç</translation>
     </message>
     <message>
@@ -632,7 +632,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="33" />
-        <source>Quit NectarLink</source>
+        <source>Quit LinkHub</source>
         <translation>LinkHub'ten çık</translation>
     </message>
     <message>
@@ -1064,7 +1064,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="67" />
-        <source>This phone doesn't let NectarLink reach its calls' sound.</source>
+        <source>This phone doesn't let LinkHub reach its calls' sound.</source>
         <translation>Bu telefon, LinkHub'in arama sesine erişmesine izin vermiyor.</translation>
     </message>
     <message>
@@ -1444,7 +1444,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="80" />
-        <source>Update NectarLink on %1 to send it images.</source>
+        <source>Update LinkHub on %1 to send it images.</source>
         <translation>Görüntü gönderebilmek için %1 cihazındaki LinkHub'i güncelleyin.</translation>
     </message>
     <message>
@@ -1702,7 +1702,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="122" />
-        <source>Opened Recordings folder. Start a voice note in NectarLink on %1 to send it here.</source>
+        <source>Opened Recordings folder. Start a voice note in LinkHub on %1 to send it here.</source>
         <translation>Kayıtlar klasörü açıldı. Buraya göndermek için %1 cihazındaki LinkHub'te bir sesli not başlatın.</translation>
     </message>
     <message>
@@ -1877,7 +1877,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="157" />
-        <source>Stream %1's camera into the NectarLink virtual webcam</source>
+        <source>Stream %1's camera into the LinkHub virtual webcam</source>
         <translation>%1 kamerasını LinkHub sanal web kamerasına aktar</translation>
     </message>
     <message>
@@ -2538,12 +2538,12 @@
     <name>Doctor</name>
     <message>
         <location filename="rust_strings.h" line="207" />
-        <source>%1 Open NectarLink on the phone and keep both on the same network. If the phone asks to run in the background, allow it.</source>
+        <source>%1 Open LinkHub on the phone and keep both on the same network. If the phone asks to run in the background, allow it.</source>
         <translation>%1 Telefonda LinkHub'i açın ve ikisini de aynı ağda tutun. Telefon arka planda çalışmak için izin isterse izin verin.</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="208" />
-        <source>%1 announces itself at %2, which isn't in a private range such as 192.168.x.x. NectarLink connects on such a network once both apps are up to date. Until then, turn on Connect over mobile data on both, or connect with a USB cable.</source>
+        <source>%1 announces itself at %2, which isn't in a private range such as 192.168.x.x. LinkHub connects on such a network once both apps are up to date. Until then, turn on Connect over mobile data on both, or connect with a USB cable.</source>
         <translation>%1 kendini %2 adresinde duyuruyor ve bu adres 192.168.x.x gibi özel bir aralıkta değil. İki uygulama da güncel olduğunda LinkHub böyle bir ağda bağlanır. O zamana kadar ikisinde de Mobil veri üzerinden bağlan seçeneğini açın veya USB kablosuyla bağlayın.</translation>
     </message>
     <message>
@@ -2603,7 +2603,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="220" />
-        <source>A firewall rule blocks incoming NectarLink connections. Allow it, and your phone can connect.</source>
+        <source>A firewall rule blocks incoming LinkHub connections. Allow it, and your phone can connect.</source>
         <translation>Bir güvenlik duvarı kuralı gelen LinkHub bağlantılarını engelliyor. İzin verirseniz telefonunuz bağlanabilir.</translation>
     </message>
     <message>
@@ -2673,47 +2673,47 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="234" />
-        <source>NectarLink can't show its icon in the top bar</source>
+        <source>LinkHub can't show its icon in the top bar</source>
         <translation>LinkHub simgesini üst çubukta gösteremiyor</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="235" />
-        <source>NectarLink is in the top bar</source>
+        <source>LinkHub is in the top bar</source>
         <translation>LinkHub üst çubukta</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="236" />
-        <source>NectarLink isn't allowed through Windows Firewall</source>
+        <source>LinkHub isn't allowed through Windows Firewall</source>
         <translation>LinkHub'e Windows Güvenlik Duvarı'ndan izin verilmiyor</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="237" />
-        <source>NectarLink isn't allowed through the firewall</source>
+        <source>LinkHub isn't allowed through the firewall</source>
         <translation>LinkHub'e güvenlik duvarından izin verilmiyor</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="238" />
-        <source>On Huawei / Honor: open Settings → Battery → App launch, turn off Manage automatically for NectarLink, and keep Auto-launch, Secondary launch, and Run in background on.</source>
+        <source>On Huawei / Honor: open Settings → Battery → App launch, turn off Manage automatically for LinkHub, and keep Auto-launch, Secondary launch, and Run in background on.</source>
         <translation>Huawei / Honor'da: Ayarlar → Pil → Uygulama başlatma'yı açın, LinkHub için Otomatik olarak yönet'i kapatın ve Otomatik başlatma, İkincil başlatma ve Arka planda çalıştır seçeneklerini açık tutun.</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="239" />
-        <source>On OnePlus / OxygenOS: open Settings → Apps → App management → NectarLink → Battery usage and turn on Allow background activity and Allow auto-launch.</source>
+        <source>On OnePlus / OxygenOS: open Settings → Apps → App management → LinkHub → Battery usage and turn on Allow background activity and Allow auto-launch.</source>
         <translation>OnePlus / OxygenOS'ta: Ayarlar → Uygulamalar → Uygulama yönetimi → LinkHub → Pil kullanımı'nı açın ve Arka plan etkinliğine izin ver ile Otomatik başlatmaya izin ver seçeneklerini açın.</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="240" />
-        <source>On Oppo / Realme: open Settings → Apps → App management → NectarLink → Battery usage and turn on Allow background activity and Allow auto-launch.</source>
+        <source>On Oppo / Realme: open Settings → Apps → App management → LinkHub → Battery usage and turn on Allow background activity and Allow auto-launch.</source>
         <translation>Oppo / Realme'de: Ayarlar → Uygulamalar → Uygulama yönetimi → LinkHub → Pil kullanımı'nı açın ve Arka plan etkinliğine izin ver ile Otomatik başlatmaya izin ver seçeneklerini açın.</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="241" />
-        <source>On Pixel: open Settings → Apps → See all apps → NectarLink → App battery usage, tap Allow background usage, and choose Unrestricted.</source>
+        <source>On Pixel: open Settings → Apps → See all apps → LinkHub → App battery usage, tap Allow background usage, and choose Unrestricted.</source>
         <translation>Pixel'de: Ayarlar → Uygulamalar → Tüm uygulamaları göster → LinkHub → Uygulama pil kullanımı'nı açın, Arka planda kullanıma izin ver'e dokunun ve Kısıtlanmamış'ı seçin.</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="242" />
-        <source>On Samsung: open Settings → Apps → NectarLink → Battery and choose Unrestricted, then in Device care → Battery → Background usage limits make sure NectarLink is never put to sleep.</source>
+        <source>On Samsung: open Settings → Apps → LinkHub → Battery and choose Unrestricted, then in Device care → Battery → Background usage limits make sure LinkHub is never put to sleep.</source>
         <translation>Samsung'da: Ayarlar → Uygulamalar → LinkHub → Pil'i açıp Kısıtlanmamış'ı seçin, ardından Cihaz bakımı → Pil → Arka plan kullanım sınırları bölümünde LinkHub'in asla uyku moduna alınmadığından emin olun.</translation>
     </message>
     <message>
@@ -2723,12 +2723,12 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="244" />
-        <source>On Vivo / OriginOS / Funtouch: open Settings → Battery → Background power consumption management → NectarLink and choose Unrestricted, and allow Autostart.</source>
+        <source>On Vivo / OriginOS / Funtouch: open Settings → Battery → Background power consumption management → LinkHub and choose Unrestricted, and allow Autostart.</source>
         <translation>Vivo / OriginOS / Funtouch'ta: Ayarlar → Pil → Arka plan güç tüketimi yönetimi → LinkHub'i açıp Kısıtlanmamış'ı seçin ve Otomatik başlatmaya izin verin.</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="245" />
-        <source>On Xiaomi / HyperOS / MIUI: open Settings → Apps → Manage apps → NectarLink, turn on Autostart, and set Battery saver to No restrictions.</source>
+        <source>On Xiaomi / HyperOS / MIUI: open Settings → Apps → Manage apps → LinkHub, turn on Autostart, and set Battery saver to No restrictions.</source>
         <translation>Xiaomi / HyperOS / MIUI'de: Ayarlar → Uygulamalar → Uygulamaları yönet → LinkHub'i açın, Otomatik başlatma'yı açın ve Pil tasarrufu'nu Kısıtlama yok olarak ayarlayın.</translation>
     </message>
     <message>
@@ -2768,7 +2768,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="253" />
-        <source>Phones on a USB cable connect through adb. NectarLink starts it every minute or so; start it now if a phone on a cable isn't showing up.</source>
+        <source>Phones on a USB cable connect through adb. LinkHub starts it every minute or so; start it now if a phone on a cable isn't showing up.</source>
         <translation>USB kablosundaki telefonlar adb üzerinden bağlanır. LinkHub onu yaklaşık her dakika başlatır; kablodaki bir telefon görünmüyorsa şimdi başlatın.</translation>
     </message>
     <message>
@@ -2793,7 +2793,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="258" />
-        <source>The firewall blocks NectarLink</source>
+        <source>The firewall blocks LinkHub</source>
         <translation>Güvenlik duvarı LinkHub'i engelliyor</translation>
     </message>
     <message>
@@ -2833,7 +2833,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="266" />
-        <source>To connect over a cable, NectarLink can get Android's USB tools from Google for you, and the phone needs USB debugging on. Wi-Fi works without them.</source>
+        <source>To connect over a cable, LinkHub can get Android's USB tools from Google for you, and the phone needs USB debugging on. Wi-Fi works without them.</source>
         <oldsource>To connect over a cable, install Android's platform-tools or Android Studio, and turn on USB debugging on the phone. Wi-Fi works without it.</oldsource>
         <translation>Kabloyla bağlanmak için LinkHub, Android'in USB araçlarını sizin için Google'dan indirebilir; telefonda da USB hata ayıklamanın açık olması gerekir. Wi-Fi onlarsız da çalışır.</translation>
     </message>
@@ -2849,7 +2849,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="269" />
-        <source>Windows Firewall blocks NectarLink</source>
+        <source>Windows Firewall blocks LinkHub</source>
         <translation>Windows Güvenlik Duvarı LinkHub'i engelliyor</translation>
     </message>
     <message>
@@ -3818,10 +3818,10 @@
     <name>Guide</name>
     <message>
         <location filename="rust_strings.h" line="292" />
-        <source>1. Install NectarLink on your PC (Windows 11 or Linux) and your Android phone (Android 8.0 or newer).
+        <source>1. Install LinkHub on your PC (Windows 11 or Linux) and your Android phone (Android 8.0 or newer).
 2. Connect both devices to the same Wi-Fi network, or plug your phone into your PC with a USB cable.
 3. Open the Pair step in the setup walkthrough, or click + (Pair a new device) at the bottom of the left rail.
-4. Scan the QR code from the NectarLink Android app, or select your phone from the nearby devices list and confirm that the 6-digit code matches on both screens.
+4. Scan the QR code from the LinkHub Android app, or select your phone from the nearby devices list and confirm that the 6-digit code matches on both screens.
 5. Choose which features to share for that phone and grant only the Android permissions you want to use.</source>
         <translation>1. LinkHub'i bilgisayarınıza (Windows 11 veya Linux) ve Android telefonunuza (Android 8.0 veya üzeri) kurun.
 2. İki cihazı da aynı Wi-Fi ağına bağlayın veya telefonunuzu USB kablosuyla bilgisayarınıza takın.
@@ -3899,9 +3899,9 @@
         <source>If your phone and PC do not see each other:
 
 1. Open Connection Doctor from Settings › Connection &amp; About or the Command Palette.
-2. Check that your Wi-Fi network profile in Windows is set to Private rather than Public, or click Fix in Connection Doctor to allow NectarLink through Windows Firewall.
+2. Check that your Wi-Fi network profile in Windows is set to Private rather than Public, or click Fix in Connection Doctor to allow LinkHub through Windows Firewall.
 3. Verify that both devices are on the same subnet and that guest Wi-Fi client isolation is turned off on your router.
-4. You can also connect over a USB cable with USB debugging enabled; NectarLink automatically sets up a local tunnel.</source>
+4. You can also connect over a USB cable with USB debugging enabled; LinkHub automatically sets up a local tunnel.</source>
         <translation>Telefonunuz ve bilgisayarınız birbirini görmüyorsa:
 
 1. Bağlantı Doktoru'nu Ayarlar › Bağlantı ve Hakkında bölümünden veya Komut Paleti'nden açın.
@@ -3950,7 +3950,7 @@ Bilgisayar klasörlerini paylaş, Uzaktan giriş ve Ters bilgisayar ekranı yans
     </message>
     <message>
         <location filename="rust_strings.h" line="312" />
-        <source>Most NectarLink features work in Standard mode with regular Android permissions. Two optional modes unlock deeper system integration:
+        <source>Most LinkHub features work in Standard mode with regular Android permissions. Two optional modes unlock deeper system integration:
 
 Elevated mode (Wireless debugging or root)
 - Captures the phone screen without showing the Android cast confirmation prompt every time.
@@ -3959,7 +3959,7 @@ Elevated mode (Wireless debugging or root)
 
 Assist mode (Android Accessibility Service)
 - Injects mouse clicks, scrolling, and touch gestures when you control your phone from your PC.
-- NectarLink never reads screen text or logs keystrokes through the Accessibility service.</source>
+- LinkHub never reads screen text or logs keystrokes through the Accessibility service.</source>
         <translation>LinkHub özelliklerinin çoğu, normal Android izinleriyle Standart modda çalışır. İsteğe bağlı iki mod daha derin sistem entegrasyonu sağlar:
 
 Yükseltilmiş mod (Kablosuz hata ayıklama veya root)
@@ -3978,7 +3978,7 @@ Yardımcı mod (Android Erişilebilirlik Hizmeti)
     </message>
     <message>
         <location filename="rust_strings.h" line="314" />
-        <source>NectarLink links your Android phone and your PC directly on your local network or over a USB cable.
+        <source>LinkHub links your Android phone and your PC directly on your local network or over a USB cable.
 
 How it works
 - Devices discover each other over local Wi-Fi (mDNS) or USB (ADB reverse tunnel) and connect over QUIC (TLS 1.3).
@@ -4003,7 +4003,7 @@ Android'de yetenek seviyeleri
     </message>
     <message>
         <location filename="rust_strings.h" line="315" />
-        <source>NectarLink never asks for every permission up front. Each feature works independently:
+        <source>LinkHub never asks for every permission up front. Each feature works independently:
 
 - Notification Access: Required only if you want phone notifications, inline replies, and notification-backed chat threads on your PC.
 - SMS and Contacts: Required only if you want to read and send SMS/MMS messages or look up contact names on your PC.
@@ -4020,7 +4020,7 @@ Android'de yetenek seviyeleri
     </message>
     <message>
         <location filename="rust_strings.h" line="316" />
-        <source>NectarLink overview</source>
+        <source>LinkHub overview</source>
         <translation>LinkHub'e genel bakış</translation>
     </message>
     <message>
@@ -4193,7 +4193,7 @@ Neler gerekir
     <message>
         <location filename="rust_strings.h" line="338" />
         <source>What it does
-Exposes an opt-in localhost HTTP/JSON and Server-Sent Events API on 127.0.0.1 (default port 53320) protected by a bearer token so scripts, CLI tools, and Stream Deck plugins can trigger NectarLink actions.
+Exposes an opt-in localhost HTTP/JSON and Server-Sent Events API on 127.0.0.1 (default port 53320) protected by a bearer token so scripts, CLI tools, and Stream Deck plugins can trigger LinkHub actions.
 
 Where to find it
 - Settings › Connection &amp; About › Local automation API.
@@ -4219,7 +4219,7 @@ Where to find it
 - Command Palette › Type on phone with PC keyboard.
 
 What it needs
-- Assist mode (Accessibility service), the NectarLink input method, or Elevated mode on your phone.</source>
+- Assist mode (Accessibility service), the LinkHub input method, or Elevated mode on your phone.</source>
         <translation>Ne yapar
 Bilgisayar klavyenizdeki tuş vuruşlarını ve yapıştırılan metni, telefon ekranını yansıtmaya gerek kalmadan doğrudan telefonunuza iletir.
 
@@ -4348,7 +4348,7 @@ Where to find it
 - Settings › General › Copy one-time codes.
 
 What it needs
-- Notification Access permission enabled for NectarLink on your Android phone.
+- Notification Access permission enabled for LinkHub on your Android phone.
 - The per-device Notifications toggle enabled on your PC.</source>
         <translation>Ne yapar
 Telefon bildirimlerinizi Ana Sayfa akışına ve Windows bildirim açılır pencerelerine yansıtır. Mesajlara satır içi yanıt verebilir, eylem düğmelerine tıklayabilir, bildirimleri tek tek veya grup olarak kapatabilir ve son kapatmayı geri alabilirsiniz.
@@ -4368,7 +4368,7 @@ Neler gerekir
 Opens a keyboard-first search bar over actions, contacts, message threads, mirrorable apps, phone quick toggles, clipboard history, and navigation pages.
 
 Where to find it
-- Global hotkey Ctrl+Alt+Space (or Ctrl+K inside the NectarLink window).
+- Global hotkey Ctrl+Alt+Space (or Ctrl+K inside the LinkHub window).
 - Commands in the top bar.
 
 What it needs
@@ -4470,7 +4470,7 @@ Neler gerekir
     <message>
         <location filename="rust_strings.h" line="351" />
         <source>What it does
-Sends files, folders, links, and text between your phone and PC at local network speed. If your phone is offline when you send, NectarLink places the item in the Waiting to send queue and delivers it automatically as soon as your phone reconnects.
+Sends files, folders, links, and text between your phone and PC at local network speed. If your phone is offline when you send, LinkHub places the item in the Waiting to send queue and delivers it automatically as soon as your phone reconnects.
 
 Where to find it
 - Home › Send files button, drag-and-drop anywhere on the window, Waiting to send card, and Transfers list.
@@ -4518,7 +4518,7 @@ Where to find it
 
 What it needs
 - Automatic PC-to-phone clipboard send works whenever your phone is connected.
-- Background phone-to-PC clipboard sync on Android 10+ uses notifications, the NectarLink quick tile, or Elevated mode.</source>
+- Background phone-to-PC clipboard sync on Android 10+ uses notifications, the LinkHub quick tile, or Elevated mode.</source>
         <translation>Ne yapar
 Kopyalanan metni, zengin HTML/RTF metnini, görüntüleri ve küçük kopyalanmış dosya gruplarını bilgisayarınız ve telefonunuz arasında paylaşır. Sabitleme ve bağlantılar, telefon numaraları, adresler ve kargo takip kodları için akıllı bağlam etiketleriyle en fazla 50 öğelik şifreli yerel bir geçmiş tutar.
 
@@ -4580,7 +4580,7 @@ Neler gerekir
 Streams your PC's screen to your phone so you can view your desktop from across the room and use your phone as a trackpad or laser pointer.
 
 Where to find it
-- Started from the NectarLink app on your phone.
+- Started from the LinkHub app on your phone.
 - Settings › Devices › Share PC screen to phone.
 
 What it needs
@@ -4598,7 +4598,7 @@ Neler gerekir
     <message>
         <location filename="rust_strings.h" line="357" />
         <source>What it does
-Streams your phone camera into the NectarLink Virtual Camera on Windows so Zoom, Teams, Meet, Discord, and OBS can use your phone's rear or front camera at up to 4K.
+Streams your phone camera into the LinkHub Virtual Camera on Windows so Zoom, Teams, Meet, Discord, and OBS can use your phone's rear or front camera at up to 4K.
 
 Where to find it
 - Home › Phone as webcam.
@@ -5895,7 +5895,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="375" />
-        <source>Update NectarLink on %1.</source>
+        <source>Update LinkHub on %1.</source>
         <translation>%1 cihazındaki LinkHub'i güncelleyin.</translation>
     </message>
 </context>
@@ -5967,11 +5967,11 @@ Neler gerekir
         <translation>Elevated gerekir: LinkHub › Ayarlar › İzinler › Bilgisayarınızdan kontrol bölümünden kur ya da telefonu USB hata ayıklamaya izin vererek USB ile bağla.</translation>
     </message>
     <message>
-        <source>On your phone, open NectarLink › Settings › Control from your PC and turn on the Accessibility service.</source>
+        <source>On your phone, open LinkHub › Settings › Control from your PC and turn on the Accessibility service.</source>
         <translation type="vanished">Telefonunuzda LinkHub › Ayarlar › Bilgisayarınızdan kontrol'ü açın ve Erişilebilirlik hizmetini açın.</translation>
     </message>
     <message>
-        <source>Needs Elevated: set up Wireless debugging in NectarLink › Settings › Control from your PC, or connect the phone over USB with USB debugging allowed.</source>
+        <source>Needs Elevated: set up Wireless debugging in LinkHub › Settings › Control from your PC, or connect the phone over USB with USB debugging allowed.</source>
         <translation type="vanished">Yükseltilmiş mod gerekli: LinkHub › Ayarlar › Bilgisayarınızdan kontrol bölümünde Kablosuz hata ayıklamayı ayarlayın veya telefonu USB hata ayıklamaya izin verilmiş şekilde USB ile bağlayın.</translation>
     </message>
     <message>
@@ -6571,13 +6571,13 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="387" />
-        <source>Recording from %1, saved in Downloads/Nectarlink</source>
-        <translation>%1 kaydı, İndirilenler/Nectarlink klasörüne kaydedildi</translation>
+        <source>Recording from %1, saved in Downloads/LinkHub</source>
+        <translation>%1 kaydı, İndirilenler/LinkHub klasörüne kaydedildi</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="388" />
-        <source>Recording from %1, saved in Downloads\Nectarlink</source>
-        <translation>%1 kaydı, İndirilenler\Nectarlink klasörüne kaydedildi</translation>
+        <source>Recording from %1, saved in Downloads\LinkHub</source>
+        <translation>%1 kaydı, İndirilenler\LinkHub klasörüne kaydedildi</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="389" />
@@ -6586,13 +6586,13 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="390" />
-        <source>Saved %1 to Downloads/Nectarlink.</source>
-        <translation>%1, İndirilenler/Nectarlink klasörüne kaydedildi.</translation>
+        <source>Saved %1 to Downloads/LinkHub.</source>
+        <translation>%1, İndirilenler/LinkHub klasörüne kaydedildi.</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="391" />
-        <source>Saved %1 to Downloads\Nectarlink.</source>
-        <translation>%1, İndirilenler\Nectarlink klasörüne kaydedildi.</translation>
+        <source>Saved %1 to Downloads\LinkHub.</source>
+        <translation>%1, İndirilenler\LinkHub klasörüne kaydedildi.</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="392" />
@@ -6601,13 +6601,13 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="393" />
-        <source>Screenshot from %1, saved in Downloads/Nectarlink</source>
-        <translation>%1 ekran görüntüsü, İndirilenler/Nectarlink klasörüne kaydedildi</translation>
+        <source>Screenshot from %1, saved in Downloads/LinkHub</source>
+        <translation>%1 ekran görüntüsü, İndirilenler/LinkHub klasörüne kaydedildi</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="394" />
-        <source>Screenshot from %1, saved in Downloads\Nectarlink</source>
-        <translation>%1 ekran görüntüsü, İndirilenler\Nectarlink klasörüne kaydedildi</translation>
+        <source>Screenshot from %1, saved in Downloads\LinkHub</source>
+        <translation>%1 ekran görüntüsü, İndirilenler\LinkHub klasörüne kaydedildi</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="395" />
@@ -6621,7 +6621,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="397" />
-        <source>Set up Wireless debugging in NectarLink on the phone to open its apps here.</source>
+        <source>Set up Wireless debugging in LinkHub on the phone to open its apps here.</source>
         <translation>Uygulamalarını burada açmak için telefondaki LinkHub'te Kablosuz hata ayıklamayı ayarlayın.</translation>
     </message>
     <message>
@@ -6631,7 +6631,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="399" />
-        <source>The app didn't open on the phone. Try again, or open NectarLink on the phone to check Wireless debugging.</source>
+        <source>The app didn't open on the phone. Try again, or open LinkHub on the phone to check Wireless debugging.</source>
         <translation>Uygulama telefonda açılmadı. Tekrar deneyin veya Kablosuz hata ayıklamayı kontrol etmek için telefonda LinkHub'i açın.</translation>
     </message>
     <message>
@@ -6661,7 +6661,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="405" />
-        <source>This phone's app doesn't share its screen yet. Update NectarLink on the phone.</source>
+        <source>This phone's app doesn't share its screen yet. Update LinkHub on the phone.</source>
         <translation>Bu telefondaki uygulama henüz ekranını paylaşmıyor. Telefondaki LinkHub'i güncelleyin.</translation>
     </message>
     <message>
@@ -7214,7 +7214,7 @@ Neler gerekir
         <translation>Bu QR kodunu tarayın</translation>
     </message>
     <message>
-        <source>On your phone, open NectarLink and choose “Pair nearby”. It shows up here.</source>
+        <source>On your phone, open LinkHub and choose “Pair nearby”. It shows up here.</source>
         <translation type="vanished">Telefonunuzda LinkHub'i açın ve “Yakındakiyle eşleştir”i seçin. Telefonunuz burada görünür.</translation>
     </message>
     <message>
@@ -7325,7 +7325,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="422" />
-        <source>Another build of NectarLink is on this phone</source>
+        <source>Another build of LinkHub is on this phone</source>
         <translation>Bu telefonda LinkHub'in başka bir sürümü var</translation>
     </message>
     <message>
@@ -7365,7 +7365,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="430" />
-        <source>NectarLink needs Android 8.0 or newer.</source>
+        <source>LinkHub needs Android 8.0 or newer.</source>
         <translation>LinkHub, Android 8.0 veya daha yenisini gerektirir.</translation>
     </message>
     <message>
@@ -7410,7 +7410,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="439" />
-        <source>There's nothing to install. Open NectarLink on the phone to pair it.</source>
+        <source>There's nothing to install. Open LinkHub on the phone to pair it.</source>
         <translation>Yüklenecek bir şey yok. Eşleştirmek için telefonda LinkHub'i açın.</translation>
     </message>
     <message>
@@ -7698,7 +7698,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="443" />
-        <source>Update NectarLink on %1 to use its microphone.</source>
+        <source>Update LinkHub on %1 to use its microphone.</source>
         <translation>Mikrofonunu kullanmak için %1 cihazındaki LinkHub'i güncelleyin.</translation>
     </message>
 </context>
@@ -7706,7 +7706,7 @@ Neler gerekir
     <name>PhoneSound</name>
     <message>
         <location filename="rust_strings.h" line="444" />
-        <source>%1 couldn't ask to share its sound. Check that NectarLink can show notifications on the phone.</source>
+        <source>%1 couldn't ask to share its sound. Check that LinkHub can show notifications on the phone.</source>
         <translation>%1 cihazı ses paylaşımı için izin isteyemedi. LinkHub'in telefonda bildirim gösterebildiğini kontrol edin.</translation>
     </message>
     <message>
@@ -7721,7 +7721,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="447" />
-        <source>Update NectarLink on %1 to play its sound here.</source>
+        <source>Update LinkHub on %1 to play its sound here.</source>
         <translation>Sesini burada çalmak için %1 cihazındaki LinkHub'i güncelleyin.</translation>
     </message>
 </context>
@@ -7774,7 +7774,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="457" />
-        <source>Update NectarLink on %1 to back up its photos.</source>
+        <source>Update LinkHub on %1 to back up its photos.</source>
         <translation>Fotoğraflarını yedeklemek için %1 cihazındaki LinkHub'i güncelleyin.</translation>
     </message>
     <message>
@@ -7792,8 +7792,8 @@ Neler gerekir
     <name>Photos</name>
     <message>
         <location filename="rust_strings.h" line="460" />
-        <source>%1 of %2 couldn't be moved to %3. They're in Downloads\Nectarlink.</source>
-        <translation>%2 öğeden %1 tanesi %3 konumuna taşınamadı. Downloads\Nectarlink klasöründeler.</translation>
+        <source>%1 of %2 couldn't be moved to %3. They're in Downloads\LinkHub.</source>
+        <translation>%2 öğeden %1 tanesi %3 konumuna taşınamadı. Downloads\LinkHub klasöründeler.</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="461" />
@@ -7872,8 +7872,8 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="476" />
-        <source>The photo couldn't be copied. It's in Downloads\Nectarlink.</source>
-        <translation>Fotoğraf kopyalanamadı. İndirilenler\Nectarlink klasöründe.</translation>
+        <source>The photo couldn't be copied. It's in Downloads\LinkHub.</source>
+        <translation>Fotoğraf kopyalanamadı. İndirilenler\LinkHub klasöründe.</translation>
     </message>
 </context>
 <context>
@@ -8198,7 +8198,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="482" />
-        <source>Update NectarLink on %1 to play on it.</source>
+        <source>Update LinkHub on %1 to play on it.</source>
         <translation>Telefonda oynatmak için %1 cihazındaki LinkHub'i güncelleyin.</translation>
     </message>
 </context>
@@ -8439,7 +8439,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="491" />
-        <source>Send to %1 with NectarLink</source>
+        <source>Send to %1 with LinkHub</source>
         <translation>LinkHub ile %1 cihazına gönder</translation>
     </message>
     <message>
@@ -10571,7 +10571,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="499" />
-        <source>Couldn't uninstall NectarLink: %1</source>
+        <source>Couldn't uninstall LinkHub: %1</source>
         <translation>LinkHub kaldırılamadı: %1</translation>
     </message>
     <message>
@@ -10601,7 +10601,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="505" />
-        <source>The uninstaller is missing. Reinstall NectarLink, then uninstall it.</source>
+        <source>The uninstaller is missing. Reinstall LinkHub, then uninstall it.</source>
         <translation>Kaldırma programı eksik. LinkHub'i yeniden kurun, ardından kaldırın.</translation>
     </message>
     <message>
@@ -10812,7 +10812,7 @@ Neler gerekir
         <translation>klasörü yalnızca yöneticiler değiştirebiliyorsa, güncellemeleri yönetici onayı istemeden kuran bir görev ekler</translation>
     </message>
     <message>
-        <source>NectarLink goes into Program Files for everyone on this PC. Setup also:</source>
+        <source>LinkHub goes into Program Files for everyone on this PC. Setup also:</source>
         <translation type="vanished">LinkHub, bu bilgisayardaki herkes için Program Files klasörüne kurulur. Kurulum ayrıca:</translation>
     </message>
     <message>
@@ -11077,12 +11077,12 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="511" />
-        <source>On the phone, allow All files access for NectarLink.</source>
+        <source>On the phone, allow All files access for LinkHub.</source>
         <translation>Telefonda LinkHub için Tüm dosyalara erişim izni verin.</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="512" />
-        <source>On the phone, turn on Browse this phone's storage in File Explorer in NectarLink.</source>
+        <source>On the phone, turn on Browse this phone's storage in File Explorer in LinkHub.</source>
         <translation>Telefonda LinkHub'te Bu telefonun depolama alanına Dosya Gezgini'nden göz at seçeneğini açın.</translation>
     </message>
 </context>
@@ -11561,8 +11561,8 @@ Neler gerekir
     <name>Transfers</name>
     <message>
         <location filename="rust_strings.h" line="542" />
-        <source>Accept in NectarLink to save to Downloads\Nectarlink</source>
-        <translation>İndirilenler\Nectarlink klasörüne kaydetmek için LinkHub'te kabul edin</translation>
+        <source>Accept in LinkHub to save to Downloads\LinkHub</source>
+        <translation>İndirilenler\LinkHub klasörüne kaydetmek için LinkHub'te kabul edin</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="543" />
@@ -11571,13 +11571,13 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="544" />
-        <source>From %1, opened from Downloads\Nectarlink</source>
-        <translation>Kaynak: %1, İndirilenler\Nectarlink klasöründen açıldı</translation>
+        <source>From %1, opened from Downloads\LinkHub</source>
+        <translation>Kaynak: %1, İndirilenler\LinkHub klasöründen açıldı</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="545" />
-        <source>From %1, saved in Downloads\Nectarlink</source>
-        <translation>Kaynak: %1, İndirilenler\Nectarlink klasörüne kaydedildi</translation>
+        <source>From %1, saved in Downloads\LinkHub</source>
+        <translation>Kaynak: %1, İndirilenler\LinkHub klasörüne kaydedildi</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="546" />
@@ -11604,27 +11604,27 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="550" />
-        <source>NectarLink %1 is available</source>
+        <source>LinkHub %1 is available</source>
         <translation>LinkHub %1 kullanılabilir</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="551" />
-        <source>NectarLink %1 is available.</source>
+        <source>LinkHub %1 is available.</source>
         <translation>LinkHub %1 kullanılabilir.</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="552" />
-        <source>NectarLink is still on the version you had. Try again from Settings.</source>
+        <source>LinkHub is still on the version you had. Try again from Settings.</source>
         <translation>LinkHub hâlâ önceki sürümde. Ayarlar'dan tekrar deneyin.</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="553" />
-        <source>NectarLink is up to date.</source>
+        <source>LinkHub is up to date.</source>
         <translation>LinkHub güncel.</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="554" />
-        <source>NectarLink is updated to %1</source>
+        <source>LinkHub is updated to %1</source>
         <translation>LinkHub %1 sürümüne güncellendi</translation>
     </message>
     <message>
@@ -11664,7 +11664,7 @@ Neler gerekir
     </message>
     <message>
         <location filename="rust_strings.h" line="562" />
-        <source>The update is installed. Restart NectarLink to use it.</source>
+        <source>The update is installed. Restart LinkHub to use it.</source>
         <translation>Güncelleme kuruldu. Kullanmak için LinkHub'i yeniden başlatın.</translation>
     </message>
     <message>

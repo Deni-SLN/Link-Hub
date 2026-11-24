@@ -501,7 +501,7 @@ fn run_setup_window(mode: setup::Mode) -> ExitCode {
     #[cfg(not(any(target_os = "linux", target_os = "macos")))]
     let mut app = QGuiApplication::new();
     if let Some(mut app) = app.as_mut() {
-        app.as_mut().set_application_name(&QString::from("NectarLink Setup"));
+        app.as_mut().set_application_name(&QString::from("LinkHub Setup"));
         app.as_mut().set_application_version(&QString::from(env!("CARGO_PKG_VERSION")));
     }
     // Before any QML loads, so every string is right on the first pass.

@@ -14,18 +14,13 @@ Item {
         width: Math.min(460, parent.width - 48)
         spacing: 22
 
-        Rectangle {
+        Image {
             anchors.horizontalCenter: parent.horizontalCenter
-            width: 52; height: 52
-            radius: Theme.radiusMd
-            color: Theme.graphite ? Theme.surfaceContent : Theme.primary
-            Icon {
-                anchors.centerIn: parent
-                width: 26; height: 26
-                path: Icons.mark
-                stroke: 2.4
-                color: Theme.graphite ? Theme.surface : Theme.primaryContent
-            }
+            width: 64; height: 64
+            source: "qrc:/brand/icon-512.png"
+            fillMode: Image.PreserveAspectFit
+            smooth: true
+            mipmap: true
         }
         Column {
             width: parent.width

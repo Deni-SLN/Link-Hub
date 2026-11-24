@@ -378,7 +378,7 @@ fn show_ringing(device: DeviceId, call: &CallState, silenced: bool) {
         key: key(device, &call.id),
         title: caller(call),
         body,
-        attribution: "NectarLink".into(),
+        attribution: "LinkHub".into(),
         icon: call.photo.as_deref().and_then(|photo| save_photo(device, &call.id, photo)),
         image: None,
         actions,
@@ -417,7 +417,7 @@ fn show_in_progress(device: DeviceId, call: &CallState) {
             Some(app) => tr!("Calls", "%1 call on %2", app, phone_name(device)),
             None => format!("On {}", phone_name(device)),
         },
-        attribution: "NectarLink".into(),
+        attribution: "LinkHub".into(),
         icon: None,
         image: None,
         actions,
@@ -468,7 +468,7 @@ fn show_missed(device: DeviceId, call: &CallState) {
         key: format!("missed {}", key(device, &call.id)),
         title: tr!("Calls", "Missed call from %1", caller(call)),
         body: format!("On {}", phone_name(device)),
-        attribution: "NectarLink".into(),
+        attribution: "LinkHub".into(),
         icon: None,
         image: None,
         actions: Vec::new(),
@@ -1022,7 +1022,7 @@ pub fn dial_problem(error: &Error) -> &'static str {
     match error {
         Error::Denied => "Calls are turned off for this phone.",
         Error::Unsupported => {
-            "The phone doesn't place calls for this PC. Allow it in the NectarLink app on the phone."
+            "The phone doesn't place calls for this PC. Allow it in the LinkHub app on the phone."
         }
         Error::Offline | Error::NotPaired | Error::Timeout => "The phone isn't connected.",
         _ => "The phone couldn't place that call.",

@@ -11,7 +11,7 @@ use std::os::unix::fs::{DirBuilderExt, FileTypeExt, MetadataExt, OpenOptionsExt}
 use std::path::{Path, PathBuf};
 
 pub const SOURCE_NAME: &str = "NectarLink_Virtual_Mic";
-pub const DEFAULT_DESCRIPTION: &str = "NectarLink Phone Microphone";
+pub const DEFAULT_DESCRIPTION: &str = "LinkHub Phone Microphone";
 const FIFO_FILENAME: &str = "nectarlink-vmic.pcm";
 
 /// Returns a user-private path for the virtual microphone FIFO.

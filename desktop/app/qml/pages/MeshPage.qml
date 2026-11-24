@@ -462,6 +462,91 @@ Item {
                             onToggled: v => Preferences.streamPcAudioToPhone = v
                         }
                     }
+
+                    Divider {
+                        width: parent.width
+                    }
+
+                    RowLayout {
+                        width: parent.width
+                        spacing: 12
+
+                        Column {
+                            Layout.fillWidth: true
+                            spacing: 2
+                            Txt {
+                                role: "title"
+                                text: qsTr("Surround Audio (Multi-Device Speaker)")
+                            }
+                            Txt {
+                                width: parent.width
+                                role: "bodySmall"
+                                muted: true
+                                wrapMode: Text.WordWrap
+                                text: qsTr("Pancarkan audio PC ke seluruh perangkat Mesh secara bersamaan. Setiap perangkat dapat memutar Stereo penuh atau diatur sebagai channel Kiri/Kanan.")
+                            }
+                        }
+
+                        Toggle {
+                            checked: Preferences.surroundAudio
+                            onToggled: v => {
+                                Preferences.surroundAudio = v
+                                if (v && !Preferences.streamPcAudioToPhone) {
+                                    Preferences.streamPcAudioToPhone = true
+                                }
+                            }
+                        }
+                    }
+
+                    Column {
+                        width: parent.width
+                        spacing: 10
+                        visible: Preferences.surroundAudio && DeviceList.count > 0
+
+                        Txt {
+                            role: "caption"
+                            muted: true
+                            text: qsTr("Atur Peran Audio Per Perangkat:")
+                        }
+
+                        Repeater {
+                            model: DeviceList
+                            delegate: RowLayout {
+                                id: devRoleRow
+                                required property int index
+                                required property string deviceId
+                                required property string name
+                                required property bool online
+                                width: parent.width
+                                spacing: 12
+
+                                Row {
+                                    Layout.fillWidth: true
+                                    spacing: 8
+                                    StatusDot {
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        online: devRoleRow.online
+                                    }
+                                    Txt {
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        role: "body"
+                                        text: devRoleRow.name
+                                        elide: Text.ElideRight
+                                    }
+                                }
+
+                                Segmented {
+                                    value: Preferences.surroundRoleOf(devRoleRow.deviceId)
+                                    options: [
+                                        { value: "stereo", label: qsTr("Stereo") },
+                                        { value: "left", label: qsTr("Kiri") },
+                                        { value: "right", label: qsTr("Kanan") }
+                                    ]
+                                    onPicked: val => Preferences.setSurroundRole(devRoleRow.deviceId, val)
+                                }
+                            }
+                        }
+                    }
                 }
             }
 

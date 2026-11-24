@@ -1747,8 +1747,8 @@ mod tests {
             resume_notifications: "Resume".into(),
             quit: "Quit".into(),
         };
-        let tray = Tray::create("NectarLink", labels, |_| {}).expect("create tray");
-        tray.set_tooltip("NectarLink · Pixel 9");
+        let tray = Tray::create("LinkHub", labels, |_| {}).expect("create tray");
+        tray.set_tooltip("LinkHub · Pixel 9");
         tray.set_find_phone_enabled(true);
         assert!(tray.icon_path.exists());
         drop(tray);

@@ -167,7 +167,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="8" />
-        <source>%1. Open NectarLink to allow or deny it.</source>
+        <source>%1. Open LinkHub to allow or deny it.</source>
         <translation>%1。許可または拒否するには LinkHub を開いてください。</translation>
     </message>
     <message>
@@ -177,7 +177,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="10" />
-        <source>Its settings file has comments or something NectarLink can't safely change. Paste the lines below into it instead.</source>
+        <source>Its settings file has comments or something LinkHub can't safely change. Paste the lines below into it instead.</source>
         <translation>設定ファイルにコメントなど LinkHub が安全に変更できない内容があります。代わりに下の行を貼り付けてください。</translation>
     </message>
     <message>
@@ -587,27 +587,27 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="24" />
-        <source>NectarLink · %1</source>
+        <source>LinkHub · %1</source>
         <translation>LinkHub · %1</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="25" />
-        <source>NectarLink · %1 devices connected</source>
+        <source>LinkHub · %1 devices connected</source>
         <translation>LinkHub · %1台のデバイスが接続済み</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="26" />
-        <source>NectarLink · 1 device connected</source>
+        <source>LinkHub · 1 device connected</source>
         <translation>LinkHub · 1台接続済み</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="27" />
-        <source>NectarLink · no devices paired</source>
+        <source>LinkHub · no devices paired</source>
         <translation>LinkHub · ペアリング済みデバイスなし</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="28" />
-        <source>NectarLink · not connected</source>
+        <source>LinkHub · not connected</source>
         <translation>LinkHub · 未接続</translation>
     </message>
     <message>
@@ -617,7 +617,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="30" />
-        <source>Open NectarLink</source>
+        <source>Open LinkHub</source>
         <translation>LinkHubを開く</translation>
     </message>
     <message>
@@ -632,7 +632,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="33" />
-        <source>Quit NectarLink</source>
+        <source>Quit LinkHub</source>
         <translation>LinkHubを終了</translation>
     </message>
     <message>
@@ -1049,7 +1049,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="67" />
-        <source>This phone doesn't let NectarLink reach its calls' sound.</source>
+        <source>This phone doesn't let LinkHub reach its calls' sound.</source>
         <translation>このスマートフォンではLinkHubによる通話音声の取得が許可されていません。</translation>
     </message>
     <message>
@@ -1429,7 +1429,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="80" />
-        <source>Update NectarLink on %1 to send it images.</source>
+        <source>Update LinkHub on %1 to send it images.</source>
         <translation>画像を送信するには、%1でLinkHubを更新してください。</translation>
     </message>
     <message>
@@ -1687,7 +1687,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="122" />
-        <source>Opened Recordings folder. Start a voice note in NectarLink on %1 to send it here.</source>
+        <source>Opened Recordings folder. Start a voice note in LinkHub on %1 to send it here.</source>
         <translation>録音フォルダーを開きました。%1 の LinkHub でボイスメモを開始して、ここに送信します。</translation>
     </message>
     <message>
@@ -1862,7 +1862,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="157" />
-        <source>Stream %1's camera into the NectarLink virtual webcam</source>
+        <source>Stream %1's camera into the LinkHub virtual webcam</source>
         <translation>%1のカメラ映像をLinkHubの仮想ウェブカメラにストリーミングする</translation>
     </message>
     <message>
@@ -2523,12 +2523,12 @@
     <name>Doctor</name>
     <message>
         <location filename="rust_strings.h" line="207" />
-        <source>%1 Open NectarLink on the phone and keep both on the same network. If the phone asks to run in the background, allow it.</source>
+        <source>%1 Open LinkHub on the phone and keep both on the same network. If the phone asks to run in the background, allow it.</source>
         <translation>%1 スマートフォンでLinkHubを開き、両方を同じネットワークに接続したままにします。スマートフォンからバックグラウンドでの実行を求められた場合は、許可してください。</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="208" />
-        <source>%1 announces itself at %2, which isn't in a private range such as 192.168.x.x. NectarLink connects on such a network once both apps are up to date. Until then, turn on Connect over mobile data on both, or connect with a USB cable.</source>
+        <source>%1 announces itself at %2, which isn't in a private range such as 192.168.x.x. LinkHub connects on such a network once both apps are up to date. Until then, turn on Connect over mobile data on both, or connect with a USB cable.</source>
         <translation>%1 は %2 で自身を通知しますが、このアドレスは 192.168.x.x のようなプライベート範囲ではありません。両方のアプリが最新の状態になれば、LinkHub はこのようなネットワーク上でも接続できるようになります。それまでは、双方で「モバイルデータ通信経由で接続」を有効にするか、USBケーブルで接続してください。</translation>
     </message>
     <message>
@@ -2588,7 +2588,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="220" />
-        <source>A firewall rule blocks incoming NectarLink connections. Allow it, and your phone can connect.</source>
+        <source>A firewall rule blocks incoming LinkHub connections. Allow it, and your phone can connect.</source>
         <translation>ファイアウォールのルールがLinkHubからの接続をブロックしています。これを許可すると、スマートフォンが接続できるようになります。</translation>
     </message>
     <message>
@@ -2658,47 +2658,47 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="234" />
-        <source>NectarLink can't show its icon in the top bar</source>
+        <source>LinkHub can't show its icon in the top bar</source>
         <translation>LinkHubのアイコンが上部バーに表示されません</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="235" />
-        <source>NectarLink is in the top bar</source>
+        <source>LinkHub is in the top bar</source>
         <translation>LinkHubは上部バーにあります</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="236" />
-        <source>NectarLink isn't allowed through Windows Firewall</source>
+        <source>LinkHub isn't allowed through Windows Firewall</source>
         <translation>LinkHubはWindows ファイアウォールで許可されていません</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="237" />
-        <source>NectarLink isn't allowed through the firewall</source>
+        <source>LinkHub isn't allowed through the firewall</source>
         <translation>LinkHubはファイアウォールで許可されていません</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="238" />
-        <source>On Huawei / Honor: open Settings → Battery → App launch, turn off Manage automatically for NectarLink, and keep Auto-launch, Secondary launch, and Run in background on.</source>
+        <source>On Huawei / Honor: open Settings → Battery → App launch, turn off Manage automatically for LinkHub, and keep Auto-launch, Secondary launch, and Run in background on.</source>
         <translation>Huawei / Honorの場合：設定 → バッテリー → アプリの起動を開き、LinkHubの「自動的に管理」をオフにし、「自動起動」「セカンダリ起動」「バックグラウンドで実行」はオンのままにします。</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="239" />
-        <source>On OnePlus / OxygenOS: open Settings → Apps → App management → NectarLink → Battery usage and turn on Allow background activity and Allow auto-launch.</source>
+        <source>On OnePlus / OxygenOS: open Settings → Apps → App management → LinkHub → Battery usage and turn on Allow background activity and Allow auto-launch.</source>
         <translation>OnePlus / OxygenOSの場合：設定 → アプリ → アプリ管理 → LinkHub → バッテリー使用量を開き、「バックグラウンド動作を許可」と「自動起動を許可」をオンにします。</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="240" />
-        <source>On Oppo / Realme: open Settings → Apps → App management → NectarLink → Battery usage and turn on Allow background activity and Allow auto-launch.</source>
+        <source>On Oppo / Realme: open Settings → Apps → App management → LinkHub → Battery usage and turn on Allow background activity and Allow auto-launch.</source>
         <translation>Oppo / Realmeの場合：設定 → アプリ → アプリ管理 → LinkHub → バッテリー使用量を開き、「バックグラウンド動作を許可」と「自動起動を許可」をオンにします。</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="241" />
-        <source>On Pixel: open Settings → Apps → See all apps → NectarLink → App battery usage, tap Allow background usage, and choose Unrestricted.</source>
+        <source>On Pixel: open Settings → Apps → See all apps → LinkHub → App battery usage, tap Allow background usage, and choose Unrestricted.</source>
         <translation>Pixelの場合：「設定」→「アプリ」→「すべてのアプリを表示」→「LinkHub」→「アプリのバッテリー使用量」を開き、「バックグラウンドでの使用を許可」をタップして、「制限なし」を選択してください。</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="242" />
-        <source>On Samsung: open Settings → Apps → NectarLink → Battery and choose Unrestricted, then in Device care → Battery → Background usage limits make sure NectarLink is never put to sleep.</source>
+        <source>On Samsung: open Settings → Apps → LinkHub → Battery and choose Unrestricted, then in Device care → Battery → Background usage limits make sure LinkHub is never put to sleep.</source>
         <translation>Samsung端末の場合：「設定」→「アプリ」→「LinkHub」→「バッテリー」の順に開き、「制限なし」を選択してください。次に、「デバイスケア」→「バッテリー」→「バックグラウンド使用制限」で、LinkHubがスリープ状態にならないように設定してください。</translation>
     </message>
     <message>
@@ -2708,12 +2708,12 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="244" />
-        <source>On Vivo / OriginOS / Funtouch: open Settings → Battery → Background power consumption management → NectarLink and choose Unrestricted, and allow Autostart.</source>
+        <source>On Vivo / OriginOS / Funtouch: open Settings → Battery → Background power consumption management → LinkHub and choose Unrestricted, and allow Autostart.</source>
         <translation>Vivo / OriginOS / Funtouch の場合：「設定」→「バッテリー」→「バックグラウンド消費電力管理」→「LinkHub」の順に開き、「制限なし」を選択して「自動起動」を許可してください。</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="245" />
-        <source>On Xiaomi / HyperOS / MIUI: open Settings → Apps → Manage apps → NectarLink, turn on Autostart, and set Battery saver to No restrictions.</source>
+        <source>On Xiaomi / HyperOS / MIUI: open Settings → Apps → Manage apps → LinkHub, turn on Autostart, and set Battery saver to No restrictions.</source>
         <translation>Xiaomi / HyperOS / MIUIの場合：設定 → アプリ → アプリの管理 → LinkHubを開き、自動起動をオンにし、バッテリー セーバーを「制限なし」に設定してください。</translation>
     </message>
     <message>
@@ -2753,7 +2753,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="253" />
-        <source>Phones on a USB cable connect through adb. NectarLink starts it every minute or so; start it now if a phone on a cable isn't showing up.</source>
+        <source>Phones on a USB cable connect through adb. LinkHub starts it every minute or so; start it now if a phone on a cable isn't showing up.</source>
         <translation>USBケーブル接続のスマートフォンはadb経由で接続されます。LinkHubは約1分ごとにこれを起動します。ケーブル接続のスマートフォンが表示されない場合は、今すぐ起動してください。</translation>
     </message>
     <message>
@@ -2778,7 +2778,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="258" />
-        <source>The firewall blocks NectarLink</source>
+        <source>The firewall blocks LinkHub</source>
         <translation>ファイアウォールがLinkHubをブロックしています</translation>
     </message>
     <message>
@@ -2818,7 +2818,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="266" />
-        <source>To connect over a cable, NectarLink can get Android's USB tools from Google for you, and the phone needs USB debugging on. Wi-Fi works without them.</source>
+        <source>To connect over a cable, LinkHub can get Android's USB tools from Google for you, and the phone needs USB debugging on. Wi-Fi works without them.</source>
         <translation>ケーブルで接続する場合、LinkHubがGoogleからAndroidのUSBツールを取得できます。なお、スマートフォン側でUSB デバッグを有効にしておく必要があります。Wi-Fiの場合はこれらの設定は不要です。</translation>
     </message>
     <message>
@@ -2833,7 +2833,7 @@
     </message>
     <message>
         <location filename="rust_strings.h" line="269" />
-        <source>Windows Firewall blocks NectarLink</source>
+        <source>Windows Firewall blocks LinkHub</source>
         <translation>Windows ファイアウォールがLinkHubをブロックしています</translation>
     </message>
     <message>
@@ -3802,10 +3802,10 @@
     <name>Guide</name>
     <message>
         <location filename="rust_strings.h" line="292" />
-        <source>1. Install NectarLink on your PC (Windows 11 or Linux) and your Android phone (Android 8.0 or newer).
+        <source>1. Install LinkHub on your PC (Windows 11 or Linux) and your Android phone (Android 8.0 or newer).
 2. Connect both devices to the same Wi-Fi network, or plug your phone into your PC with a USB cable.
 3. Open the Pair step in the setup walkthrough, or click + (Pair a new device) at the bottom of the left rail.
-4. Scan the QR code from the NectarLink Android app, or select your phone from the nearby devices list and confirm that the 6-digit code matches on both screens.
+4. Scan the QR code from the LinkHub Android app, or select your phone from the nearby devices list and confirm that the 6-digit code matches on both screens.
 5. Choose which features to share for that phone and grant only the Android permissions you want to use.</source>
         <translation>1. PC（Windows 11 または Linux）とAndroidスマートフォン（Android 8.0 以降）にLinkHubをインストールします。
 2. 両方のデバイスを同じWi-Fiネットワークに接続するか、USBケーブルでスマートフォンをPCに接続します。
@@ -3883,9 +3883,9 @@
         <source>If your phone and PC do not see each other:
 
 1. Open Connection Doctor from Settings › Connection &amp; About or the Command Palette.
-2. Check that your Wi-Fi network profile in Windows is set to Private rather than Public, or click Fix in Connection Doctor to allow NectarLink through Windows Firewall.
+2. Check that your Wi-Fi network profile in Windows is set to Private rather than Public, or click Fix in Connection Doctor to allow LinkHub through Windows Firewall.
 3. Verify that both devices are on the same subnet and that guest Wi-Fi client isolation is turned off on your router.
-4. You can also connect over a USB cable with USB debugging enabled; NectarLink automatically sets up a local tunnel.</source>
+4. You can also connect over a USB cable with USB debugging enabled; LinkHub automatically sets up a local tunnel.</source>
         <translation>スマートフォンとPCが相互に認識されない場合は：
 
 1. 「設定」 › 「接続と情報」またはコマンドパレットから「接続診断」を開きます。
@@ -3934,7 +3934,7 @@ Sensitive capabilities such as Share PC folders, Remote input, and Reverse PC sc
     </message>
     <message>
         <location filename="rust_strings.h" line="312" />
-        <source>Most NectarLink features work in Standard mode with regular Android permissions. Two optional modes unlock deeper system integration:
+        <source>Most LinkHub features work in Standard mode with regular Android permissions. Two optional modes unlock deeper system integration:
 
 Elevated mode (Wireless debugging or root)
 - Captures the phone screen without showing the Android cast confirmation prompt every time.
@@ -3943,7 +3943,7 @@ Elevated mode (Wireless debugging or root)
 
 Assist mode (Android Accessibility Service)
 - Injects mouse clicks, scrolling, and touch gestures when you control your phone from your PC.
-- NectarLink never reads screen text or logs keystrokes through the Accessibility service.</source>
+- LinkHub never reads screen text or logs keystrokes through the Accessibility service.</source>
         <translation>LinkHubのほとんどの機能は、標準的なAndroid権限で動作する標準モードで利用可能です。より高度なシステム連携を実現する、2つのオプションモードが用意されています：
 
 昇格モード（ワイヤレス デバッグまたはルート権限）
@@ -3962,7 +3962,7 @@ Assist mode (Android Accessibility Service)
     </message>
     <message>
         <location filename="rust_strings.h" line="314" />
-        <source>NectarLink links your Android phone and your PC directly on your local network or over a USB cable.
+        <source>LinkHub links your Android phone and your PC directly on your local network or over a USB cable.
 
 How it works
 - Devices discover each other over local Wi-Fi (mDNS) or USB (ADB reverse tunnel) and connect over QUIC (TLS 1.3).
@@ -3987,7 +3987,7 @@ Androidでの機能ティア
     </message>
     <message>
         <location filename="rust_strings.h" line="315" />
-        <source>NectarLink never asks for every permission up front. Each feature works independently:
+        <source>LinkHub never asks for every permission up front. Each feature works independently:
 
 - Notification Access: Required only if you want phone notifications, inline replies, and notification-backed chat threads on your PC.
 - SMS and Contacts: Required only if you want to read and send SMS/MMS messages or look up contact names on your PC.
@@ -4004,7 +4004,7 @@ Androidでの機能ティア
     </message>
     <message>
         <location filename="rust_strings.h" line="316" />
-        <source>NectarLink overview</source>
+        <source>LinkHub overview</source>
         <translation>LinkHubの概要</translation>
     </message>
     <message>
@@ -4177,7 +4177,7 @@ What it needs
     <message>
         <location filename="rust_strings.h" line="338" />
         <source>What it does
-Exposes an opt-in localhost HTTP/JSON and Server-Sent Events API on 127.0.0.1 (default port 53320) protected by a bearer token so scripts, CLI tools, and Stream Deck plugins can trigger NectarLink actions.
+Exposes an opt-in localhost HTTP/JSON and Server-Sent Events API on 127.0.0.1 (default port 53320) protected by a bearer token so scripts, CLI tools, and Stream Deck plugins can trigger LinkHub actions.
 
 Where to find it
 - Settings › Connection &amp; About › Local automation API.
@@ -4203,7 +4203,7 @@ Where to find it
 - Command Palette › Type on phone with PC keyboard.
 
 What it needs
-- Assist mode (Accessibility service), the NectarLink input method, or Elevated mode on your phone.</source>
+- Assist mode (Accessibility service), the LinkHub input method, or Elevated mode on your phone.</source>
         <translation>機能
 スマートフォンの画面をミラーリングすることなく、PCキーボードからのキー入力や貼り付けたテキストを直接スマートフォンに転送します。
 
@@ -4332,7 +4332,7 @@ Where to find it
 - Settings › General › Copy one-time codes.
 
 What it needs
-- Notification Access permission enabled for NectarLink on your Android phone.
+- Notification Access permission enabled for LinkHub on your Android phone.
 - The per-device Notifications toggle enabled on your PC.</source>
         <translation>機能
 スマートフォンの通知をホームフィードやWindowsの通知ポップアップにミラーリングします。メッセージへのインライン返信、アクションボタンのクリック、個別またはグループごとの通知の非表示、および最近行った非表示操作の取り消しが可能です。
@@ -4352,7 +4352,7 @@ What it needs
 Opens a keyboard-first search bar over actions, contacts, message threads, mirrorable apps, phone quick toggles, clipboard history, and navigation pages.
 
 Where to find it
-- Global hotkey Ctrl+Alt+Space (or Ctrl+K inside the NectarLink window).
+- Global hotkey Ctrl+Alt+Space (or Ctrl+K inside the LinkHub window).
 - Commands in the top bar.
 
 What it needs
@@ -4454,7 +4454,7 @@ What it needs
     <message>
         <location filename="rust_strings.h" line="351" />
         <source>What it does
-Sends files, folders, links, and text between your phone and PC at local network speed. If your phone is offline when you send, NectarLink places the item in the Waiting to send queue and delivers it automatically as soon as your phone reconnects.
+Sends files, folders, links, and text between your phone and PC at local network speed. If your phone is offline when you send, LinkHub places the item in the Waiting to send queue and delivers it automatically as soon as your phone reconnects.
 
 Where to find it
 - Home › Send files button, drag-and-drop anywhere on the window, Waiting to send card, and Transfers list.
@@ -4502,7 +4502,7 @@ Where to find it
 
 What it needs
 - Automatic PC-to-phone clipboard send works whenever your phone is connected.
-- Background phone-to-PC clipboard sync on Android 10+ uses notifications, the NectarLink quick tile, or Elevated mode.</source>
+- Background phone-to-PC clipboard sync on Android 10+ uses notifications, the LinkHub quick tile, or Elevated mode.</source>
         <translation>機能
 コピーしたテキスト、リッチ HTML/RTF テキスト、画像、および小規模なコピー済みファイルセットをPCとスマートフォン間で共有します。最大50件の項目を暗号化してローカルに履歴保存し、リンク、電話番号、住所、追跡コード用のピン留めやスマートコンテキストチップを利用できます。
 
@@ -4564,7 +4564,7 @@ What it needs
 Streams your PC's screen to your phone so you can view your desktop from across the room and use your phone as a trackpad or laser pointer.
 
 Where to find it
-- Started from the NectarLink app on your phone.
+- Started from the LinkHub app on your phone.
 - Settings › Devices › Share PC screen to phone.
 
 What it needs
@@ -4582,7 +4582,7 @@ PCの画面をスマートフォンにストリーミングし、部屋の離れ
     <message>
         <location filename="rust_strings.h" line="357" />
         <source>What it does
-Streams your phone camera into the NectarLink Virtual Camera on Windows so Zoom, Teams, Meet, Discord, and OBS can use your phone's rear or front camera at up to 4K.
+Streams your phone camera into the LinkHub Virtual Camera on Windows so Zoom, Teams, Meet, Discord, and OBS can use your phone's rear or front camera at up to 4K.
 
 Where to find it
 - Home › Phone as webcam.
@@ -5871,7 +5871,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="375" />
-        <source>Update NectarLink on %1.</source>
+        <source>Update LinkHub on %1.</source>
         <translation>%1 で LinkHub を更新します。</translation>
     </message>
 </context>
@@ -6539,13 +6539,13 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="387" />
-        <source>Recording from %1, saved in Downloads/Nectarlink</source>
-        <translation>%1から録画、Downloads/Nectarlinkに保存済み</translation>
+        <source>Recording from %1, saved in Downloads/LinkHub</source>
+        <translation>%1から録画、Downloads/LinkHubに保存済み</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="388" />
-        <source>Recording from %1, saved in Downloads\Nectarlink</source>
-        <translation>%1から録画、Downloads\Nectarlinkに保存済み</translation>
+        <source>Recording from %1, saved in Downloads\LinkHub</source>
+        <translation>%1から録画、Downloads\LinkHubに保存済み</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="389" />
@@ -6554,13 +6554,13 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="390" />
-        <source>Saved %1 to Downloads/Nectarlink.</source>
-        <translation>%1をDownloads/Nectarlinkに保存しました。</translation>
+        <source>Saved %1 to Downloads/LinkHub.</source>
+        <translation>%1をDownloads/LinkHubに保存しました。</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="391" />
-        <source>Saved %1 to Downloads\Nectarlink.</source>
-        <translation>%1をDownloads\Nectarlinkに保存しました。</translation>
+        <source>Saved %1 to Downloads\LinkHub.</source>
+        <translation>%1をDownloads\LinkHubに保存しました。</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="392" />
@@ -6569,13 +6569,13 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="393" />
-        <source>Screenshot from %1, saved in Downloads/Nectarlink</source>
-        <translation>%1のスクリーンショット、Downloads/Nectarlinkに保存済み</translation>
+        <source>Screenshot from %1, saved in Downloads/LinkHub</source>
+        <translation>%1のスクリーンショット、Downloads/LinkHubに保存済み</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="394" />
-        <source>Screenshot from %1, saved in Downloads\Nectarlink</source>
-        <translation>%1のスクリーンショット、Downloads\Nectarlinkに保存済み</translation>
+        <source>Screenshot from %1, saved in Downloads\LinkHub</source>
+        <translation>%1のスクリーンショット、Downloads\LinkHubに保存済み</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="395" />
@@ -6589,7 +6589,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="397" />
-        <source>Set up Wireless debugging in NectarLink on the phone to open its apps here.</source>
+        <source>Set up Wireless debugging in LinkHub on the phone to open its apps here.</source>
         <translation>スマートフォンのLinkHubでワイヤレス デバッグを設定すると、ここでアプリを開けます。</translation>
     </message>
     <message>
@@ -6599,7 +6599,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="399" />
-        <source>The app didn't open on the phone. Try again, or open NectarLink on the phone to check Wireless debugging.</source>
+        <source>The app didn't open on the phone. Try again, or open LinkHub on the phone to check Wireless debugging.</source>
         <translation>スマートフォンでアプリが開きませんでした。もう一度お試しいただくか、スマートフォンでLinkHubを開いてワイヤレス デバッグを確認してください。</translation>
     </message>
     <message>
@@ -6629,7 +6629,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="405" />
-        <source>This phone's app doesn't share its screen yet. Update NectarLink on the phone.</source>
+        <source>This phone's app doesn't share its screen yet. Update LinkHub on the phone.</source>
         <translation>このスマートフォンのアプリはまだ画面共有に対応していません。スマートフォンでLinkHubをアップデートしてください。</translation>
     </message>
     <message>
@@ -7285,7 +7285,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="422" />
-        <source>Another build of NectarLink is on this phone</source>
+        <source>Another build of LinkHub is on this phone</source>
         <translation>このスマートフォンには別のバージョンのLinkHubが搭載されています。</translation>
     </message>
     <message>
@@ -7325,7 +7325,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="430" />
-        <source>NectarLink needs Android 8.0 or newer.</source>
+        <source>LinkHub needs Android 8.0 or newer.</source>
         <translation>LinkHubにはAndroid 8.0以降が必要です。</translation>
     </message>
     <message>
@@ -7370,7 +7370,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="439" />
-        <source>There's nothing to install. Open NectarLink on the phone to pair it.</source>
+        <source>There's nothing to install. Open LinkHub on the phone to pair it.</source>
         <translation>インストールは不要です。スマートフォンでLinkHubを開いてペアリングしてください。</translation>
     </message>
     <message>
@@ -7658,7 +7658,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="443" />
-        <source>Update NectarLink on %1 to use its microphone.</source>
+        <source>Update LinkHub on %1 to use its microphone.</source>
         <translation>%1 のLinkHubを更新すると、マイクを利用できます。</translation>
     </message>
 </context>
@@ -7666,7 +7666,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     <name>PhoneSound</name>
     <message>
         <location filename="rust_strings.h" line="444" />
-        <source>%1 couldn't ask to share its sound. Check that NectarLink can show notifications on the phone.</source>
+        <source>%1 couldn't ask to share its sound. Check that LinkHub can show notifications on the phone.</source>
         <translation>%1 はサウンドの共有をリクエストできませんでした。LinkHub がスマートフォンで通知を表示できるか確認してください。</translation>
     </message>
     <message>
@@ -7681,7 +7681,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="447" />
-        <source>Update NectarLink on %1 to play its sound here.</source>
+        <source>Update LinkHub on %1 to play its sound here.</source>
         <translation>%1でLinkHubを更新して、ここで音を再生してください。</translation>
     </message>
 </context>
@@ -7734,7 +7734,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="457" />
-        <source>Update NectarLink on %1 to back up its photos.</source>
+        <source>Update LinkHub on %1 to back up its photos.</source>
         <translation>%1 のLinkHubを更新すると、写真をバックアップできます。</translation>
     </message>
     <message>
@@ -7752,8 +7752,8 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     <name>Photos</name>
     <message>
         <location filename="rust_strings.h" line="460" />
-        <source>%1 of %2 couldn't be moved to %3. They're in Downloads\Nectarlink.</source>
-        <translation>%2 の %1 を %3 に移動できませんでした。Downloads\Nectarlink にあります。</translation>
+        <source>%1 of %2 couldn't be moved to %3. They're in Downloads\LinkHub.</source>
+        <translation>%2 の %1 を %3 に移動できませんでした。Downloads\LinkHub にあります。</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="461" />
@@ -7832,8 +7832,8 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="476" />
-        <source>The photo couldn't be copied. It's in Downloads\Nectarlink.</source>
-        <translation>写真はコピーできませんでした。Downloads\Nectarlinkにあります。</translation>
+        <source>The photo couldn't be copied. It's in Downloads\LinkHub.</source>
+        <translation>写真はコピーできませんでした。Downloads\LinkHubにあります。</translation>
     </message>
 </context>
 <context>
@@ -8158,7 +8158,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="482" />
-        <source>Update NectarLink on %1 to play on it.</source>
+        <source>Update LinkHub on %1 to play on it.</source>
         <translation>%1でLinkHubを更新して、再生してください。</translation>
     </message>
 </context>
@@ -8399,7 +8399,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="491" />
-        <source>Send to %1 with NectarLink</source>
+        <source>Send to %1 with LinkHub</source>
         <translation>LinkHubで%1に送信</translation>
     </message>
     <message>
@@ -10511,7 +10511,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="499" />
-        <source>Couldn't uninstall NectarLink: %1</source>
+        <source>Couldn't uninstall LinkHub: %1</source>
         <translation>LinkHubをアンインストールできませんでした: %1</translation>
     </message>
     <message>
@@ -10541,7 +10541,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="505" />
-        <source>The uninstaller is missing. Reinstall NectarLink, then uninstall it.</source>
+        <source>The uninstaller is missing. Reinstall LinkHub, then uninstall it.</source>
         <translation>アンインストーラーがありません。LinkHubを再インストールしてから、アンインストールしてください。</translation>
     </message>
     <message>
@@ -11005,12 +11005,12 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="511" />
-        <source>On the phone, allow All files access for NectarLink.</source>
+        <source>On the phone, allow All files access for LinkHub.</source>
         <translation>スマートフォンで、LinkHubに「すべてのファイルへのアクセス」を許可してください。</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="512" />
-        <source>On the phone, turn on Browse this phone's storage in File Explorer in NectarLink.</source>
+        <source>On the phone, turn on Browse this phone's storage in File Explorer in LinkHub.</source>
         <translation>スマートフォン側で、LinkHubの「エクスプローラーでこのスマートフォンのストレージを参照」をオンにします。</translation>
     </message>
 </context>
@@ -11489,8 +11489,8 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     <name>Transfers</name>
     <message>
         <location filename="rust_strings.h" line="542" />
-        <source>Accept in NectarLink to save to Downloads\Nectarlink</source>
-        <translation>LinkHubで承認すると、Downloads\Nectarlinkに保存されます。</translation>
+        <source>Accept in LinkHub to save to Downloads\LinkHub</source>
+        <translation>LinkHubで承認すると、Downloads\LinkHubに保存されます。</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="543" />
@@ -11499,13 +11499,13 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="544" />
-        <source>From %1, opened from Downloads\Nectarlink</source>
-        <translation>%1 から、Downloads\Nectarlink 経由で開きました</translation>
+        <source>From %1, opened from Downloads\LinkHub</source>
+        <translation>%1 から、Downloads\LinkHub 経由で開きました</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="545" />
-        <source>From %1, saved in Downloads\Nectarlink</source>
-        <translation>%1から、Downloads\Nectarlinkに保存済み</translation>
+        <source>From %1, saved in Downloads\LinkHub</source>
+        <translation>%1から、Downloads\LinkHubに保存済み</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="546" />
@@ -11532,27 +11532,27 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="550" />
-        <source>NectarLink %1 is available</source>
+        <source>LinkHub %1 is available</source>
         <translation>LinkHub %1 が利用可能です</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="551" />
-        <source>NectarLink %1 is available.</source>
+        <source>LinkHub %1 is available.</source>
         <translation>LinkHub %1 が利用可能です。</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="552" />
-        <source>NectarLink is still on the version you had. Try again from Settings.</source>
+        <source>LinkHub is still on the version you had. Try again from Settings.</source>
         <translation>LinkHubはまだ以前のバージョンのままです。設定からもう一度お試しください。</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="553" />
-        <source>NectarLink is up to date.</source>
+        <source>LinkHub is up to date.</source>
         <translation>LinkHubは最新の状態です。</translation>
     </message>
     <message>
         <location filename="rust_strings.h" line="554" />
-        <source>NectarLink is updated to %1</source>
+        <source>LinkHub is updated to %1</source>
         <translation>LinkHubが%1に更新されました</translation>
     </message>
     <message>
@@ -11592,7 +11592,7 @@ Windows のあらゆるアプリからスマートフォンのカメラを起動
     </message>
     <message>
         <location filename="rust_strings.h" line="562" />
-        <source>The update is installed. Restart NectarLink to use it.</source>
+        <source>The update is installed. Restart LinkHub to use it.</source>
         <translation>アップデートがインストールされました。LinkHubを再起動してご利用ください。</translation>
     </message>
     <message>

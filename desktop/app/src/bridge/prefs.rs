@@ -139,6 +139,8 @@ pub mod qobject {
         #[qproperty(bool, nectar_island_notifications)]
         /// Stream PC system audio to the connected phone via WASAPI loopback.
         #[qproperty(bool, stream_pc_audio_to_phone)]
+        /// Broadcast PC audio to all Mesh devices simultaneously.
+        #[qproperty(bool, surround_audio)]
         /// Share PC user folders (Downloads, Documents, Desktop, Pictures) with phones.
         #[qproperty(bool, share_pc_storage)]
         /// Forward PC notifications to connected phones (opt-in privacy toggle).
@@ -277,6 +279,14 @@ pub mod qobject {
         /// Sets or clears a custom nickname for a device.
         #[qinvokable]
         fn set_nickname(self: Pin<&mut Preferences>, device_id: &QString, nickname: &QString);
+        /// Gets the surround role for a device ("stereo", "left", "right").
+        #[qinvokable]
+        #[cxx_name = "surroundRoleOf"]
+        fn surround_role_of(self: &Preferences, device_id: &QString) -> QString;
+        /// Sets the surround role for a device.
+        #[qinvokable]
+        #[cxx_name = "setSurroundRole"]
+        fn set_surround_role(self: Pin<&mut Preferences>, device_id: &QString, role: &QString);
 
         #[qobject]
         #[qml_element]
@@ -287,6 +297,7 @@ pub mod qobject {
         /// `-1`: no mic, `0`: live, `1`: muted.
         #[qproperty(i32, mic_state)]
         #[qproperty(bool, playing)]
+        #[qproperty(QString, output_devices_json)]
         type DeckController = super::DeckControllerRust;
 
         #[qinvokable]
@@ -328,6 +339,24 @@ pub mod qobject {
         fn url_to_local_path(self: &DeckController, url: &QString) -> QString;
         #[qinvokable]
         fn set_page_active(self: &DeckController, active: bool);
+        #[qinvokable]
+        #[cxx_name = "setSpeakerVolume"]
+        fn set_speaker_volume(self: Pin<&mut DeckController>, level: i32);
+        #[qinvokable]
+        #[cxx_name = "setSpeakerMuted"]
+        fn set_speaker_muted(self: Pin<&mut DeckController>, muted: bool);
+        #[qinvokable]
+        #[cxx_name = "toggleMicMute"]
+        fn toggle_mic_mute(self: Pin<&mut DeckController>);
+        #[qinvokable]
+        #[cxx_name = "setOutputDevice"]
+        fn set_output_device(self: Pin<&mut DeckController>, id: &QString);
+        #[qinvokable]
+        #[cxx_name = "mediaCommand"]
+        fn media_command(self: Pin<&mut DeckController>, cmd: &QString);
+        #[qinvokable]
+        #[cxx_name = "refreshAudio"]
+        fn refresh_audio(self: Pin<&mut DeckController>);
     }
 
     impl cxx_qt::Threading for Preferences {}
@@ -392,6 +421,7 @@ pub struct PreferencesRust {
     nectar_island_media: bool,
     nectar_island_notifications: bool,
     stream_pc_audio_to_phone: bool,
+    surround_audio: bool,
     share_pc_storage: bool,
     forward_pc_notifications_to_phone: bool,
     phone_beside: QString,
@@ -502,6 +532,7 @@ impl cxx_qt::Initialize for qobject::Preferences {
         self.as_mut().set_nectar_island_media(settings.nectar_island_media);
         self.as_mut().set_nectar_island_notifications(settings.nectar_island_notifications);
         self.as_mut().set_stream_pc_audio_to_phone(settings.stream_pc_audio_to_phone);
+        self.as_mut().set_surround_audio(settings.surround_audio);
         self.as_mut().set_share_pc_storage(settings.share_pc_storage);
         self.as_mut().set_forward_pc_notifications_to_phone(settings.forward_pc_notifications_to_phone);
         self.as_mut().set_phone_beside(QString::from(&settings.phone_beside));
@@ -832,6 +863,12 @@ impl cxx_qt::Initialize for qobject::Preferences {
             })
             .release();
         self.as_mut()
+            .on_surround_audio_changed(|p| {
+                crate::settings::set_surround_audio(p.surround_audio);
+                p.save();
+            })
+            .release();
+        self.as_mut()
             .on_share_pc_storage_changed(|p| {
                 crate::settings::set_share_pc_storage(p.share_pc_storage);
                 p.save();
@@ -893,6 +930,10 @@ impl qobject::Preferences {
         let on = crate::pc_audio_stream::is_enabled();
         if *self.stream_pc_audio_to_phone() != on {
             self.as_mut().set_stream_pc_audio_to_phone(on);
+        }
+        let surround_on = crate::settings::surround_audio();
+        if *self.surround_audio() != surround_on {
+            self.as_mut().set_surround_audio(surround_on);
         }
         let disk = Settings::load(&core_host::host().data_dir);
         let disk_theme = QString::from(disk.theme.name());
@@ -1025,6 +1066,35 @@ impl qobject::Preferences {
         crate::settings::set_nickname(&dev, if nick.trim().is_empty() { None } else { Some(nick) });
         self.save();
         core_host::host().hub.changed(crate::state::Changes::DEVICES);
+    }
+
+    pub fn surround_role_of(&self, device_id: &QString) -> QString {
+        let id_str = device_id.to_string();
+        if let Ok(dev_id) = id_str.parse::<nectarlink_core::DeviceId>() {
+            let role = crate::settings::surround_role(&dev_id);
+            QString::from(match role {
+                crate::settings::SurroundRole::Stereo => "stereo",
+                crate::settings::SurroundRole::Left => "left",
+                crate::settings::SurroundRole::Right => "right",
+            })
+        } else {
+            QString::from("stereo")
+        }
+    }
+
+    pub fn set_surround_role(self: Pin<&mut Self>, device_id: &QString, role: &QString) {
+        let id_str = device_id.to_string();
+        let role_str = role.to_string();
+        if let Ok(dev_id) = id_str.parse::<nectarlink_core::DeviceId>() {
+            let parsed_role = match role_str.to_lowercase().as_str() {
+                "left" => crate::settings::SurroundRole::Left,
+                "right" => crate::settings::SurroundRole::Right,
+                _ => crate::settings::SurroundRole::Stereo,
+            };
+            crate::settings::set_surround_role(&dev_id, parsed_role);
+            self.save();
+            core_host::host().hub.changed(crate::state::Changes::PREFS);
+        }
     }
 
     pub fn choose_recordings_folder(mut self: Pin<&mut Self>, url: &QString) {
@@ -1258,6 +1328,8 @@ impl qobject::Preferences {
             nectar_island_notifications: p.nectar_island_notifications,
             automation_rules: crate::settings::automation_rules(),
             stream_pc_audio_to_phone: p.stream_pc_audio_to_phone,
+            surround_audio: p.surround_audio,
+            surround_roles: crate::settings::surround_roles_map(),
             share_pc_storage: p.share_pc_storage,
             forward_pc_notifications_to_phone: p.forward_pc_notifications_to_phone,
             phone_beside: p.phone_beside.to_string(),

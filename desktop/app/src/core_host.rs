@@ -418,6 +418,9 @@ async fn run(data_dir: PathBuf, platform: Arc<dyn Platform>) {
                 crate::phone_mic::on_event(&event);
                 crate::automations::on_event(&event);
                 crate::agents::on_event(&event);
+                if let nectarlink_core::NodeEvent::PcAudioFrame { sample_rate, channels, pcm, .. } = &event {
+                    crate::pc_audio_stream::play_incoming_frame(*sample_rate, *channels, pcm);
+                }
                 #[cfg(windows)]
                 crate::win::pointer_hooks::on_event(&event);
                 crate::bridge::app::on_home_event(&event);

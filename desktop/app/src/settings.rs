@@ -166,6 +166,48 @@ static SYNC_PASSWORDS: std::sync::atomic::AtomicBool = std::sync::atomic::Atomic
 static USB_DEBUGGING: std::sync::atomic::AtomicBool = std::sync::atomic::AtomicBool::new(true);
 static SYNC_WIFI_ONLY: std::sync::atomic::AtomicBool = std::sync::atomic::AtomicBool::new(false);
 static OPEN_SHARED_FILES: std::sync::atomic::AtomicBool = std::sync::atomic::AtomicBool::new(false);
+static SURROUND_AUDIO: std::sync::atomic::AtomicBool = std::sync::atomic::AtomicBool::new(false);
+static SURROUND_ROLES: std::sync::OnceLock<std::sync::Mutex<std::collections::HashMap<String, SurroundRole>>> =
+    std::sync::OnceLock::new();
+
+fn surround_roles_lock() -> std::sync::MutexGuard<'static, std::collections::HashMap<String, SurroundRole>> {
+    SURROUND_ROLES.get_or_init(|| std::sync::Mutex::new(std::collections::HashMap::new()))
+        .lock().unwrap_or_else(|e| e.into_inner())
+}
+
+/// Channel role for a device in Surround Audio mode.
+#[derive(serde::Serialize, serde::Deserialize, Clone, Copy, Default, PartialEq, Eq, Debug)]
+#[serde(rename_all = "camelCase")]
+pub enum SurroundRole {
+    #[default]
+    Stereo,
+    Left,
+    Right,
+}
+
+pub fn surround_audio() -> bool {
+    SURROUND_AUDIO.load(std::sync::atomic::Ordering::Relaxed)
+}
+
+pub fn set_surround_audio(on: bool) {
+    SURROUND_AUDIO.store(on, std::sync::atomic::Ordering::Relaxed);
+}
+
+pub fn surround_role(device_id: &nectarlink_core::DeviceId) -> SurroundRole {
+    surround_roles_lock().get(&device_id.to_string()).copied().unwrap_or_default()
+}
+
+pub fn set_surround_role(device_id: &nectarlink_core::DeviceId, role: SurroundRole) {
+    surround_roles_lock().insert(device_id.to_string(), role);
+}
+
+pub fn set_surround_roles_map(map: std::collections::HashMap<String, SurroundRole>) {
+    *surround_roles_lock() = map;
+}
+
+pub fn surround_roles_map() -> std::collections::HashMap<String, SurroundRole> {
+    surround_roles_lock().clone()
+}
 
 static FOLDER_SYNC_RULES: std::sync::OnceLock<std::sync::Mutex<Vec<crate::folder_sync::FolderSyncRule>>> =
     std::sync::OnceLock::new();
@@ -657,6 +699,12 @@ pub struct Settings {
     /// Stream PC system audio to the connected phone (Phone as Speaker / Headphones).
     #[serde(default, alias = "stream_pc_audio_to_phone")]
     pub stream_pc_audio_to_phone: bool,
+    /// Broadcast PC audio to all Mesh devices simultaneously (Surround Audio).
+    #[serde(default)]
+    pub surround_audio: bool,
+    /// Per-device channel role for Surround Audio (DeviceId → SurroundRole).
+    #[serde(default, skip_serializing_if = "std::collections::HashMap::is_empty")]
+    pub surround_roles: std::collections::HashMap<String, SurroundRole>,
     /// Expose PC user folders (`Downloads`, `Documents`, `Desktop`, `Pictures`) to paired phones.
     #[serde(default, alias = "share_pc_storage")]
     pub share_pc_storage: bool,
@@ -795,6 +843,8 @@ impl Default for Settings {
             nectar_island_notifications: false,
             automation_rules: Vec::new(),
             stream_pc_audio_to_phone: false,
+            surround_audio: false,
+            surround_roles: std::collections::HashMap::new(),
             share_pc_storage: false,
             forward_pc_notifications_to_phone: false,
             away_mode: false,
@@ -869,6 +919,8 @@ impl Settings {
         set_nectar_island(self.nectar_island);
         set_automation_rules(self.automation_rules.clone());
         set_stream_pc_audio_to_phone(self.stream_pc_audio_to_phone);
+        set_surround_audio(self.surround_audio);
+        set_surround_roles_map(self.surround_roles.clone());
         set_share_pc_storage(self.share_pc_storage);
         set_forward_pc_notifications_to_phone(self.forward_pc_notifications_to_phone);
         set_away_mode(self.away_mode);
@@ -1082,6 +1134,8 @@ mod tests {
             nectar_island_notifications: false,
             automation_rules: Vec::new(),
             stream_pc_audio_to_phone: true,
+            surround_audio: true,
+            surround_roles: std::collections::HashMap::from([("abc".to_owned(), SurroundRole::Left)]),
             share_pc_storage: true,
             forward_pc_notifications_to_phone: true,
             away_mode: true,

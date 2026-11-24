@@ -1836,6 +1836,25 @@ Item {
 
                         Divider { width: parent.width }
 
+                        ListRow {
+                            width: parent.width
+                            iconPath: Icons.speaker
+                            title: qsTr("Surround Audio (Multi-Device Speaker)")
+                            description: qsTr("Broadcast PC audio to all connected Mesh devices simultaneously.")
+                            Toggle {
+                                label: qsTr("Surround Audio (Multi-Device Speaker)")
+                                checked: Preferences.surroundAudio
+                                onToggled: (on) => {
+                                    Preferences.surroundAudio = on
+                                    if (on && !Preferences.streamPcAudioToPhone) {
+                                        Preferences.streamPcAudioToPhone = true
+                                    }
+                                }
+                            }
+                        }
+
+                        Divider { width: parent.width }
+
                         // Phone as microphone: its sound plays into an output; a
                         // virtual audio cable's other end is a microphone apps can pick.
                         ListRow {
