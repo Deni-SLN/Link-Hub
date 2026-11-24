@@ -4052,7 +4052,7 @@ Item {
                             Button {
                                 variant: "tonal"
                                 size: "sm"
-                                iconPath: Icons.prev
+                                iconPath: Icons.skipPrevious
                                 text: qsTr("Sebelumnya")
                                 onClicked: DeckController.mediaCommand("prev_track")
                             }
@@ -4066,7 +4066,7 @@ Item {
                             Button {
                                 variant: "tonal"
                                 size: "sm"
-                                iconPath: Icons.next
+                                iconPath: Icons.skipNext
                                 text: qsTr("Berikutnya")
                                 onClicked: DeckController.mediaCommand("next_track")
                             }
@@ -4244,7 +4244,7 @@ Item {
 
                         SwitchBar {
                             width: parent.width
-                            iconPath: Icons.sparkles
+                            iconPath: Icons.island
                             title: qsTr("Kapsul status mengambang")
                             checked: Preferences.nectarIsland
                             onToggled: (on) => Preferences.nectarIsland = on
