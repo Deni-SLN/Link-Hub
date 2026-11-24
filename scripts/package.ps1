@@ -279,7 +279,7 @@ Step "Installer ($Arch)"
 $makensis = (Get-Command makensis -ErrorAction SilentlyContinue).Source
 if (-not $makensis) { $makensis = Join-Path ${env:ProgramFiles(x86)} 'NSIS\makensis.exe' }
 if (-not (Test-Path $makensis)) { throw "NSIS (makensis) not found" }
-$out = Join-Path $package "Nectarlink-$version-$Arch-setup.exe"
+$out = Join-Path $package "LinkHub-$version-$Arch-setup.exe"
 Invoke-Native "makensis" {
     & $makensis /V2 "/DVERSION=$numeric" "/DBUILD=$build" "/DDISPLAY_VERSION=$version" "/DARCH=$Arch" "/DSTAGE=$stage" `
         "/DICON=$($icon.FullName)" "/DOUTFILE=$out" (Join-Path $root 'desktop\installer\nectarlink.nsi')

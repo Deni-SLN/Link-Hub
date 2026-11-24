@@ -39,7 +39,7 @@ export BIN_PATH="${WORK}/nectarlink-desktop" QMAKE="${WORK}/qmake" OUT_DIR="${DI
 dpkg-deb -x "${DIST}/nectarlink_9.9.9_$(dpkg --print-architecture).deb" "${WORK}/deb-content"
 test -s "${WORK}/deb-content/usr/share/nectarlink/nectarlink_pt_BR.qm"
 test ! -e "${WORK}/deb-content/usr/share/nectarlink/nectarlink_xx.qm"
-tar -tzf "${DIST}/Nectarlink-9.9.9-linux-$(uname -m).tar.gz" > "${WORK}/tar-content"
+tar -tzf "${DIST}/LinkHub-9.9.9-linux-$(uname -m).tar.gz" > "${WORK}/tar-content"
 grep -q '/share/nectarlink/nectarlink_pt_BR.qm$' "${WORK}/tar-content"
 if grep -q '/nectarlink_xx.qm$' "${WORK}/tar-content"; then
     echo "error: stale catalogue was included in the tarball" >&2

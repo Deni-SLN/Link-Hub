@@ -484,14 +484,27 @@ NativeWindow {
 
         // Fixed-resolution 256x256 ambient mesh + blur so window resizing never
         // reallocates full-window GPU blur FBOs on every pixel.
+        // Rendered via layer.effect directly on the visible item (sampling a
+        // hidden layer with a separate MultiEffect produces a blank texture in Qt 6).
         Item {
             id: glassColorMesh
             width: 256
             height: 256
-            visible: false
-            layer.enabled: glassMeshBlur.visible && window.visible && window.visibility !== Window.Minimized
+            visible: Theme.glass
+            layer.enabled: visible && window.visible && window.visibility !== Window.Minimized
             layer.textureSize: Qt.size(256, 256)
             layer.smooth: true
+            layer.effect: MultiEffect {
+                autoPaddingEnabled: false
+                blurEnabled: true
+                blurMax: 48
+                blur: 1.0
+                saturation: Theme.dark ? 0.42 : 0.30
+            }
+            transform: Scale {
+                xScale: artworkAmbient.width / 256
+                yScale: artworkAmbient.height / 256
+            }
 
             Rectangle {
                 width: 174; height: 174; radius: 87
@@ -520,23 +533,6 @@ NativeWindow {
                 color: Qt.lighter(Theme.primary, 1.35)
                 opacity: Theme.dark ? 0.34 : 0.28
                 Behavior on color { ColorAnimation { duration: 480 } }
-            }
-        }
-
-        MultiEffect {
-            id: glassMeshBlur
-            width: 256
-            height: 256
-            source: glassColorMesh
-            visible: Theme.glass
-            autoPaddingEnabled: false
-            blurEnabled: true
-            blurMax: 48
-            blur: 1.0
-            saturation: Theme.dark ? 0.42 : 0.30
-            transform: Scale {
-                xScale: artworkAmbient.width / 256
-                yScale: artworkAmbient.height / 256
             }
         }
 

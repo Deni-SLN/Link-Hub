@@ -330,7 +330,7 @@ install_app() {
             fi
             ;;
     esac
-    good "NectarLink $VERSION is installed, with its entry in your app menu"
+    good "LinkHub $VERSION is installed, with its entry in your app menu"
 }
 
 # Whether the kernel can load modules here (not in most containers).
@@ -346,7 +346,7 @@ setup_webcam() {
         return 0
     fi
     if ! modinfo v4l2loopback >/dev/null 2>&1; then
-        say "Installing the v4l2loopback driver, which gives apps the NectarLink Webcam"
+        say "Installing the v4l2loopback driver, which gives apps the LinkHub Webcam"
         if has apt-get; then
             admin env DEBIAN_FRONTEND=noninteractive apt-get install -y "linux-headers-$(uname -r)" \
                 || note "No kernel headers for $(uname -r); the driver may not build."
@@ -375,7 +375,7 @@ setup_webcam() {
         return 0
     fi
     if admin modprobe v4l2loopback exclusive_caps=1 "card_label=$WEBCAM_NAME"; then
-        good "Ready: apps list the NectarLink Webcam"
+        good "Ready: apps list the LinkHub Webcam"
     elif has mokutil && mokutil --sb-state 2>/dev/null | grep -q enabled; then
         note "Secure Boot blocks the new driver until its key is enrolled. Run:"
         note "  sudo mokutil --import /var/lib/dkms/mok.pub"
@@ -461,20 +461,20 @@ setup_firewall() {
     if [ "$EXTRAS" -eq 0 ]; then say "Skipped."; return 0; fi
     case "$(firewall_kind)" in
         ufw)
-            say "Opening NectarLink's ports to your local network only"
+            say "Opening LinkHub's ports to your local network only"
             ufw_rules "" | while IFS= read -r rule; do
                 # IPv6 rules fail where ufw has IPv6 turned off; that's fine.
                 # shellcheck disable=SC2086
                 admin $rule || case "$rule" in *fe80::*) ;; *) exit 1 ;; esac
-            done || { note "Some rules didn't apply; NectarLink's Settings can fix this later."; return 0; }
+            done || { note "Some rules didn't apply; LinkHub's Settings can fix this later."; return 0; }
             remember_firewall
             good "Ready: phones on your network can reach this PC"
             ;;
         firewalld)
-            say "Opening NectarLink's ports to your local network only"
+            say "Opening LinkHub's ports to your local network only"
             firewalld_rules add > "$WORK/firewalld.sh"
             echo "firewall-cmd --reload" >> "$WORK/firewalld.sh"
-            admin sh -e "$WORK/firewalld.sh" || { note "Some rules didn't apply; NectarLink's Settings can fix this later."; return 0; }
+            admin sh -e "$WORK/firewalld.sh" || { note "Some rules didn't apply; LinkHub's Settings can fix this later."; return 0; }
             remember_firewall
             good "Ready: phones on your network can reach this PC"
             ;;
@@ -485,7 +485,7 @@ setup_firewall() {
 }
 
 finish() {
-    printf '\n%sNectarLink %s is ready.%s\n' "$BOLD" "$VERSION" "$RESET"
+    printf '\n%sLinkHub %s is ready.%s\n' "$BOLD" "$VERSION" "$RESET"
     echo "Open it from your app menu, or run nectarlink-desktop. Then install the"
     echo "Android app and pair: https://github.com/$REPO#get-started"
     echo "It checks for updates itself and asks before installing one. If it was"
@@ -496,7 +496,7 @@ uninstall() {
     STEPS=3
     find_admin
     find_user
-    step "Removing NectarLink"
+    step "Removing LinkHub"
     removed=0
     if has dpkg && dpkg -s nectarlink >/dev/null 2>&1; then
         admin env DEBIAN_FRONTEND=noninteractive apt-get remove -y nectarlink && removed=1
@@ -539,18 +539,18 @@ uninstall() {
                 # shellcheck disable=SC2086
                 admin $rule || true
             done
-            good "NectarLink's ports are closed again"
+            good "LinkHub's ports are closed again"
             ;;
         firewalld)
             firewalld_rules remove | sed 's/$/ || true/' > "$WORK/firewalld.sh"
             echo "firewall-cmd --reload" >> "$WORK/firewalld.sh"
             admin sh "$WORK/firewalld.sh" || true
-            good "NectarLink's ports are closed again"
+            good "LinkHub's ports are closed again"
             ;;
         *) say "No firewall is on." ;;
     esac
 
-    printf '\n%sNectarLink is removed.%s\n' "$BOLD" "$RESET"
+    printf '\n%sLinkHub is removed.%s\n' "$BOLD" "$RESET"
     echo "Your settings and paired devices are still in ${user_share}/Nectarlink;"
     echo "delete that folder to remove them too."
 }
@@ -565,12 +565,12 @@ main() {
     trap 'exit 130' INT TERM
 
     if [ "$UNINSTALL" -eq 1 ]; then
-        printf '%sNectarLink uninstaller%s\n' "$BOLD" "$RESET"
+        printf '%sLinkHub uninstaller%s\n' "$BOLD" "$RESET"
         uninstall
         return 0
     fi
 
-    printf '%sNectarLink installer%s\n' "$BOLD" "$RESET"
+    printf '%sLinkHub installer%s\n' "$BOLD" "$RESET"
     check_system
     find_release
     download

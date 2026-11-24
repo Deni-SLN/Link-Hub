@@ -89,7 +89,7 @@ impl Update {
 }
 
 /// The scheduled task the installer registers (see the module docs).
-pub const TASK: &str = "Nectarlink Update";
+pub const TASK: &str = "LinkHub Update";
 /// What the task runs: `nectarlink-desktop.exe --update-service`.
 pub const SERVICE_ARG: &str = "--update-service";
 /// How long nobody may have used the PC before an update installs by itself.
@@ -293,7 +293,7 @@ pub fn check_now(told: bool) -> Option<String> {
             if new {
                 announce(&update);
             }
-            Some(tr!("Updater", "NectarLink %1 is available.", update.title()))
+            Some(tr!("Updater", "LinkHub %1 is available.", update.title()))
         }
         Ok(None) => {
             // Nothing newer on this channel now (it may have just changed):
@@ -301,7 +301,7 @@ pub fn check_now(told: bool) -> Option<String> {
             if found().take().is_some() {
                 core_host::host().hub.update(|_| Changes::UPDATE);
             }
-            told.then(|| tr!("Updater", "NectarLink is up to date."))
+            told.then(|| tr!("Updater", "LinkHub is up to date."))
         }
         Err(e) => {
             tracing::info!(error = %e, "couldn't check for updates");
@@ -314,9 +314,9 @@ fn announce(update: &Update) {
     toast::show(toast::Toast {
         device: TOAST_GROUP.into(),
         key: update.version.clone(),
-        title: tr!("Updater", "NectarLink %1 is available", update.title()),
+        title: tr!("Updater", "LinkHub %1 is available", update.title()),
         body: tr!("Updater", "Update now, or later from Settings."),
-        attribution: "NectarLink".into(),
+        attribution: "LinkHub".into(),
         icon: None,
         image: None,
         actions: vec![(ACTION_UPDATE.into(), "Update".into())],
@@ -683,7 +683,7 @@ impl std::fmt::Display for StageError {
 }
 
 /// Where the app leaves a downloaded installer for the task:
-/// `%ProgramData%\Nectarlink\updates`. Anyone may write here; the task only
+/// `%ProgramData%\LinkHub\updates`. Anyone may write here; the task only
 /// runs a copy that matches the release's own sums.
 #[cfg(windows)]
 fn staging_dir() -> PathBuf {
@@ -691,7 +691,7 @@ fn staging_dir() -> PathBuf {
         .map(PathBuf::from)
         .filter(|p| p.is_absolute())
         .unwrap_or_else(|| PathBuf::from(r"C:\ProgramData"))
-        .join("Nectarlink")
+        .join("LinkHub")
         .join("updates")
 }
 
@@ -873,7 +873,7 @@ fn relauncher_script(exe: &str, version: &str, arguments: &str) -> String {
         format!("Start-Process -FilePath '{exe}' -ArgumentList '{arguments}'")
     };
     format!(
-        "$key = 'HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Nectarlink'\n\
+        "$key = 'HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\LinkHub'\n\
          $log = Join-Path (Split-Path -Parent '{exe}') 'update.log'\n\
          $since = Get-Date\n\
          $deadline = $since.AddMinutes(10)\n\
@@ -1084,7 +1084,7 @@ fn install_with_prompt(update: &Update, staged: &Path) -> Result<(), String> {
         tr!("Updater", "The update couldn't be started. Try again.")
     };
     let expected = expected_hash(update).map_err(|e| e.for_user())?;
-    let dir = std::env::temp_dir().join("Nectarlink update");
+    let dir = std::env::temp_dir().join("LinkHub update");
     let path: PathBuf = dir.join(&update.installer_name);
     std::fs::create_dir_all(&dir)
         .and_then(|()| match std::fs::remove_file(&path) {
@@ -1180,7 +1180,7 @@ fn strip_deleted(exe: std::path::PathBuf) -> std::path::PathBuf {
 fn relaunch_after_install(exe: &Path, version: &str) -> Result<(), String> {
     spawn_relauncher(exe, version, true).map_err(|e| {
         tracing::warn!(error = e, "installed, but can't start the new version");
-        tr!("Updater", "The update is installed. Restart NectarLink to use it.")
+        tr!("Updater", "The update is installed. Restart LinkHub to use it.")
     })
 }
 
@@ -1344,7 +1344,7 @@ pub fn announce_update(previous: String, shown: bool) {
     tracing::info!(from = previous, to = current, "updated");
     after_start(
         shown,
-        tr!("Updater", "NectarLink is updated to %1", current),
+        tr!("Updater", "LinkHub is updated to %1", current),
         tr!("Updater", "Your phone reconnects on its own."),
     );
 }
@@ -1356,7 +1356,7 @@ pub fn announce_update_failed(shown: bool) {
     after_start(
         shown,
         tr!("Updater", "The update didn't install"),
-        tr!("Updater", "NectarLink is still on the version you had. Try again from Settings."),
+        tr!("Updater", "LinkHub is still on the version you had. Try again from Settings."),
     );
 }
 
@@ -1372,7 +1372,7 @@ fn after_start(shown: bool, title: String, body: String) {
             key: "updated".into(),
             title,
             body,
-            attribution: "NectarLink".into(),
+            attribution: "LinkHub".into(),
             icon: None,
             image: None,
             actions: Vec::new(),

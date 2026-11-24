@@ -296,7 +296,7 @@ jobs:
           apk=android/app/build/outputs/apk/release/app-release.apk
           "$ANDROID_HOME/build-tools/37.0.0/apksigner" verify --print-certs "$apk"
           mkdir -p out
-          cp "$apk" "out/Nectarlink-${VERSION}-android.apk"
+          cp "$apk" "out/LinkHub-${VERSION}-android.apk"
       - name: Forget the key
         if: always()
         run: rm -f "$RUNNER_TEMP/release.jks"

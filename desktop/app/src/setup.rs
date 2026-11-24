@@ -3,16 +3,16 @@
 //!
 //! `LinkHub-<version>-x64-setup.exe` (NSIS, `desktop/installer`) unpacks
 //! the app to a temporary folder and runs it there, renamed to
-//! `Nectarlink Setup.exe`, with `--setup --installer <setup.exe>`. That
+//! `LinkHub Setup.exe`, with `--setup --installer <setup.exe>`. That
 //! window asks nothing; Install runs the same setup.exe again with
 //! administrator rights and `/S /PROGRESS=<file>`, which installs into
 //! Program Files and writes each step to the file, so the window can follow.
 //!
 //! Removing (Windows Settings > Apps) runs the installed app with `--remove`.
 //! A program can't delete its own folder, so it first copies itself to a
-//! temporary folder (as `Nectarlink Uninstall.exe`) and carries on from
+//! temporary folder (as `LinkHub Uninstall.exe`) and carries on from
 //! there, then runs `uninstall.exe /S /PROGRESS=<file>` with administrator
-//! rights, and finally removes this user's NectarLink data. Files received
+//! rights, and finally removes this user's LinkHub data. Files received
 //! from phones (`Downloads\Nectarlink`), voice recordings and synced folders
 //! belong to the user and are kept.
 //!
@@ -37,9 +37,11 @@ pub const ANDROID_URL: &str = "https://github.com/Deni-SLN/Link-Hub/releases/lat
 
 const APP_EXE: &str = if cfg!(windows) { "nectarlink-desktop.exe" } else { "nectarlink-desktop" };
 #[cfg(windows)]
-const UNINSTALL_KEY: &str = r"Software\Microsoft\Windows\CurrentVersion\Uninstall\Nectarlink";
+const UNINSTALL_KEY: &str = r"Software\Microsoft\Windows\CurrentVersion\Uninstall\LinkHub";
 #[cfg(windows)]
-const SETUP_COPY_NAME: &str = "Nectarlink Uninstall.exe";
+const LEGACY_UNINSTALL_KEY: &str = r"Software\Microsoft\Windows\CurrentVersion\Uninstall\Nectarlink";
+#[cfg(windows)]
+const SETUP_COPY_NAME: &str = "LinkHub Uninstall.exe";
 
 #[cfg(windows)]
 const CREATE_NO_WINDOW: u32 = 0x0800_0000;
@@ -65,11 +67,17 @@ pub struct Installed {
 #[cfg(windows)]
 pub fn installed() -> Option<Installed> {
     use windows::Win32::System::Registry::HKEY_LOCAL_MACHINE;
-    let dir = crate::win::reg_string(HKEY_LOCAL_MACHINE, UNINSTALL_KEY, "InstallLocation")?;
-    let version =
-        crate::win::reg_string(HKEY_LOCAL_MACHINE, UNINSTALL_KEY, "DisplayVersion").unwrap_or_default();
-    let dir = PathBuf::from(dir);
-    dir.join(APP_EXE).is_file().then_some(Installed { dir, version })
+    for key in [UNINSTALL_KEY, LEGACY_UNINSTALL_KEY] {
+        let Some(dir) = crate::win::reg_string(HKEY_LOCAL_MACHINE, key, "InstallLocation") else {
+            continue;
+        };
+        let version = crate::win::reg_string(HKEY_LOCAL_MACHINE, key, "DisplayVersion").unwrap_or_default();
+        let dir = PathBuf::from(dir);
+        if dir.join(APP_EXE).is_file() {
+            return Some(Installed { dir, version });
+        }
+    }
+    None
 }
 
 #[cfg(target_os = "linux")]
@@ -192,7 +200,7 @@ impl Step {
     /// What the window says while this step runs.
     pub fn label(self) -> &'static str {
         match self {
-            Step::Closing => "Closing NectarLink",
+            Step::Closing => "Closing LinkHub",
             Step::Files => "Copying files",
             #[cfg(not(target_os = "linux"))]
             Step::Firewall => "Allowing through Windows Firewall",
@@ -255,11 +263,12 @@ pub enum Outcome {
     Failed(String),
 }
 
-/// Whether the desktop has NectarLink's shortcut, which setup only adds when
+/// Whether the desktop has LinkHub's shortcut, which setup only adds when
 /// asked to (#102).
 #[cfg(windows)]
 pub fn has_desktop_shortcut() -> bool {
-    crate::win::shortcut::public_desktop_dir().is_some_and(|dir| dir.join("NectarLink.lnk").is_file())
+    crate::win::shortcut::public_desktop_dir()
+        .is_some_and(|dir| dir.join("LinkHub.lnk").is_file() || dir.join("NectarLink.lnk").is_file())
 }
 
 #[cfg(not(windows))]
@@ -376,7 +385,7 @@ pub fn remove(installed: &Path, mut on_event: impl FnMut(Event)) -> Outcome {
     if !uninstaller.is_file() {
         return Outcome::Failed(tr!(
             "Setup",
-            "The uninstaller is missing. Reinstall NectarLink, then uninstall it."
+            "The uninstaller is missing. Reinstall LinkHub, then uninstall it."
         ));
     }
     let progress = progress_file("remove");
@@ -443,7 +452,7 @@ pub fn remove(installed: &Path, mut on_event: impl FnMut(Event)) -> Outcome {
         }
         Ok(126 | 127) => Outcome::Declined,
         Ok(code) => Outcome::Failed(tr!("Setup", "Uninstall stopped with code %1.", code)),
-        Err(e) => Outcome::Failed(tr!("Setup", "Couldn't uninstall NectarLink: %1", e)),
+        Err(e) => Outcome::Failed(tr!("Setup", "Couldn't uninstall LinkHub: %1", e)),
     }
 }
 

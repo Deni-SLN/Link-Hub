@@ -38,7 +38,7 @@ trap 'rm -rf "${STAGE_DIR}"' EXIT
 
 bash "${SCRIPT_DIR}/build-translations.sh" "${STAGE_DIR}/translations"
 
-BUNDLE_NAME="Nectarlink-${VERSION}-linux-${ARCH}"
+BUNDLE_NAME="LinkHub-${VERSION}-linux-${ARCH}"
 BUNDLE_DIR="${STAGE_DIR}/${BUNDLE_NAME}"
 mkdir -p "${BUNDLE_DIR}/share/applications" "${BUNDLE_DIR}/share/metainfo" "${BUNDLE_DIR}/share/icons" "${BUNDLE_DIR}/share/nectarlink"
 

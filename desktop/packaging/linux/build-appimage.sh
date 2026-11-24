@@ -42,7 +42,7 @@ trap 'rm -rf "${STAGE_DIR}"' EXIT
 
 bash "${SCRIPT_DIR}/build-translations.sh" "${STAGE_DIR}/translations"
 
-APPDIR="${STAGE_DIR}/NectarLink.AppDir"
+APPDIR="${STAGE_DIR}/LinkHub.AppDir"
 mkdir -p \
     "${APPDIR}/usr/bin" \
     "${APPDIR}/usr/lib" \
