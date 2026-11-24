@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "channel": "stable",
+  "version": "0.2.2",
+  "name": "Pollen",
+  "published": "2026-11-24T15:43:55Z",
+  "notes": "https://github.com/Deni-SLN/Link-Hub/releases/tag/v0.2.2",
+  "files": [
+    {
+      "name": "LinkHub-0.2.2-arm64-setup.exe",
+      "url": "https://github.com/Deni-SLN/Link-Hub/releases/download/v0.2.2/LinkHub-0.2.2-arm64-setup.exe",
+      "sha256": "798e8da5e1e001887b25b3d5002dbbc259108ad0451ad138b0abbcde89bd71ac",
+      "size": 43203519
+    },
+    {
+      "name": "LinkHub-0.2.2-linux-x86_64.tar.gz",
+      "url": "https://github.com/Deni-SLN/Link-Hub/releases/download/v0.2.2/LinkHub-0.2.2-linux-x86_64.tar.gz",
+      "sha256": "9cc0bb1b59de886fe903f4347a17de3feb4b9d169b7f54e722c1a43ce9f3b96f",
+      "size": 75824002
+    },
+    {
+      "name": "LinkHub-0.2.2-x64-setup.exe",
+      "url": "https://github.com/Deni-SLN/Link-Hub/releases/download/v0.2.2/LinkHub-0.2.2-x64-setup.exe",
+      "sha256": "02e5910c24d651c67aa85732fa08d6cb6ce548d28ebc07ee009942bdb40f04bd",
+      "size": 46931938
+    },
+    {
+      "name": "LinkHub-0.2.2-x86_64.AppImage",
+      "url": "https://github.com/Deni-SLN/Link-Hub/releases/download/v0.2.2/LinkHub-0.2.2-x86_64.AppImage",
+      "sha256": "f3aecdcb211505f7c5e1312bcbfbd075ea39d2b55189b8246b542d5126678c90",
+      "size": 67971576
+    },
+    {
+      "name": "install.sh",
+      "url": "https://github.com/Deni-SLN/Link-Hub/releases/download/v0.2.2/install.sh",
+      "sha256": "7bf0e857db5b24afb3c9bb0f2bee9cf29c0dfb453575c50e20d62b53a2ef41c8",
+      "size": 23618
+    },
+    {
+      "name": "nectarlink-0.2.2-1.x86_64.rpm",
+      "url": "https://github.com/Deni-SLN/Link-Hub/releases/download/v0.2.2/nectarlink-0.2.2-1.x86_64.rpm",
+      "sha256": "a07da8a6797fa4a53fc5a8a6c69d64b5be9753a6db1ce1e0660f791c7c50c958",
+      "size": 74729688
+    },
+    {
+      "name": "nectarlink_0.2.2_amd64.deb",
+      "url": "https://github.com/Deni-SLN/Link-Hub/releases/download/v0.2.2/nectarlink_0.2.2_amd64.deb",
+      "sha256": "645c218b68bfd893654b09db6667c88e4037fa401651b3798b24a2f9b88ecde3",
+      "size": 54728562
+    }
+  ]
+}
