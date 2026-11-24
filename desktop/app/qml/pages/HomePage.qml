@@ -3933,8 +3933,8 @@ Item {
 
         readonly property var outputDevices: {
             try {
-                return DeckController.output_devices_json && DeckController.output_devices_json.length > 0
-                    ? JSON.parse(DeckController.output_devices_json)
+                return DeckController.outputDevicesJson && DeckController.outputDevicesJson.length > 0
+                    ? JSON.parse(DeckController.outputDevicesJson)
                     : []
             } catch (e) {
                 return []
@@ -4028,7 +4028,7 @@ Item {
                                 IconButton {
                                     anchors.verticalCenter: parent.verticalCenter
                                     iconPath: DeckController.muted || DeckController.volume === 0 ? Icons.soundOff : Icons.speaker
-                                    tooltip: DeckController.muted ? qsTr("Bunyikan") : qsTr("Bisukan")
+                                    label: DeckController.muted ? qsTr("Bunyikan") : qsTr("Bisukan")
                                     onClicked: DeckController.setSpeakerMuted(!DeckController.muted)
                                 }
                                 ValueSlider {
@@ -4071,11 +4071,11 @@ Item {
                                 onClicked: DeckController.mediaCommand("next_track")
                             }
                             Button {
-                                visible: DeckController.mic_state >= 0
-                                variant: DeckController.mic_state === 1 ? "filled" : "tonal"
+                                visible: DeckController.micState >= 0
+                                variant: DeckController.micState === 1 ? "filled" : "tonal"
                                 size: "sm"
                                 iconPath: Icons.mic
-                                text: DeckController.mic_state === 1 ? qsTr("Mikrofon Mati") : qsTr("Mikrofon Hidup")
+                                text: DeckController.micState === 1 ? qsTr("Mikrofon Mati") : qsTr("Mikrofon Hidup")
                                 onClicked: DeckController.toggleMicMute()
                             }
                         }
