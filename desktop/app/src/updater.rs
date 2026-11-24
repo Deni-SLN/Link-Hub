@@ -93,9 +93,9 @@ pub const TASK: &str = "LinkHub Update";
 /// What the task runs: `nectarlink-desktop.exe --update-service`.
 pub const SERVICE_ARG: &str = "--update-service";
 /// How long nobody may have used the PC before an update installs by itself.
-const QUIET_FOR: Duration = Duration::from_secs(10 * 60);
+const QUIET_FOR: Duration = Duration::from_secs(60);
 /// While an update waits for a quiet moment, how often to look for one.
-const LOOK_FOR_QUIET: Duration = Duration::from_secs(5 * 60);
+const LOOK_FOR_QUIET: Duration = Duration::from_secs(60);
 #[cfg(windows)]
 const CREATE_NO_WINDOW: u32 = 0x0800_0000;
 #[cfg(windows)]
@@ -225,11 +225,38 @@ pub fn can_update() -> bool {
         && std::env::current_exe().is_ok_and(|exe| autostart::is_installed(&exe))
 }
 
+#[cfg(target_os = "linux")]
+fn is_linux_user_install() -> bool {
+    if std::env::var_os("APPIMAGE").is_some() {
+        return true;
+    }
+    let Ok(exe) = std::env::current_exe() else {
+        return false;
+    };
+    let resolved = std::fs::canonicalize(&exe).unwrap_or(exe);
+    !resolved.starts_with("/opt/") && !resolved.starts_with("/usr/")
+}
+
+fn can_install_unattended_now() -> bool {
+    #[cfg(windows)]
+    {
+        task_registered()
+    }
+    #[cfg(target_os = "linux")]
+    {
+        is_linux_user_install()
+    }
+    #[cfg(not(any(windows, target_os = "linux")))]
+    {
+        false
+    }
+}
+
 /// Whether an update can also install by itself at a quiet moment, with no
-/// one to answer a prompt: only on Windows, through the scheduled task the
-/// installer sets up. Linux updates ask for the password each time.
+/// one to answer a prompt: Windows (through the scheduled task) and Linux
+/// user-space / AppImage installs.
 pub fn can_install_unattended() -> bool {
-    cfg!(windows) && can_update()
+    can_update() && (cfg!(windows) || can_install_unattended_now())
 }
 
 /// Checks soon after startup, then on the channel's schedule ([`check_every`])
@@ -252,14 +279,30 @@ pub fn start() {
                     && AUTO_INSTALL.load(Ordering::Relaxed)
                     && available().is_some()
                     && quiet()
-                    && task_registered()
+                    && can_install_unattended_now()
                 {
-                    tracing::info!("installing the update at a quiet moment");
-                    let staged = available().map(|update| stage(&update, |_, _| {}));
-                    if let Some(Err(e)) = staged {
-                        tracing::info!(error = %e, "the automatic update couldn't be downloaded yet");
-                    } else if let Err(e) = install_with_task(false) {
-                        tracing::warn!(error = e, "the automatic update didn't start");
+                    tracing::info!("installing the update automatically");
+                    if let Some(update) = available() {
+                        match stage(&update, |_, _| {}) {
+                            Err(e) => {
+                                tracing::info!(error = %e, "the automatic update couldn't be downloaded yet");
+                            }
+                            Ok(staged) => {
+                                #[cfg(windows)]
+                                {
+                                    let _ = staged;
+                                    if let Err(e) = install_with_task(false) {
+                                        tracing::warn!(error = e, "the automatic update didn't start");
+                                    }
+                                }
+                                #[cfg(target_os = "linux")]
+                                {
+                                    if let Err(e) = install_with_prompt(&update, &staged) {
+                                        tracing::warn!(error = e, "the automatic update didn't start");
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 if wait_for_soon(left.min(LOOK_FOR_QUIET)) {

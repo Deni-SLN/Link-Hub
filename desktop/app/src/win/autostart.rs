@@ -61,9 +61,16 @@ pub fn set(enabled: bool, exe: &Path) -> windows::core::Result<()> {
 pub fn is_installed(exe: &Path) -> bool {
     let installed_to = super::reg_string(
         windows::Win32::System::Registry::HKEY_LOCAL_MACHINE,
-        r"Software\Nectarlink",
+        r"Software\LinkHub",
         "InstallDir",
-    );
+    )
+    .or_else(|| {
+        super::reg_string(
+            windows::Win32::System::Registry::HKEY_LOCAL_MACHINE,
+            r"Software\Nectarlink",
+            "InstallDir",
+        )
+    });
     is_installed_in(exe, installed_to.as_deref())
 }
 
