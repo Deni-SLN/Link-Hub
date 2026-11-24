@@ -43,6 +43,10 @@ if ($oldVersion -eq $newVersion) {
     exit 0
 }
 $oldName = "LinkHub-$oldVersion-x64-setup.exe"
+if (-not ($release.assets | Where-Object name -eq $oldName)) {
+    Write-Host "Prior release $oldVersion does not contain $oldName; skipping upgrade smoke test."
+    exit 0
+}
 $work = Join-Path ($(if ($env:RUNNER_TEMP) { $env:RUNNER_TEMP } else { $env:TEMP })) 'linkhub-upgrade'
 Remove-Item -Recurse -Force $work -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Force $work | Out-Null

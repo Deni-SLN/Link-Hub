@@ -47,7 +47,8 @@ jobs:
 
   publish:
     name: Draft the release
-    needs: build
+    needs: [version, build]
+    if: ${{ needs.version.result == 'success' && !cancelled() }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v8
