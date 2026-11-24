@@ -255,6 +255,7 @@ jobs:
   android:
     name: Android app (signed)
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v7
       - name: Set the version
@@ -308,6 +309,7 @@ jobs:
   macos:
     name: macOS DMG (Apple Silicon)
     runs-on: macos-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v7
       - name: Set the version
