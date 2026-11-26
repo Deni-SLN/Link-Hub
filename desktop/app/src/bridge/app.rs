@@ -1334,11 +1334,21 @@ impl qobject::AppController {
         });
         let prev_online = self.rust().last_online_count;
         self.as_mut().rust_mut().last_online_count = online;
-        let should_reset_current = (online > prev_online
-            && (!current_is_online || current_idx < 0 || (current_idx as usize) >= devices))
-            || (devices > 0 && (current_idx < 0 || (current_idx as usize) >= devices));
+        // Only reset current_device if it is out of bounds (never override a valid
+        // user-selected device just because it is offline or another device connected).
+        let should_reset_current = (devices > 0 && (current_idx < 0 || (current_idx as usize) >= devices))
+            || (prev_online == 0 && online > 0 && current_idx == 0 && !current_is_online);
         if should_reset_current {
-            self.as_mut().set_current_device(0);
+            if prev_online == 0 && online > 0 && !current_is_online {
+                // On initial startup, pick the first online device if index 0 is offline.
+                let first_online = core_host::host()
+                    .hub
+                    .read(|s| s.devices.iter().position(|d| matches!(d.link, LinkState::Online { .. })))
+                    .unwrap_or(0);
+                self.as_mut().set_current_device(first_online as i32);
+            } else {
+                self.as_mut().set_current_device(0);
+            }
         }
         let (status_text, error) = match &status {
             CoreStatus::Starting => ("starting", String::new()),

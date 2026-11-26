@@ -115,7 +115,7 @@ Item {
     readonly property bool resizing: Window.window && Window.window.resizing ? true : false
 
     onCurrentChanged: {
-        if (current >= DeviceList.count) current = 0
+        if (DeviceList.count > 0 && current >= DeviceList.count) current = 0
         if (AppController.currentDevice !== current)
             AppController.currentDevice = current
     }

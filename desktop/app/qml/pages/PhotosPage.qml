@@ -322,6 +322,25 @@ Item {
                 ? qsTr("Pair your phone to browse photos and albums.")
                 : qsTr("Connect %1 to view photos.").arg(page.deviceName)
         }
+        Flow {
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width
+            spacing: 8
+            visible: DeviceList.count > 1
+            Repeater {
+                model: DeviceList
+                delegate: Chip {
+                    required property int index
+                    required property string name
+                    required property string kind
+                    interactive: true
+                    text: name
+                    iconPath: kind === "tablet" || kind === "phone" ? Icons.phone : Icons.laptop
+                    selected: index === AppController.currentDevice
+                    onClicked: AppController.currentDevice = index
+                }
+            }
+        }
     }
 
     // ---- Left pane: Albums list ----
