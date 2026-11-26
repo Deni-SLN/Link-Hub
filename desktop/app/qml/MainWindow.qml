@@ -507,31 +507,34 @@ NativeWindow {
             }
 
             Rectangle {
-                width: 174; height: 174; radius: 87
-                x: -31; y: -42
-                color: Theme.primary
-                opacity: Theme.dark ? 0.56 : 0.44
+                width: Theme.midnight ? 210 : 174
+                height: Theme.midnight ? 210 : 174
+                radius: width / 2
+                x: Theme.midnight ? -45 : -31
+                y: Theme.midnight ? -50 : -42
+                color: Theme.midnight ? (Theme.dark ? "#5E88B5" : "#9EC6F0") : Theme.primary
+                opacity: Theme.midnight ? (Theme.dark ? 0.48 : 0.42) : (Theme.dark ? 0.56 : 0.44)
                 Behavior on color { ColorAnimation { duration: 480 } }
             }
             Rectangle {
                 width: 154; height: 154; radius: 77
                 x: 123; y: 56
-                color: Theme.primaryContainer
-                opacity: Theme.dark ? 0.62 : 0.52
+                color: Theme.midnight ? (Theme.dark ? "#1E3A58" : "#C4DDF7") : Theme.primaryContainer
+                opacity: Theme.midnight ? (Theme.dark ? 0.40 : 0.36) : (Theme.dark ? 0.62 : 0.52)
                 Behavior on color { ColorAnimation { duration: 480 } }
             }
             Rectangle {
                 width: 138; height: 138; radius: 69
                 x: 31; y: 128
-                color: Theme.secondaryContainer
-                opacity: Theme.dark ? 0.54 : 0.46
+                color: Theme.midnight ? (Theme.dark ? "#12263C" : "#D4E6F9") : Theme.secondaryContainer
+                opacity: Theme.midnight ? (Theme.dark ? 0.42 : 0.34) : (Theme.dark ? 0.54 : 0.46)
                 Behavior on color { ColorAnimation { duration: 480 } }
             }
             Rectangle {
                 width: 108; height: 108; radius: 54
                 x: 159; y: -15
-                color: Qt.lighter(Theme.primary, 1.35)
-                opacity: Theme.dark ? 0.34 : 0.28
+                color: Theme.midnight ? (Theme.dark ? "#355C85" : "#B6D6F6") : Qt.lighter(Theme.primary, 1.35)
+                opacity: Theme.midnight ? (Theme.dark ? 0.24 : 0.26) : (Theme.dark ? 0.34 : 0.28)
                 Behavior on color { ColorAnimation { duration: 480 } }
             }
         }

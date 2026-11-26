@@ -566,10 +566,11 @@ Item {
                                     { value: "hive", label: qsTr("Hive") },
                                     { value: "bloom", label: qsTr("Bloom") },
                                     { value: "glass", label: qsTr("Glass") },
+                                    { value: "midnight", label: qsTr("Midnight") },
                                     { value: "graphite", label: qsTr("Graphite") },
                                     { value: "fluent", label: qsTr("Fluent") }
                                 ]
-                                value: Theme.hive ? "hive" : (Theme.glass ? "glass" : Preferences.theme)
+                                value: Theme.midnight ? "midnight" : (Theme.hive ? "hive" : (Theme.glass ? "glass" : Preferences.theme))
                                 onPicked: (value) => Preferences.theme = value
                             }
                         }
@@ -606,11 +607,11 @@ Item {
                             }
                         }
                         // Hive's colors are fixed, and Fluent follows Windows' accent: no seed to pick.
-                        Divider { width: parent.width; visible: !Theme.graphite && !Theme.hive && !Theme.fluent }
+                        Divider { width: parent.width; visible: !Theme.graphite && !Theme.hive && !Theme.fluent && !Theme.midnight }
                         ListRow {
                             id: colorRow
                             width: parent.width
-                            visible: !Theme.graphite && !Theme.hive && !Theme.fluent
+                            visible: !Theme.graphite && !Theme.hive && !Theme.fluent && !Theme.midnight
                             stackBelow: true
                             iconPath: Icons.colorSwatch
                             title: qsTr("Color")

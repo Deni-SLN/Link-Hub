@@ -13,7 +13,8 @@ QtObject {
 
     readonly property bool hive: Preferences.theme === "hive"
     readonly property bool graphite: Preferences.theme === "graphite"
-    readonly property bool glass: Preferences.theme === "glass" || Preferences.theme === "blurry"
+    readonly property bool midnight: Preferences.theme === "midnight"
+    readonly property bool glass: Preferences.theme === "glass" || Preferences.theme === "blurry" || midnight
     // Windows 11 (WinUI 3): Mica, layered cards, 4 px controls, the system accent.
     readonly property bool fluent: Preferences.theme === "fluent"
     // Windows' accent ({ light, dark }), or null elsewhere: Fluent then uses its own blue.
@@ -115,14 +116,58 @@ QtObject {
         : (seed === "phone" || seed.startsWith("phone:"))
           ? activePhoneSeed
           : (seed === "wallpaper" ? wallpaperSeed : bloomSeeds[seed])
-    readonly property var palette: hive
+    readonly property var midnightVariants: ({
+        dark: {
+            primary: "#8CC2F8",
+            onPrimary: "#0A2138",
+            primaryContainer: "#24405E",
+            onPrimaryContainer: "#DCEEFF",
+            secondaryContainer: "#29435E",
+            onSecondaryContainer: "#E4F1FE",
+            surface: "#0F1A27",
+            surfaceContainerLow: "#142232",
+            surfaceContainer: "#1A2C3E",
+            surfaceContainerHigh: "#253A50",
+            surfaceContainerHighest: "#304861",
+            onSurface: "#EBF3FC",
+            onSurfaceVariant: "#94A9BE",
+            outline: "#4C6782",
+            outlineVariant: "#2B4157",
+            warning: "#FBBF24",
+            error: "#F87171",
+            onError: "#3B0B0B"
+        },
+        light: {
+            primary: "#1D63B8",
+            onPrimary: "#FFFFFF",
+            primaryContainer: "#CFE4FF",
+            onPrimaryContainer: "#0B2A52",
+            secondaryContainer: "#D4E4F7",
+            onSecondaryContainer: "#102A47",
+            surface: "#EEF4FA",
+            surfaceContainerLow: "#E5EEF7",
+            surfaceContainer: "#DCE8F4",
+            surfaceContainerHigh: "#D0E0F0",
+            surfaceContainerHighest: "#C2D6EA",
+            onSurface: "#102030",
+            onSurfaceVariant: "#4A6178",
+            outline: "#7A94AE",
+            outlineVariant: "#B8CCE0",
+            warning: "#D97706",
+            error: "#DC2626",
+            onError: "#FFFFFF"
+        }
+    })
+    readonly property var palette: midnight
+        ? midnightVariants[dark ? "dark" : "light"]
+        : hive
         ? Tokens.data.themes.hive.variants[dark ? "comb" : "wax"]
         : (graphite
             ? Tokens.data.themes.graphite.variants[dark ? "slate" : "paper"]
             : (fluent
                 ? Tokens.data.themes.fluent.variants[dark ? "dark" : "light"]
                 : seedColors[dark ? "dark" : "light"]))
-    readonly property var status: graphite || hive || fluent ? palette : Tokens.data.themes.bloom.status[dark ? "dark" : "light"]
+    readonly property var status: midnight || graphite || hive || fluent ? palette : Tokens.data.themes.bloom.status[dark ? "dark" : "light"]
 
     // ---- Color roles ----
     readonly property color primary: fluent && systemAccent ? systemAccent[dark ? "dark" : "light"] : palette.primary
@@ -166,6 +211,8 @@ QtObject {
             return Qt.rgba(c.r, c.g, c.b, dark ? 0.90 : 0.92)
         })()
         : graphite ? "transparent"
+        : midnight
+        ? (dark ? Qt.rgba(0.11, 0.18, 0.26, 0.56) : Qt.rgba(1, 1, 1, 0.62))
         : (glass
             ? Qt.tint(
                 Qt.rgba(surfaceContainer.r, surfaceContainer.g, surfaceContainer.b, amoled ? 0.56 : (dark ? 0.36 : 0.52)),
@@ -185,6 +232,8 @@ QtObject {
         : hive
         ? Qt.rgba(primary.r, primary.g, primary.b, dark ? 0.14 : 0.16)
         : graphite ? outlineVariant
+        : midnight
+        ? (dark ? Qt.rgba(0.75, 0.88, 1.0, 0.13) : Qt.rgba(0.12, 0.30, 0.52, 0.14))
         : (glass
             ? (dark ? Qt.rgba(1, 1, 1, 0.08) : Qt.rgba(1, 1, 1, 0.28))
             : (artworkAmbientActive
@@ -195,6 +244,8 @@ QtObject {
         : hive
         ? Qt.tint(surfaceContainerHigh, Qt.rgba(primaryContainer.r, primaryContainer.g, primaryContainer.b, dark ? 0.14 : 0.20))
         : graphite ? "transparent"
+        : midnight
+        ? (dark ? Qt.rgba(0.24, 0.35, 0.46, 0.58) : Qt.rgba(0.86, 0.92, 0.98, 0.72))
         : (glass
             ? Qt.tint(
                 Qt.rgba(1, 1, 1, dark ? 0.08 : 0.48),

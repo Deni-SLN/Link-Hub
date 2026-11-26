@@ -23,6 +23,8 @@ pub enum Theme {
     Graphite,
     /// Windows 11's own look (WinUI 3), with the system accent color.
     Fluent,
+    /// Deep midnight slate-blue frosted glass.
+    Midnight,
 }
 
 impl Theme {
@@ -34,6 +36,7 @@ impl Theme {
             Theme::Glass => "glass",
             Theme::Graphite => "graphite",
             Theme::Fluent => "fluent",
+            Theme::Midnight => "midnight",
         }
     }
 
@@ -44,6 +47,7 @@ impl Theme {
             "graphite" => Theme::Graphite,
             "glass" | "blurry" => Theme::Glass,
             "fluent" => Theme::Fluent,
+            "midnight" => Theme::Midnight,
             _ => Theme::Bloom,
         }
     }
@@ -1016,7 +1020,7 @@ mod tests {
 
     #[test]
     fn every_theme_keeps_its_name() {
-        for theme in [Theme::Bloom, Theme::Hive, Theme::Glass, Theme::Graphite, Theme::Fluent] {
+        for theme in [Theme::Bloom, Theme::Hive, Theme::Glass, Theme::Graphite, Theme::Fluent, Theme::Midnight] {
             assert_eq!(Theme::parse(theme.name()), theme);
         }
         assert_eq!(Theme::parse("Fluent "), Theme::Fluent);
